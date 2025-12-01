@@ -1,0 +1,14 @@
+.centerCol {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+}
+
+.perspective{
+    margin-left:80px;
+    filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.4));
+}

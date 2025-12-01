@@ -1,0 +1,11 @@
+.content {
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 auto;
+}
+.row{
+    padding: 20px;
+}
+.center{
+    text-align: center;
+}
