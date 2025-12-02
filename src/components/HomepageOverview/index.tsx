@@ -16,7 +16,7 @@ export default function HomepageOverview(): ReactNode {
                             <Link
                                 className="button button--lg green-btn"
                                 to="https://demo.coupler.best">
-                                GO TO DEMO
+                                View Demo
                             </Link>
                         </div>
                     </div>

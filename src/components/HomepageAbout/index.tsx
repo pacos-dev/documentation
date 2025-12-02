@@ -10,7 +10,7 @@ export default function HomepageAbout(): ReactNode {
                     <div className={styles.content}>
                         <h1 className={styles.center}>Why Coupler?</h1>
                         <ul>
-                            <li>Coupler OS brings all your tools, data, and workflows together in one seamless
+                            <li>Coupler WEB-OS brings all your tools, data, and workflows together in one seamless
                                 workspace.
                                 Work more efficiently by automating repetitive tasks and integrating your environment
                                 instantly.
@@ -19,7 +19,7 @@ export default function HomepageAbout(): ReactNode {
                                 OS-like
                                 interface keeps everything intuitive and easy to use.
                             </li>
-                            <li>Focus on building value, not juggling apps — Coupler OS keeps your development and
+                            <li>Focus on building value, not juggling apps — Coupler WEB-OS keeps your development and
                                 testing
                                 workflow streamlined, connected, and under control.
                             </li>
