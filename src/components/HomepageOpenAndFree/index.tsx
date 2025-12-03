@@ -10,10 +10,10 @@ import Link from "@docusaurus/Link";
 export default function HomepageOpenAndFree() {
 
     return (
-        <section className={styles.features}>
+        <section className="features">
             <div className="container text--center">
                 <div className="row" style={{padding: 40}}>
-                    <h2 className={styles.center}>Open & Free to Use</h2>
+                    <h2 className={styles.widthFull}>Open & Free to Use</h2>
                     <p className={styles.center}>
                         Coupler is free to use in both personal and commercial environments.
                         The platform is transparent and publicly accessible — but cannot be resold or repackaged as a
@@ -32,7 +32,7 @@ export default function HomepageOpenAndFree() {
 
                     <br/>
 
-                    <div style={{padding: 40}}>
+                    <div className={styles.widthFull}>
                         <Link
                             className="button button--lg green-btn"
                             to="https://bitbucket.org/radekpakula/coupler">

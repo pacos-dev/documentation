@@ -10,6 +10,7 @@ import HomepageHero from "@site/src/components/HomepageHero";
 import HomepageOpenAndFree from "@site/src/components/HomepageOpenAndFree";
 import HomepageQuickStart from "@site/src/components/HomepageQuickStart";
 import styles from './index.module.css';
+import HomepageSkeleton from "@site/src/components/HomepageSkeleton";
 function HomepageHeader() {
     const {siteConfig} = useDocusaurusContext();
     return (
@@ -43,6 +44,7 @@ export default function Home(): ReactNode {
                     <HomepageCarousel/>
                     <HomepageQuickStart/>
                     <HomepageOpenAndFree/>
+                    <HomepageSkeleton/>
 
                 </main>
             </Layout>
