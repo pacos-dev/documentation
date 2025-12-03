@@ -21,6 +21,7 @@ export default function HomepageOverview(): ReactNode {
                         </div>
                     </div>
 
+
                     <div className={styles.perspective}>
                         <img src="/img/perspective.png" className={styles.featureSvg} alt="perspective"/>
                     </div>

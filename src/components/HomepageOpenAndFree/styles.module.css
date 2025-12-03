@@ -1,0 +1,7 @@
+:root{
+    --swiper-theme-color: #205d3b;
+}
+.listLeft{
+    text-align: left;
+    padding-left: 80px;
+}

@@ -18,7 +18,9 @@
   --nav-background-color: white;
   --nav-border: #b9b9b9;
   --background: radial-gradient(#ffffff, #c3c3c3);
-  --window-background: #5B8F53
+  --window-background: #5B8F53;
+  --font-color: #383838;
+  --ifm-menu-color-active:#205d3b;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -35,6 +37,11 @@
   --nav-border: #343434;;
   --background: radial-gradient(#2B2F31, #15181a);
   --window-background: #323436;
+  --font-color: white;
+  --ifm-footer-background-color: #131516;
+  --ifm-menu-color-active: white;
+  --ifm-menu-color: #b9b9b9;
+
 }
 
 /*.theme-layout-main{*/
@@ -45,12 +52,15 @@ body {
 }
 html{
   background-color: inherit;
+  color: var(--font-color);
 }
 .navbar {
   background-color: var(--nav-background-color);
   box-shadow: none;
   border-bottom: solid 1px var(--nav-border);
-
+}
+.shade-row{
+  background-color: var(--nav-background-color);
 }
 .logo{
   max-width: 500px;
@@ -77,10 +87,7 @@ html{
   min-width: 100px;
   background-color:#303436;
   font-size:16px;
-  height: 35px;
-  width: 200px;
   display: block;
-  left: 130px;
   border: solid 2px #5B8F53
 }
 

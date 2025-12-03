@@ -9,3 +9,7 @@
 .center{
     text-align: center;
 }
+.listLeft{
+    text-align: left;
+    padding-left: 80px;
+}
