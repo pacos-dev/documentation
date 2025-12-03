@@ -19,3 +19,28 @@ Once started, Coupler offers two installation modes:
 
 :::tip[Configuration changes]
 The configurations set during the installation process can be changed at any time, except for the selected installation mode (Personal/Group).
+:::
+
+---
+
+## Benefits of Containerized Installation on Servers
+
+When deploying Coupler in a containerized environment (Docker or Podman) on a server, you gain several advantages:
+
+- **Integration with multi-container environments**  
+  Coupler can connect to resources across all available containers, making it easier to manage complex production or testing setups.
+
+- **Centralized file access**  
+  Remote access to files stored in different containers is possible directly through Coupler, reducing the need for manual container-to-container operations.
+
+- **Unified log management**  
+  Coupler provides access to logs from multiple containers, simplifying monitoring and debugging across distributed applications.
+
+- **Scalability and flexibility**  
+  Running Coupler in containers allows seamless scaling and integration with orchestration tools (e.g., Kubernetes), ensuring that your workflows adapt to growing infrastructure needs.
+
+- **Isolation and security**  
+  Containerized deployment ensures that Coupler runs in an isolated environment, improving security and reducing conflicts with other applications.
+
+---
+
