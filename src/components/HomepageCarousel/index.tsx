@@ -1,12 +1,13 @@
 import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation, Pagination} from 'swiper/modules';
+import {Navigation, Pagination, Autoplay} from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import styles from './styles.module.css';
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 export default function HomepageCarousel() {
     const slides = [
@@ -40,13 +41,19 @@ export default function HomepageCarousel() {
     return (
             <section className="shade-row">
             <div className={styles.wrapper}>
+                <BrowserOnly>
+                    {() => (
                 <Swiper
-                    modules={[Navigation, Pagination]}
+                    modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={20}
                     slidesPerView={1}
-                    navigation
-                    pagination={{clickable: true}}
                     loop={true}
+                    navigation
+                    pagination={{ clickable: true }}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
                 >
                     {slides.map((slide, idx) => (
                         <SwiperSlide key={idx}>
@@ -57,6 +64,8 @@ export default function HomepageCarousel() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                        )}
+                </BrowserOnly>
             </div>
             </section>
 
