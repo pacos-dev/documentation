@@ -21,3 +21,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.header{
+  background: var(--header-background);
+  color: var(--header-color);
+}

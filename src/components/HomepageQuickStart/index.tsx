@@ -15,7 +15,7 @@ export default function HomepageQuickStart(): ReactNode {
                     <div className={clsx('col feature-border')}>
                         <h1 className={styles.center}>Quick start</h1>
                         <div className={styles.codeBlock}>
-                            Install using Docker/Podman
+                            Run Coupler in seconds using Docker or Podman
                             <CodeBlock language="bash" className={styles.alignLeft}>
                                 {`docker run --name coupler 
   --mount type=bind,source=/opt/coupler,target=/.coupler 
@@ -24,6 +24,7 @@ export default function HomepageQuickStart(): ReactNode {
 `}
                             </CodeBlock>
                             <Link
+                                aria-label="Go to Docker/Podman installation guide"
                                 className="button button--lg green-invert-btn"
                                 to="/docs/installation/container">
                                 Docker/Podman installation
@@ -32,7 +33,7 @@ export default function HomepageQuickStart(): ReactNode {
 
 
                         <div className={styles.codeBlock} style={{marginLeft: 40}}>
-                            Install in Standalone Mode (JAR)
+                            Run in Standalone Mode (JAR)
                             <CodeBlock language="bash" className={styles.alignLeft}>
                                 {`java -jar coupler.jar -DworkingDir=/path/to/config    
                                 
@@ -40,6 +41,7 @@ export default function HomepageQuickStart(): ReactNode {
                                     `}
                             </CodeBlock>
                             <Link
+                                aria-label="Go to Standalone mode installation guide"
                                 className="button button--lg green-invert-btn"
                                 to="/docs/installation/standalone">
                                 Standalone installation

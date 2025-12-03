@@ -9,11 +9,11 @@ import HomepageCarousel from "@site/src/components/HomepageCarousel";
 import HomepageHero from "@site/src/components/HomepageHero";
 import HomepageOpenAndFree from "@site/src/components/HomepageOpenAndFree";
 import HomepageQuickStart from "@site/src/components/HomepageQuickStart";
-
+import styles from './index.module.css';
 function HomepageHeader() {
     const {siteConfig} = useDocusaurusContext();
     return (
-        <header>
+        <header className={styles.header}>
             <div className="container">
                 <img src="/img/logo.png" alt="Coupler WEB-OS Logo" className="logo center"/>
                 <p className="hero__subtitle center">{siteConfig.tagline}</p>

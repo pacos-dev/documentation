@@ -11,20 +11,16 @@ export default function HomepageHowItsWorks(): ReactNode {
                 <div className="row">
                     <div className={clsx('col feature-border')}>
                         <div className="text--center">
-                            <h1 className={styles.center}>How It Works</h1>
-                            Coupler functions as a “Web Operating System”, where each internal tool or extension runs
-                            inside
-                            its own window.
-                            The core engine manages:
-                            <br/><br/>
+                            <h1 className={styles.center}>How it Works</h1>
+                            <p>
+                                Coupler provides a modular, windowed Web-OS environment where each tool runs independently.
+                                Configure workflows, automation tasks, and plugins locally, then seamlessly transfer them to a server.
+                            </p>
                             <ul className={styles.listLeft}>
-                                <li>module loading</li>
-                                <li>plugin lifecycle</li>
-                                <li>dependencies</li>
-                                <li>orchestration</li>
-                                <li>auto update</li>
-                                <li>layout management</li>
-                                <li>permissions (in Group Mode)</li>
+                                <li>Run locally or in shared server mode for team-wide collaboration.</li>
+                                <li>All automation workflows and plugin configurations can be transferred to a server effortlessly.</li>
+                                <li>Local work or automation created on one machine runs seamlessly on the server environment.</li>
+                                <li>Fully scalable — supports multiple users, permissions, and shared resources without conflicts.</li>
                             </ul>
                         </div>
                     </div>
@@ -36,10 +32,12 @@ export default function HomepageHowItsWorks(): ReactNode {
                             <br/><br/>
                             <ul className={styles.listLeft}>
                                 <li>Modular Web-OS where tools run as independent windowed apps.</li>
-                                <li>A single unified workspace instead of a scattered toolchain.</li>
-                                <li>Ideal for DevOps, QA, automation engineers, and internal tools teams.</li>
-                                <li>Extend functionality by installing plugins or adding custom modules.</li>
+                                <li>Unified workspace instead of a scattered toolchain.</li>
+                                <li>Quickly automate workflows using the built-in BPMN editor and automation engine.</li>
+                                <li>Extend functionality with plugins or custom modules via Marketplace.</li>
+                                <li>Fully extensible: any Java developer can write their own extension based on the provided skeleton project and install it on-the-fly.</li>
                                 <li>Works locally or in shared server mode for team-wide collaboration.</li>
+                                <li>Free to use in both personal and business projects (with licensing restrictions).</li>
                             </ul>
                             This makes it easy to bundle multiple tools into one consistent experience, instead of
                             separate
