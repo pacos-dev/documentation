@@ -38,6 +38,17 @@ For each plugin, you can perform the following actions:
 
 ---
 
+## **Hot Installation & Removal**
+Plugins are fully dynamic. They can be:
+
+- installed **at runtime**
+- removed **at runtime**
+- used **immediately** after installation
+
+No system restart is required.
+
+---
+
 ## Summary
 
 The combination of **Upload Plugin** and **Plugin Management** provides full control over Coupler’s modular environment.  

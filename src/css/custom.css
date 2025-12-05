@@ -65,9 +65,7 @@ html{
 .shade-row{
   background-color: var(--nav-background-color);
 }
-.logo{
-  max-width: 500px;
-}
+
 .center{
   margin: 0 auto;
   display: flex;
