@@ -14,23 +14,15 @@ export default function HomepageCarousel() {
     const slides = [
         {
             src: '/img/screens/coupler-desktop.png',
-            caption:
-                'The Application button in the top system bar provides quick access to all installed modules in Coupler.\n' +
-                'Clicking it opens a dropdown list where each module can be launched directly. This allows users to quickly ' +
-                'start any plugin or tool without navigating through other menus, giving a familiar OS-like experience.',
+            caption: 'The Application button in the top bar provides quick access to all installed modules. Click to launch any plugin directly, giving a familiar OS-like experience.',
         },
         {
             src: '/img/screens/coupler-plugin-management.png',
-            caption: 'Plugin Management allows users to view, configure, and remove installed plugins.\n' +
-                'Each plugin runs in its own isolated context, ensuring safe operation while giving full control over ' +
-                'the workspace. Users can easily update settings, check status, or uninstall plugins without restarting ' +
-                'the system.',
+            caption: 'Plugin Management lets users view, configure, and remove installed plugins safely. Each plugin runs in its own context and can be managed without restarting.',
         },
         {
             src: '/img/screens/coupler-marketplace.png',
-            caption: 'The App Store in Coupler is the central hub for discovering and installing plugins.\n' +
-                'Users can browse available modules, read descriptions, and install new tools with a single click —' +
-                ' instantly extending the functionality of their Coupler environment.',
+            caption: 'The App Store is the central hub to discover and install plugins. Browse available modules and extend Coupler instantly with a single click.',
         },
         {
             src: '/img/screens/coupler-explorer.png',
@@ -56,13 +48,9 @@ export default function HomepageCarousel() {
 
 
     return (
-
         <section className={styles.features}>
             <div className="container text--center">
                 <div className={clsx('col')}>
-                    Explore the built-in plugins available for installation right after launching Coupler.
-                    Each plugin opens as a separate window in your Web-OS workspace — just like apps in a traditional
-                    operating system.
                     <div className={styles.wrapper}>
                         <BrowserOnly>
                             {() => (
@@ -74,7 +62,7 @@ export default function HomepageCarousel() {
                                     navigation
                                     pagination={{clickable: true}}
                                     autoplay={{
-                                        delay: 8000,
+                                        delay: 5000,
                                         disableOnInteraction: false,
                                     }}
                                 >
