@@ -69,7 +69,7 @@ This allows plugins to safely offer services to the entire platform or to other 
 
 To build a new plugin, it is recommended to start with the **[skeleton-project](https://bitbucket.org/radekpakula/coupler-skeleton-app)**
 
-More in [skeleton documentation](skeleton.md)
+More in [skeleton documentation](skeleton/skeleton.md)
 
 The template includes:
 
