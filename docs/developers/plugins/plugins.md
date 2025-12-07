@@ -8,10 +8,9 @@ keywords: [coupler, plugins, plugin system, modular architecture, app store, jar
 
 # Plugins
 
-Coupler provides a fully modular architecture built around dynamically installed plugins. Plugins can be added or 
-removed at any time, and the system immediately makes them available without requiring a restart. This enables 
+Coupler provides a fully modular architecture built around dynamically installed plugins. Plugins can be added or
+removed at any time, and the system immediately makes them available without requiring a restart. This enables
 rapid feature development, flexible deployments, and seamless extension of the platform.
-[Read more about plugin management and installation](../settings/pluginManagement.md)
 
 ---
 
@@ -69,7 +68,7 @@ This allows plugins to safely offer services to the entire platform or to other 
 
 To build a new plugin, it is recommended to start with the **[skeleton-project](https://bitbucket.org/radekpakula/coupler-skeleton-app)**
 
-More in [skeleton documentation](skeleton/skeleton.md)
+More in [skeleton documentation](skeleton.md)
 
 The template includes:
 

@@ -1,6 +1,6 @@
 ---
 id: skeleton-configuration
-title: First launch
+title: Skeleton project - First launch
 description: Step-by-step guide to clone, compile, and run the Coupler plugin skeleton project using Spring Boot, with details on first-time setup and default module installation.
 keywords: [coupler, plugin skeleton, configuration, spring boot, app shell, compilation, setup, installation mode, default module]
 ---
@@ -45,7 +45,7 @@ This class implements `AppShellConfigurator` and is ready to run.
 
 - Running the skeleton project will start the **full Coupler application**
 - The skeleton module will appear as a **pre-installed module** in the system
-- On first launch, Coupler will enter **[installation mode](../../installation/installationMode.md)**, requiring the user to complete the basic installation scenario
+- On first launch, Coupler will enter **[installation mode](../../user/installation/installationMode.md)**, requiring the user to complete the basic installation scenario
 - This ensures the system is fully configured before using the skeleton module or adding other plugins
 
 ### Default Module

@@ -22,7 +22,7 @@ Choose between:
 - **Personal Mode** – for local, single-user setups without permissions or user management.
 - **Group Mode** – for multi-user setups with authentication and permissions.
 
-![step1.jpg](img/step1.jpg)
+![step1.jpg](/img/docs/installation/step1.jpg)
 
 ---
 
@@ -31,7 +31,7 @@ Choose between:
 If **Group Mode** is selected, provide login credentials for the administrator account.  
 This account will manage users, permissions, and access to the system.
 
-![step2.jpg](img/step2.jpg)
+![step2.jpg](/img/docs/installation/step2.jpg)
 
 ---
 
@@ -54,7 +54,7 @@ Depending on the mode, configure optional settings:
 The guest account can have its access restricted according to your configuration needs.
 - If registration mode is enabled, users will be able to create an account, which will automatically receive the default permission configuration set by the administrator.
 
-![step3.jpg](img/step3.jpg)
+![step3.jpg](/img/docs/installation/step3.jpg)
 
 ---
 
@@ -62,7 +62,7 @@ The guest account can have its access restricted according to your configuration
 
 Install plugins from the Coupler Marketplace.
 
-![step4.jpg](img/step4.jpg)
+![step4.jpg](/img/docs/installation/step4.jpg)
 
 ---
 
@@ -71,4 +71,4 @@ Install plugins from the Coupler Marketplace.
 After completing the installation process, you will be automatically redirected to the application.
 In Group Mode, you will be redirected to the login page, while in Single Mode, you will be redirected directly to the application.
 
-![step5.png](img/step5.png)
+![step5.png](/img/docs/installation/step5.png)

@@ -1,11 +1,11 @@
 ---
 id: skeleton
-title: Plugin implementation
+title: New plugin
 description: Overview of the Coupler plugin skeleton project, including base implementations for window, API, permissions, database access, Spring configuration, and testing.
 keywords: [coupler, plugin skeleton, plugin development, spring, maven, hsqldb, base implementation, api, permissions, database, plugin testing]
 ---
 
-# Coupler plugin - Skeleton project
+# New plugin - Skeleton project
 
 The **[skeleton-project](https://bitbucket.org/radekpakula/coupler-skeleton-app)** provides a ready-to-use starting point for creating new plugins. It includes the basic implementations for essential plugin features and ensures compatibility with the Coupler platform.
 
@@ -73,7 +73,7 @@ This will create a **shaded JAR** containing all required dependencies by module
 
 ## Deployment
 
-Once the JAR is built, install the plugin directly via the **[Plugin management](../../settings/pluginManagement.md)**. 
+Once the JAR is built, install the plugin directly via the **[Plugin management](../../user/settings/pluginManagement.md)**. 
 The plugin is immediately available for use, without restarting the system.
 
 ---

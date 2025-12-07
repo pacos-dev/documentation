@@ -25,7 +25,7 @@ export default function HomepageCarousel() {
             caption: 'The App Store is the central hub to discover and install plugins. Browse available modules and extend Coupler instantly with a single click.',
         },
         {
-            src: '/img/screens/coupler-explorer.png',
+            src: '/img/screens/coupler-explorer-overview.png',
             caption: 'A powerful file manager that lets you browse, edit, archive, and transfer files across local and remote locations.',
         },
         {
