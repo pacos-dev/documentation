@@ -26,7 +26,7 @@ export default function HomepageQuickStart(): ReactNode {
                             <Link
                                 aria-label="Go to Docker/Podman installation guide"
                                 className="button button--lg green-invert-btn"
-                                to="/docs/installation/container">
+                                to="/docs/user/installation/container">
                                 Docker/Podman installation
                             </Link>
                         </div>
@@ -43,7 +43,7 @@ export default function HomepageQuickStart(): ReactNode {
                             <Link
                                 aria-label="Go to Standalone mode installation guide"
                                 className="button button--lg green-invert-btn"
-                                to="/docs/installation/standalone">
+                                to="/docs/user/installation/standalone">
                                 Standalone installation
                             </Link>
                         </div>
