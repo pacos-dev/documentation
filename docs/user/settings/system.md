@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 title: System
-description: Learn how to configure automatic updates and system restart in Coupler.
+description: Learn how to configure automatic updates and system restart in PacOS.
 keywords: [Coupler, system, updates, restart, plugins, automation]
 ---
 

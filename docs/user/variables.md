@@ -2,13 +2,13 @@
 sidebar_position: 2
 id: variables
 title: Variables
-description: Documentation for variables in the Coupler application core, including system, plugin, and user variables.
-keywords: [coupler, core, variables, system variables, plugin variables, user variables, global variables]
+description: Documentation for variables in the PacOS application core, including system, plugin, and user variables.
+keywords: [pacos, core, variables, system variables, plugin variables, user variables, global variables]
 ---
 
 # Variables
 
-Variables are a **core feature of the Coupler application**.  
+Variables are a **core feature of the PacOS application**.  
 They are not tied to any specific plugin, but are available system-wide and can be used across all modules, including Mock Servers.
 
 ---

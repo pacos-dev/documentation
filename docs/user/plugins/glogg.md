@@ -2,8 +2,8 @@
 sidebar_position: 5
 id: glogg-plugin
 title: G-Logger
-description: Documentation for the Glogg plugin in Coupler, including functionality and configuration.
-keywords: [coupler, glogg, plugin, logs, file reader, streaming, pooling, search, explorer integration]
+description: Documentation for the Glogg plugin in PacOS, including functionality and configuration.
+keywords: [pacos, glogg, plugin, logs, file reader, streaming, pooling, search, explorer integration]
 ---
 
 # G-Logger

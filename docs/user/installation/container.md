@@ -1,37 +1,37 @@
 ---
 sidebar_position: 2
-description: Learn how to install Coupler in containerized mode.
-keywords: [Coupler, installation, Containerized, Podman, Docker]
+description: Learn how to install PacOS in containerized mode.
+keywords: [PacOS, installation, Containerized, Podman, Docker]
 ---
 
 # Containerized
 
 # Containerized Installation (Docker / Podman)
 
-Coupler can be run in a containerized environment using **Docker** or **Podman**.  
-The official image is available on [Docker Hub](https://hub.docker.com/r/radekpakula/coupler).
+PacOS can be run in a containerized environment using **Docker** or **Podman**.  
+The official image is available on [Docker Hub](https://hub.docker.com/repository/docker/pacosdev/webos).
 
-## Running Coupler
+## Running PacOS
 
 ### Docker
 
 ```bash
-docker pull radekpakula/coupler:latest coupler
+docker pull pacosdev/webos:latest
 
-docker run --name coupler \                                 # set container name to 'coupler'
-  --mount type=bind,source=/opt/coupler,target=/.coupler \  # mount directory on the host to /.coupler in container
+docker run --name webos \                                   # set container name to 'webos'
+  --mount type=bind,source=/opt/pacos,target=/.pacos \      # mount working directory
   -p 8090:8086 \                                            # map port 8086 in container to 8090 on host
-  -ti radekpakula/coupler:latest \                         
+  -ti pacosdev/webos:latest \                         
   JAVA_OPTS="-Dproperty=xxx"                                # pass optional Java arguments
 ```
 
 ### Podman
 ```bash
-podman pull radekpakula/coupler:latest
+podman pull pacosdev/webos:latest
 
-podman run --name coupler \
-  -v /opt/coupler:/.coupler \              # mount directory on the host to /.coupler in container
+podman run --name pacos \
+  -v /opt/pacos:/.pacos \                  # mount directory on the host to /.pacos in container
   -p 8090:8086 \                           # map port 8086 in container to 8090 on host
-  -ti radekpakula/coupler:latest \
+  -ti pacosdev/webos:latest \
   JAVA_OPTS="-Dproperty=xxx"               # pass optional Java arguments
 ```

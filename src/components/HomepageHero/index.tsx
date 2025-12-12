@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 export default function HomepageHero() {
 
     return (
-        <section className="shade-row">
+        <section className="feature-border">
             <div className="container text--center" style={{padding: 20}}>
                 A unified, extensible environment for building, running and managing workflow-driven tools.
                 <br/>

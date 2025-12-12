@@ -2,17 +2,17 @@
 sidebar_position: 3
 id: plugins
 title: Plugins
-description: Overview of the official Coupler plugins, their installation, and functionality.
-keywords: [coupler, plugins, official plugins, plugin system, modular architecture, app store, jar installation, spring context, extension modules, plugin api, dynamic installation]
+description: Overview of the official PacOS plugins, their installation, and functionality.
+keywords: [pacos, plugins, official plugins, plugin system, modular architecture, app store, jar installation, spring context, extension modules, plugin api, dynamic installation]
 ---
 
 # Plugins
 
-Coupler offers plugins implemented by Coupler developers that are ready to install at any time.  
-These plugins extend the functionality of Coupler and can be dynamically integrated into the system.
+PacOS offers plugins implemented by PacOS developers that are ready to install at any time.  
+These plugins extend the functionality of PacOS and can be dynamically integrated into the system.
 
 ## Explorer
-- Browses files and directory structures within Coupler
+- Browses files and directory structures within PacOS
 - Provides navigation and file hierarchy management
 
 ## Glogg
@@ -25,7 +25,7 @@ These plugins extend the functionality of Coupler and can be dynamically integra
 
 ## Apinity
 - Integrates with various data sources
-- Facilitates data exchange between Coupler and external systems
+- Facilitates data exchange between PacOS and external systems
 
 ## Automation
 - Automates business processes and workflows
@@ -33,12 +33,12 @@ These plugins extend the functionality of Coupler and can be dynamically integra
 
 ## Database
 - Adds database drivers, manages connections, and provides console access
-- Enables direct interaction with databases and query execution in Coupler
+- Enables direct interaction with databases and query execution in PacOS
 
 ---
 
 ### 🔧 Plugin System Notes
 - All official plugins are **modular** and can be installed or removed dynamically.
-- Plugins can be managed through the **Coupler App Store** or manually via **JAR installation**.
-- The **Spring context** ensures seamless integration with the Coupler core.
+- Plugins can be managed through the **PacOS App Store** or manually via **JAR installation**.
+- The **Spring context** ensures seamless integration with the PacOS core.
 - Developers can extend functionality further using the **Plugin API**.  

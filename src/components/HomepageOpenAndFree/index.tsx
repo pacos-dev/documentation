@@ -10,12 +10,12 @@ import Link from "@docusaurus/Link";
 export default function HomepageOpenAndFree() {
 
     return (
-        <section className="features">
+        <section className="feature-border">
             <div className="container text--center">
                 <div className="row" style={{padding: 40}}>
                     <h2 className={styles.widthFull}>Open & Free to Use</h2>
                     <p className={styles.center}>
-                        Coupler is free to use in both personal and commercial environments.
+                        PacOS is free to use in both personal and commercial environments.
                         The platform is transparent and publicly accessible — but cannot be resold or repackaged as a
                         paid
                         product.
@@ -34,8 +34,8 @@ export default function HomepageOpenAndFree() {
 
                     <div className={styles.widthFull}>
                         <Link
-                            className="button button--lg green-btn"
-                            to="https://bitbucket.org/radekpakula/coupler">
+                            className="button button--lg primary-btn"
+                            to="https://github.com/pacos-dev/pacos">
                             View Code
                         </Link>
                     </div>

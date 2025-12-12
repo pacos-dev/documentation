@@ -9,21 +9,22 @@ export default function HomepageOverview(): ReactNode {
             <div className="container">
                 <div className="row">
                     <div className={styles.centerCol}>
-                        <h1>
-                            See Coupler in action!
+                        <h1 className="see">
+                            Try PacOS in action!
                         </h1>
                         <div>
                             <Link
-                                className="button button--lg green-btn"
-                                to="https://demo.coupler.best">
+                                className="button button--lg primary-btn"
+                                to="https://demo.pacos.devt">
                                 View Demo
                             </Link>
                         </div>
                     </div>
 
 
-                    <div className={styles.perspective}>
-                        <img src="/img/perspective.png" className={styles.featureSvg} alt="perspective"/>
+                    <div className={styles.blockScreen}>
+                        <img src="/img/screen.png" className={styles.screen} alt="perspective"/>
+                        <img src="/img/laptop.png" className={styles.laptop} alt="laptop"/>
                     </div>
                 </div>
             </div>

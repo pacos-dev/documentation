@@ -3,7 +3,7 @@ sidebar_position: 2
 id: mock-server-config
 title: Server
 description: Documentation for the Server tab in the Mock Servers plugin, including configuration, SSL/TLS, received requests, SOAP-specific tabs, and context menu options.
-keywords: [coupler, mock servers, server tab, soap, rest, https, ssl, tls, wsdl, configuration, context menu]
+keywords: [pacos, mock servers, server tab, soap, rest, https, ssl, tls, wsdl, configuration, context menu]
 ---
 
 # Server

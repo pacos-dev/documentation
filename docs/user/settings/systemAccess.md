@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: System Access
-description: Learn how to configure guest login and registration panel in Coupler.
+description: Learn how to configure guest login and registration panel in PacOS.
 keywords: [Coupler, system access, guest account, registration, permissions]
 ---
 

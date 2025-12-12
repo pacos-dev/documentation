@@ -3,7 +3,7 @@ sidebar_position: 3
 id: ssl-tls-config
 title: SSL/TLS Configuration
 description: Documentation for configuring SSL/TLS in the Mock Servers plugin.
-keywords: [coupler, mock servers, ssl, tls, https, keystore, truststore, ca store, jks, pkcs12]
+keywords: [pacos, mock servers, ssl, tls, https, keystore, truststore, ca store, jks, pkcs12]
 ---
 
 # SSL/TLS Configuration

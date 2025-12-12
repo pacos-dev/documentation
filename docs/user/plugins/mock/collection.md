@@ -3,7 +3,7 @@ sidebar_position: 1
 id: mock-collections-config
 title: Collections
 description: Documentation for collections in the Mock Servers plugin, including variables, description, export, clone, and context menu options.
-keywords: [coupler, mock servers, collections, variables, description, configuration, export, clone, json, context menu]
+keywords: [pacos, mock servers, collections, variables, description, configuration, export, clone, json, context menu]
 ---
 
 # Collections Configuration

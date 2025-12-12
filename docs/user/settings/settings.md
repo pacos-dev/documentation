@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Configuration
-description: Learn how to configure Coupler through the Application Settings module, including plugins, permissions, and system behavior.
+description: Learn how to configure PacOS through the Application Settings module, including plugins, permissions, and system behavior.
 keywords: [Coupler, configuration, settings, plugins, permissions, system access, API]
 ---
 

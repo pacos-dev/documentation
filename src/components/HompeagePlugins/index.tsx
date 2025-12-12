@@ -13,7 +13,7 @@ export default function HomepagePlugins(): ReactNode {
                     <div className={clsx('col feature-border')}>
                         <h1 className={styles.center}>Plugins</h1>
                         <div className={styles.codeBlock}>
-                            Coupler Web-OS offers a rich ecosystem of plugins that extend the platform in real time.
+                            PacOS Web-OS offers a rich ecosystem of plugins that extend the platform in real time.
                             Manage your files with the Explorer, monitor and search logs instantly with Glogg, test APIs
                             with ApiNity, or create mock REST and SOAP servers with MockServer — all without leaving the
                             workspace. Every plugin runs in an isolated context and is synchronized across all user

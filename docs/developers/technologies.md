@@ -2,8 +2,8 @@
 sidebar_position: 98
 id: technologies
 title: Technologies
-description: Overview of the main technologies and frameworks used in Coupler, including Java 21, Vaadin for UI, Spring Boot for backend, and additional components for plugin support and modular architecture.
-keywords: [coupler, technologies, java 21, vaadin, spring boot, plugin system, modular architecture, backend, frontend]
+description: Overview of the main technologies and frameworks used in PacOS, including Java 21, Vaadin for UI, Spring Boot for backend, and additional components for plugin support and modular architecture.
+keywords: [pacos, technologies, java 21, vaadin, spring boot, plugin system, modular architecture, backend, frontend]
 ---
 
 # Technologies Used in Coupler

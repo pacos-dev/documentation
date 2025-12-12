@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 title: Plugin Management
-description: Learn how to manage plugins in Coupler, including installation, activation, and removal.
+description: Learn how to manage plugins in PacOS, including installation, activation, and removal.
 keywords: [Coupler, plugins, management, installation, configuration]
 ---
 

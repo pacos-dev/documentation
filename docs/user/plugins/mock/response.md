@@ -3,7 +3,7 @@ sidebar_position: 4
 id: mock-response-config
 title: Response
 description: Documentation for the Response tab in the Mock Servers plugin, including status code, delay, body, headers, and REST/SOAP-specific options.
-keywords: [coupler, mock servers, response, http status code, delay, body, headers, media type, ws-a, ws-addressing]
+keywords: [pacos, mock servers, response, http status code, delay, body, headers, media type, ws-a, ws-addressing]
 ---
 
 # Response

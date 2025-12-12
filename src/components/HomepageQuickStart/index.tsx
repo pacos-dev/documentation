@@ -15,12 +15,12 @@ export default function HomepageQuickStart(): ReactNode {
                     <div className={clsx('col feature-border')}>
                         <h1 className={styles.center}>Quick start</h1>
                         <div className={styles.codeBlock}>
-                            Run Coupler in seconds using Docker or Podman
+                            Run PacOS in seconds using Docker or Podman
                             <CodeBlock language="bash" className={styles.alignLeft}>
-                                {`docker run --name coupler 
-  --mount type=bind,source=/opt/coupler,target=/.coupler 
+                                {`docker run --name webos 
+  --mount type=bind,source=/opt/pacos,target=/.pacos 
   -p 8090:8086 
-  -ti radekpakula/coupler:latest 
+  -ti pacosdev/webos:latest 
 `}
                             </CodeBlock>
                             <Link
@@ -35,7 +35,7 @@ export default function HomepageQuickStart(): ReactNode {
                         <div className={styles.codeBlock} style={{marginLeft: 40}}>
                             Run in Standalone Mode (JAR)
                             <CodeBlock language="bash" className={styles.alignLeft}>
-                                {`java -jar coupler.jar -DworkingDir=/path/to/config    
+                                {`java -jar pacos.jar -DworkingDir=/path/to/config    
                                 
                                 
                                     `}

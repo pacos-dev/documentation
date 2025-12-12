@@ -5,14 +5,14 @@ sidebar_position: 100
 # License
 
 
-Coupler Engine is released under the Coupler Source-Available License (CSAL).  
+PacOS Engine is released under the PacOS Source-Available License (CSAL).  
 The engine may be used freely for personal, educational, or commercial purposes, including internal business use.  
 It may **not** be sold, sublicensed, or distributed as a standalone commercial product.
 
 ```
-Coupler Source-Available License (CSAL)
+PacOS Source-Available License (CSAL)
 
-Copyright (c) 2025 Coupler WEB-OS
+Copyright (c) 2025 PacOS
 
 Permission is granted to use, copy, modify, and merge this software (the "Software") for personal, 
 educational, or commercial purposes, including internal business use, provided that the Software 

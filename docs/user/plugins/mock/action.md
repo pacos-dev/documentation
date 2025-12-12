@@ -3,7 +3,7 @@ sidebar_position: 4
 id: http-actions-config
 title: Actions
 description: Documentation for configuring actions and responses in HTTP servers within the Mock Servers plugin.
-keywords: [coupler, mock servers, http server, actions, responses, configuration]
+keywords: [pacos, mock servers, http server, actions, responses, configuration]
 ---
 
 # Actions Configuration

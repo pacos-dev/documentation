@@ -12,15 +12,30 @@ import HomepageQuickStart from "@site/src/components/HomepageQuickStart";
 import styles from './index.module.css';
 import HomepageSkeleton from "@site/src/components/HomepageSkeleton";
 import HomepagePlugins from "@site/src/components/HompeagePlugins";
+
 function HomepageHeader() {
     const {siteConfig} = useDocusaurusContext();
     return (
-        <header className={styles.header}>
-            <div className="container">
-                <img src="/img/logo.png" alt="Coupler WEB-OS Logo" className="logo center"/>
-                <p className="hero__subtitle center">{siteConfig.tagline}</p>
-            </div>
-        </header>
+        <section className="feature-border">
+            <header className={styles.header}>
+                <div className="container">
+                    <div className={styles.headerContainer}>
+                        <img src="/img/icon.png" alt="Coupler WEB-OS Logo" className={styles.rotating}/>
+                        <p className="hero__subtitle" style={{marginLeft:"20px"}}>
+                        <span style={{lineHeight: "24px"}}>
+                            <div  className={styles.appName}> Pac <span className={styles.os}>OS</span></div>
+
+                            <div className={styles.thin}> Web-based operating system</div>
+                        </span>
+                        </p>
+                        <span style={{lineHeight: "30px",marginLeft:"20px",textAlign:"center"}}>
+                        <p className="hero__subtitle"> An application that connects your tools, data, <br/>and workflows
+                            in one unified workspace</p>
+                        </span>
+                    </div>
+                </div>
+            </header>
+        </section>
     );
 }
 
@@ -29,15 +44,14 @@ export default function Home(): ReactNode {
     return (
         <>
             <Head>
-                <meta name="description" content="Coupler is a modular Web-OS for workflow automation."/>
-                <meta name="keywords" content="Coupler, Web OS, modular, workflow automation, plugins"/>
+                <meta name="description" content="PacOS is a modular Web-OS for workflow automation."/>
+                <meta name="keywords" content="PacOS, Web OS, modular, workflow automation, plugins"/>
             </Head>
             <Layout
                 title={`${siteConfig.title}`}
                 description="Coupler WEB-OS — modular Web-OS for engineering teams, automation & devtools">
                 <HomepageHeader/>
                 <main>
-
                     <HomepageFeatures/>
                     <HomepageHero/>
                     <HomepageOverview/>

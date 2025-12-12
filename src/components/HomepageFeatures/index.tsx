@@ -12,20 +12,20 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Web-OS for Your Business',
-    image: '/img/feature1.png',
+    image: '/img/feature2.png',
     description: (
       <>
-          Coupler brings together tools, processes, and automation inside a
+          PacOS brings together tools, processes, and automation inside a
           desktop-like environment designed for engineering teams..
       </>
     ),
   },
   {
     title: 'Modularity',
-    image: '/img/feature2.png',
+    image: '/img/feature1.png',
     description: (
       <>
-          Install modules like apps. Extend Coupler with your own tools or
+          Install modules like apps. Extend PacOS with your own tools or
           integrate existing ones through a simple plugin model.
       </>
     ),

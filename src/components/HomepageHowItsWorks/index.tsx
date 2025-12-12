@@ -13,7 +13,7 @@ export default function HomepageHowItsWorks(): ReactNode {
                         <div className="text--center">
                             <h1 className={styles.center}>How it Works</h1>
                             <p>
-                                Coupler provides a modular, windowed Web-OS environment where each tool runs independently.
+                                PacOS provides a modular, windowed Web-OS environment where each tool runs independently.
                                 Configure workflows, automation tasks, and plugins locally, then seamlessly transfer them to a server.
                             </p>
                             <ul className={styles.listLeft}>
@@ -27,7 +27,7 @@ export default function HomepageHowItsWorks(): ReactNode {
 
                     <div className={clsx('col feature-border')}>
                         <div className="text--center">
-                            <h1 className={styles.center}>Why Coupler?</h1>
+                            <h1 className={styles.center}>Why PacOS?</h1>
                             A flexible platform built for teams who automate, integrate, and streamline work.
                             <br/><br/>
                             <ul className={styles.listLeft}>

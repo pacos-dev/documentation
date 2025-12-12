@@ -1,14 +1,14 @@
 ---
 sidebar_position: 3
 title: API Access
-description: Learn how to configure API access in Coupler, including token management and plugin communication.
-keywords: [Coupler, API, access, tokens, plugins, swagger, authentication]
+description: Learn how to configure API access in PacOS, including token management and plugin communication.
+keywords: [PacOS, API, access, tokens, plugins, swagger, authentication]
 ---
 
 # API Access
 
-Coupler provides a powerful API that is automatically extended by each installed plugin.  
-If a newly installed plugin implements an API, it will be exposed and secured through Coupler.
+PacOS provides a powerful API that is automatically extended by each installed plugin.  
+If a newly installed plugin implements an API, it will be exposed and secured through PacOS.
 
 The full API documentation is available via Swagger at:  
 `/swagger-ui/index.html`

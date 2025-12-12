@@ -1,13 +1,13 @@
 ---
 id: skeleton
 title: New plugin
-description: Overview of the Coupler plugin skeleton project, including base implementations for window, API, permissions, database access, Spring configuration, and testing.
-keywords: [coupler, plugin skeleton, plugin development, spring, maven, hsqldb, base implementation, api, permissions, database, plugin testing]
+description: Overview of the PacOS plugin skeleton project, including base implementations for window, API, permissions, database access, Spring configuration, and testing.
+keywords: [pacos, plugin skeleton, plugin development, spring, maven, hsqldb, base implementation, api, permissions, database, plugin testing]
 ---
 
 # New plugin - Skeleton project
 
-The **[skeleton-project](https://bitbucket.org/radekpakula/coupler-skeleton-app)** provides a ready-to-use starting point for creating new plugins. It includes the basic implementations for essential plugin features and ensures compatibility with the Coupler platform.
+The **[skeleton-project](https://github.com/pacos-dev/skeleton)** provides a ready-to-use starting point for creating new plugins. It includes the basic implementations for essential plugin features and ensures compatibility with the PacOS platform.
 
 ---
 
@@ -21,13 +21,13 @@ The skeleton project offers implementations for:
 - **Database access** – pre-configured connections and usage examples
 - **Testing** – basic test setup for plugin functionality
 
-These features allow developers to quickly create plugins that follow Coupler standards and best practices.
+These features allow developers to quickly create plugins that follow PacOS standards and best practices.
 
 ---
 
 ## Spring Integration
 
-Since Coupler is built on **Spring**, every plugin must implement fundamental Spring concepts:
+Since PacOS is built on **Spring**, every plugin must implement fundamental Spring concepts:
 
 - `@Component` and `@Service` annotations
 - Dependency injection via constructor or field
@@ -41,14 +41,14 @@ This ensures plugin isolation while granting access to platform services.
 
 The skeleton project is organized into several packages, each with a specific responsibility:
 
-- **org.coupler.plugin.skeleton** – primary package containing all source code for this plugin component
-- **org.coupler.plugin.skeleton.config** – configuration package read by Spring from the core module; contains Spring context setup and database configuration
-- **org.coupler.plugin.skeleton.backend** – contains all classes defining backend logic and services
-- **org.coupler.plugin.skeleton.security** – defines permissions, which are loaded and managed by the Coupler core
-- **org.coupler.plugin.skeleton.system** – contains classes responsible for module behavior, including event handling and listener implementations
-- **org.coupler.plugin.skeleton.view** – contains classes responsible for creating the frontend view and UI components
+- **org.pacos.plugin.skeleton** – primary package containing all source code for this plugin component
+- **org.pacos.plugin.skeleton.config** – configuration package read by Spring from the core module; contains Spring context setup and database configuration
+- **org.pacos.plugin.skeleton.backend** – contains all classes defining backend logic and services
+- **org.pacos.plugin.skeleton.security** – defines permissions, which are loaded and managed by the Coupler core
+- **org.pacos.plugin.skeleton.system** – contains classes responsible for module behavior, including event handling and listener implementations
+- **org.pacos.plugin.skeleton.view** – contains classes responsible for creating the frontend view and UI components
 
-- all static resources used by fronted (like imagse,script,css) should be placed inside META-INF/resources directory. All resources from this directory will be made available by the coupler as static web elements
+- all static resources used by fronted (like imagse,script,css) should be placed inside META-INF/resources directory. All resources from this directory will be made available by the pacos as static web elements
 
 Developers can extend or remove any of these packages based on the plugin’s needs.
 

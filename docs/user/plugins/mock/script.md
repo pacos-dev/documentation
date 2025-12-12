@@ -3,7 +3,7 @@ sidebar_position: 5
 id: mock-response-script
 title: Response Script
 description: Documentation for the Response Script tab in the Mock Servers plugin, including request/response variables and usage examples.
-keywords: [coupler, mock servers, response script, javascript, request, response, dynamic response]
+keywords: [pacos, mock servers, response script, javascript, request, response, dynamic response]
 ---
 
 # Response Script Tab

@@ -2,8 +2,8 @@
 sidebar_position: 1
 id: mock-servers-plugin
 title: Mock Servers
-description: Documentation for the Mock Servers plugin in Coupler, including functionality, collections, and response configuration.
-keywords: [coupler, mock servers, plugin, soap, http, https, collections, variables, js scripts, dynamic responses]
+description: Documentation for the Mock Servers plugin in PacOS, including functionality, collections, and response configuration.
+keywords: [pacos, mock servers, plugin, soap, http, https, collections, variables, js scripts, dynamic responses]
 ---
 
 # Mock Servers 
@@ -36,7 +36,7 @@ Collections provide:
 - Configuration of variables at the collection level.
 - Automatic application of collection variables to all servers assigned to it.
 - **Export and clone functionality**: collections can be exported or cloned directly within the module.
-- **Import support**: exported collections can be imported into another Coupler instance, enabling easy migration and sharing of mock setups.
+- **Import support**: exported collections can be imported into another PacOS instance, enabling easy migration and sharing of mock setups.
 
 This design enables flexible management of mock environments and shared configuration across related servers.
 

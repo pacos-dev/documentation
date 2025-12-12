@@ -1,16 +1,16 @@
 ---
 sidebar_position: 4
 title: Installation mode
-description: Learn how to configure Coupler during first startup.
-keywords: [Coupler, installation, Configuration, Mode, Personal, Group]
+description: Learn how to configure PacOS during first startup.
+keywords: [PacOS, installation, Configuration, Mode, Personal, Group]
 ---
 
 # Installation mode
 
-The first time you launch Coupler, the installation mode starts **automatically**.  
+The first time you launch PacOS, the installation mode starts **automatically**.  
 You must complete the installation process before using the application.  
 
-Coupler offers a guided installation process with multiple configuration steps.  
+PacOS offers a guided installation process with multiple configuration steps.  
 The steps differ slightly depending on the chosen installation mode: **Single** or **Group**.
 
 ---
@@ -60,7 +60,7 @@ The guest account can have its access restricted according to your configuration
 
 ## Step 4: Extensions
 
-Install plugins from the Coupler Marketplace.
+Install plugins from the PacOS Marketplace.
 
 ![step4.jpg](/img/docs/installation/step4.jpg)
 

@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-    title: 'Coupler WEB-OS',
-    tagline: "A modular Web-OS that connects your tools, data, and workflows in one unified workspace",
+    title: 'Pac OS',
+    tagline: "Web application that connects your tools, data, and workflows in one unified workspace",
     favicon: 'favicon.ico',
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,7 +15,7 @@ const config: Config = {
     },
 
     // Set the production url of your site here
-    url: 'https://coupler.best',
+    url: 'https://pacos.dev',
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
@@ -47,7 +47,7 @@ const config: Config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://bitbucket.org/radekpakula/coupler/',
+                        'https://github.com/pacos-dev/pacos',
                     // Useful options to enforce blogging best practices
                     onInlineTags: 'warn',
                     onInlineAuthors: 'warn',
@@ -63,13 +63,13 @@ const config: Config = {
     themeConfig: {
         image: 'img/icon.png',
         colorMode: {
-            defaultMode: 'dark',
+            defaultMode: 'light',
             respectPrefersColorScheme: false,
         },
         navbar: {
-            title: 'Coupler',
+            title: '',
             logo: {
-                alt: 'Coupler Logo',
+                alt: 'PacOS Logo',
                 src: 'img/icon.png',
             },
             items: [
@@ -82,8 +82,8 @@ const config: Config = {
                 // { type: 'doc', docId: 'installation/overview', label: 'Installation', position: 'left' },
                 // {to: '/blog', label: 'Blog', position: 'left'},
                 {
-                    href: 'https://bitbucket.org/radekpakula/coupler',
-                    label: 'BitBucket',
+                    href: 'https://github.com/pacos-dev/pacos',
+                    label: 'GitHub',
                     position: 'right',
                 },
             ],
@@ -106,7 +106,7 @@ const config: Config = {
                     items: [
                         {
                             label: 'Stack Overflow',
-                            href: 'https://stackoverflow.com/questions/tagged/coupler',
+                            href: 'https://stackoverflow.com/questions/tagged/pacos',
                         }
                     ],
                 },
@@ -114,8 +114,8 @@ const config: Config = {
                     title: 'More',
                     items: [
                         {
-                            label: 'BitBucket',
-                            href: 'https://bitbucket.org/radekpakula/coupler',
+                            label: 'GitHub',
+                            href: 'https://github.com/pacos-dev/pacos',
                         },
                         {
                             label: 'License',
@@ -124,7 +124,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Coupler. All rights reserved.`,
+            copyright: `Copyright © ${new Date().getFullYear()} PacOS.dev All rights reserved.`,
         },
         prism: {
             theme: prismThemes.github,

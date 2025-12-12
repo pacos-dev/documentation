@@ -1,8 +1,8 @@
 ---
 id: modal-window
 title: Modal Window Implementation
-description: Guide to implementing a modal window in Coupler by creating a class that implements the WindowConfig interface, including configuration of title, icon, activator class, permissions, scope handling, and behavior.
-keywords: [coupler, modal window, window implementation, WindowConfig, spring, plugin, desktop window, ui, prototype, spring scope]
+description: Guide to implementing a modal window in PacOS by creating a class that implements the WindowConfig interface, including configuration of title, icon, activator class, permissions, scope handling, and behavior.
+keywords: [pacos, modal window, window implementation, WindowConfig, spring, plugin, desktop window, ui, prototype, spring scope]
 ---
 
 # Modal Window Implementation in Coupler
@@ -18,10 +18,10 @@ Coupler automatically detects modal windows during plugin initialization and int
 
 Below is the interface definition:
 ```java
-package org.coupler.base.window.config;
+package org.pacos.base.window.config;
 
-import org.coupler.base.session.UserSession;
-import org.coupler.base.window.DesktopWindow;
+import org.pacos.base.session.UserSession;
+import org.pacos.base.window.DesktopWindow;
 
 public interface WindowConfig {
 
@@ -92,8 +92,8 @@ Both classes involved in window creation must be Spring-managed beans:
 Below is a minimal working window implementation that will produce a simple “Hello World!” UI.
 ```java
 import com.vaadin.flow.component.html.Span;
-import org.coupler.base.window.DesktopWindow;
-import org.coupler.plugin.skeleton.view.config.MyTodoConfig;
+import org.pacos.base.window.DesktopWindow;
+import org.pacos.plugin.skeleton.view.config.MyTodoConfig;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
