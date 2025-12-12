@@ -67,7 +67,7 @@ const config: Config = {
             respectPrefersColorScheme: false,
         },
         navbar: {
-            title: '',
+            title: 'Pac OS',
             logo: {
                 alt: 'PacOS Logo',
                 src: 'img/icon.png',
