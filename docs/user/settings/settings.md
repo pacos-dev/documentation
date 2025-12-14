@@ -2,12 +2,12 @@
 sidebar_position: 2
 title: Configuration
 description: Learn how to configure PacOS through the Application Settings module, including plugins, permissions, and system behavior.
-keywords: [Coupler, configuration, settings, plugins, permissions, system access, API]
+keywords: [pacos, configuration, settings, plugins, permissions, system access, API]
 ---
 
 # Configuration
 
-Coupler is configured directly from the **Application → Settings** window.  
+PacOS is configured directly from the **Application → Settings** window.  
 This module provides tabs that allow you to manage both the behavior of the system itself and the configuration of each installed plugin.
 
 Below you will find descriptions of the available configuration tabs.
@@ -15,7 +15,7 @@ Below you will find descriptions of the available configuration tabs.
 ---
 
 ## **[API Access](./apiAccess)**
-Configure access to Coupler’s API.  
+Configure access to PacOS’s API.  
 This section allows you to define authentication methods, tokens, and endpoints to ensure secure integration with external tools and services.
 
 ---
@@ -33,14 +33,14 @@ From this tab you can:
 - Install new plugins
 - Uninstall existing plugins
 
-This ensures that Coupler remains modular and adaptable to your team’s needs.
+This ensures that PacOS remains modular and adaptable to your team’s needs.
 
 ---
 
 ## **[System](./system)**
 Control system-level operations.  
 Options include:
-- Updating Coupler to the latest version
+- Updating PacOS to the latest version
 - Restarting the system when required
 
 ---

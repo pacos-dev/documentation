@@ -2,7 +2,7 @@
 sidebar_position: 4
 title: Installation mode
 description: Learn how to configure PacOS during first startup.
-keywords: [PacOS, installation, Configuration, Mode, Personal, Group]
+keywords: [pacos, installation, Configuration, Mode, Personal, Group]
 ---
 
 # Installation mode

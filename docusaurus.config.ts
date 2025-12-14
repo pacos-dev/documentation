@@ -79,6 +79,11 @@ const config: Config = {
                     position: 'left',
                     label: 'Documentation',
                 },
+                {
+                    to: 'https://demo.pacos.dev',
+                    label: 'Demo',
+                    position: 'left'
+                },
                 // { type: 'doc', docId: 'installation/overview', label: 'Installation', position: 'left' },
                 // {to: '/blog', label: 'Blog', position: 'left'},
                 {
@@ -89,7 +94,7 @@ const config: Config = {
             ],
         },
         footer: {
-            style: 'dark',
+            style: 'light',
             links: [
                 {
                     title: 'Docs',
@@ -118,9 +123,13 @@ const config: Config = {
                             href: 'https://github.com/pacos-dev/pacos',
                         },
                         {
+                            label: 'Demo',
+                            href: 'https://demo.pacos.dev',
+                        },
+                        {
                             label: 'License',
                             href: '/docs/license',
-                        },
+                        }
                     ],
                 },
             ],

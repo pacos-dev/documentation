@@ -12,30 +12,29 @@ export default function HomepageQuickStart(): ReactNode {
 
 
                 <div className="row">
-                    <div className={clsx('col feature-border')}>
-                        <h1 className={styles.center}>Quick start</h1>
-                        <div className={styles.codeBlock}>
-                            Run PacOS in seconds using Docker or Podman
-                            <CodeBlock language="bash" className={styles.alignLeft}>
-                                {`docker run --name webos 
-  --mount type=bind,source=/opt/pacos,target=/.pacos 
-  -p 8090:8086 
+                    {/*<div className={clsx('col feature-border')}>*/}
+                    {/*    <h1 className={styles.center}>Quick start</h1>*/}
+                        <div className={clsx('col feature-border')}>
+                            <h2>Run PacOS in seconds using container</h2>
+                        <CodeBlock language="bash" className={styles.alignLeft}>
+                            {`docker run --name webos 
+  --mount type=bind,source=/host/working/dir target=/opt/.pacos 
+  -p 8086:8086 
   -ti pacosdev/webos:latest 
 `}
-                            </CodeBlock>
-                            <Link
-                                aria-label="Go to Docker/Podman installation guide"
-                                className="button button--lg green-invert-btn"
-                                to="/docs/user/installation/container">
-                                Docker/Podman installation
-                            </Link>
+                        </CodeBlock>
+                        <Link
+                            aria-label="Go to Docker/Podman installation guide"
+                            className="button button--lg green-invert-btn"
+                            to="/docs/user/installation/container">
+                            Docker/Podman installation
+                        </Link>
                         </div>
-
-
-                        <div className={styles.codeBlock} style={{marginLeft: 40}}>
-                            Run in Standalone Mode (JAR)
+                        <div className={clsx('col feature-border')}>
+                        <div className="text--center">
+                            <h2>Run PacOS in Standalone Mode (JAR)</h2>
                             <CodeBlock language="bash" className={styles.alignLeft}>
-                                {`java -jar pacos.jar -DworkingDir=/path/to/config    
+                                {`java -jar pacos.jar -DworkingDir=/path/to/working/dir    
                                 
                                 
                                     `}
@@ -47,9 +46,9 @@ export default function HomepageQuickStart(): ReactNode {
                                 Standalone installation
                             </Link>
                         </div>
+                        </div>
                     </div>
 
-                </div>
 
 
             </div>

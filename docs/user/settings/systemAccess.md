@@ -2,12 +2,12 @@
 sidebar_position: 5
 title: System Access
 description: Learn how to configure guest login and registration panel in PacOS.
-keywords: [Coupler, system access, guest account, registration, permissions]
+keywords: [pacos, system access, guest account, registration, permissions]
 ---
 
 # System Access
 
-The **System Access** tab allows administrators to configure how users can access Coupler.  
+The **System Access** tab allows administrators to configure how users can access PacOS.  
 It provides options for enabling guest login and managing the registration panel.
 
 ![system-access.png](/img/docs/settings/system-access.png)
@@ -16,7 +16,7 @@ It provides options for enabling guest login and managing the registration panel
 
 ## Guest Account
 
-Coupler supports login via a **guest account**.
+PacOS supports login via a **guest account**.
 
 - **Limitations**
     - The guest account cannot be personalized.
@@ -36,7 +36,7 @@ This makes the guest account useful for temporary access or quick demonstrations
 Administrators can enable a **registration panel** for new users.
 
 - **Closed network environments**
-    - If Coupler runs in a private or closed network, the registration panel can be made available to all users.
+    - If PacOS runs in a private or closed network, the registration panel can be made available to all users.
 - **Default permissions**
     - Newly created accounts automatically inherit the permissions defined in the **Default Permissions** tab.
 

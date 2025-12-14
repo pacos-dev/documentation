@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: Installation
 description: Learn how to install PacOS in Local or Containerized mode, including Docker and Podman setups.
-keywords: [PacOS, installation, Docker, Podman, Local mode, Group mode]
+keywords: [pacos, installation, Docker, Podman, Local mode, Group mode]
 ---
 
 # Installation
@@ -31,16 +31,16 @@ When deploying PacOS in a containerized environment (Docker or Podman) on a serv
   PacOS can connect to resources across all available containers, making it easier to manage complex production or testing setups.
 
 - **Centralized file access**  
-  Remote access to files stored in different containers is possible directly through Coupler, reducing the need for manual container-to-container operations.
+  Remote access to files stored in different containers is possible directly through PacOS, reducing the need for manual container-to-container operations.
 
 - **Unified log management**  
-  Coupler provides access to logs from multiple containers, simplifying monitoring and debugging across distributed applications.
+  PacOS provides access to logs from multiple containers, simplifying monitoring and debugging across distributed applications.
 
 - **Scalability and flexibility**  
-  Running Coupler in containers allows seamless scaling and integration with orchestration tools (e.g., Kubernetes), ensuring that your workflows adapt to growing infrastructure needs.
+  Running PacOS in containers allows seamless scaling and integration with orchestration tools (e.g., Kubernetes), ensuring that your workflows adapt to growing infrastructure needs.
 
 - **Isolation and security**  
-  Containerized deployment ensures that Coupler runs in an isolated environment, improving security and reducing conflicts with other applications.
+  Containerized deployment ensures that PacOS runs in an isolated environment, improving security and reducing conflicts with other applications.
 
 ---
 

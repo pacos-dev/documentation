@@ -21,32 +21,15 @@
   align-items: center;
   justify-content: center;
 }
-.headerContainer{
-  display: flex;
-  align-items: center;
+.headerContainer {
+  text-align: center;
 }
-
-.headerContainer img {
-  width: 64px;
-  height: auto;
-  margin-right: 8px;
-  margin-top: -10px;
+.headerContainer span{
+  display: inline-block;
 }
-
 .headerContainer p {
   white-space: nowrap;
-}
-.rotating {
-  animation: spin 10s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  text-wrap: auto;
 }
 .appName{
   font-weight: bold;

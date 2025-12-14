@@ -2,13 +2,13 @@
 sidebar_position: 6
 title: System
 description: Learn how to configure automatic updates and system restart in PacOS.
-keywords: [Coupler, system, updates, restart, plugins, automation]
+keywords: [pacos, system, updates, restart, plugins, automation]
 ---
 
 # System
 
 The **System** tab provides options for managing automatic updates and system maintenance.  
-It ensures that Coupler remains up to date with minimal manual intervention.
+It ensures that PacOS remains up to date with minimal manual intervention.
 
 ![system.png](/img/docs/settings/system.png)
 
@@ -17,7 +17,7 @@ It ensures that Coupler remains up to date with minimal manual intervention.
 ## Automatic System Updates
 
 - **Daily check** – Updates are checked every day at **2:00 AM**.
-- **Automatic installation** – If enabled, Coupler will download new libraries and restart itself to apply changes.
+- **Automatic installation** – If enabled, PacOS will download new libraries and restart itself to apply changes.
 - **Scope** – Automatic updates apply only to **minor** and **patch** versions.
 - **Major updates** – Must be performed manually to ensure compatibility and stability.
 
@@ -43,7 +43,7 @@ If updates are available, they can be applied immediately without waiting for th
 
 ## Manual System Restart
 
-The **Restart System** button enables administrators to restart Coupler on demand.  
+The **Restart System** button enables administrators to restart PacOS on demand.  
 This is useful after configuration changes or troubleshooting.
 
 ---
@@ -57,4 +57,4 @@ The **System** tab provides administrators with full control over:
 - Manual update checks
 - On-demand system restart
 
-Together, these options ensure Coupler remains stable, secure, and up to date with minimal effort.
+Together, these options ensure PacOS remains stable, secure, and up to date with minimal effort.

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 description: Learn how to install PacOS in standalone mode.
-keywords: [PacOS, installation, Standalone]
+keywords: [pacos, installation, Standalone]
 ---
 
 # Standalone

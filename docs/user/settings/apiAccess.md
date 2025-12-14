@@ -2,7 +2,7 @@
 sidebar_position: 3
 title: API Access
 description: Learn how to configure API access in PacOS, including token management and plugin communication.
-keywords: [PacOS, API, access, tokens, plugins, swagger, authentication]
+keywords: [pacos, API, access, tokens, plugins, swagger, authentication]
 ---
 
 # API Access

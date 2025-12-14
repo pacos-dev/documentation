@@ -26,7 +26,7 @@ as a standalone product.
 
 Attribution
 All copies or substantial portions of the Software must include:
-"This software includes code from Coupler, developed by Radosław Pakuła."
+"This software includes code from PacOS, developed by Radosław Pakuła."
 
 Modifications
 Any modifications to the Software must be clearly marked as such and must not misrepresent the origin 

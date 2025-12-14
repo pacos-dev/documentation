@@ -20,18 +20,13 @@ function HomepageHeader() {
             <header className={styles.header}>
                 <div className="container">
                     <div className={styles.headerContainer}>
-                        <img src="/img/icon.png" alt="Coupler WEB-OS Logo" className={styles.rotating}/>
-                        <p className="hero__subtitle" style={{marginLeft:"20px"}}>
-                        <span style={{lineHeight: "24px"}}>
-                            <div  className={styles.appName}> Pac <span className={styles.os}>OS</span></div>
 
-                            <div className={styles.thin}> Web-based operating system</div>
-                        </span>
-                        </p>
-                        <span style={{lineHeight: "30px",marginLeft:"20px",textAlign:"center"}}>
-                        <p className="hero__subtitle"> An application that connects your tools, data, <br/>and workflows
-                            in one unified workspace</p>
-                        </span>
+                            <img src="/img/logo2.png" alt="PacOS Logo" width="300px"/>
+
+                        <div style={{lineHeight: "30px", marginLeft: "20px", textAlign: "center"}}>
+                            <p className="hero__subtitle"> An application that connects your tools, data, and workflows
+                                in one unified workspace</p>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -49,12 +44,14 @@ export default function Home(): ReactNode {
             </Head>
             <Layout
                 title={`${siteConfig.title}`}
-                description="Coupler WEB-OS — modular Web-OS for engineering teams, automation & devtools">
+                description="PacOS — modular Web-OS for engineering teams, automation & devtools">
                 <HomepageHeader/>
                 <main>
-                    <HomepageFeatures/>
-                    <HomepageHero/>
                     <HomepageOverview/>
+                    <HomepageHero/>
+                    <HomepageFeatures/>
+
+
                     <HomepageHowItsWorks/>
                     <HomepagePlugins/>
                     <HomepageCarousel/>

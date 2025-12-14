@@ -2,7 +2,7 @@
 sidebar_position: 3
 title: Startup Properties
 description: PacOS runnable arguments.
-keywords: [PacOS, installation, runnable, arguments]
+keywords: [pacos, installation, runnable, arguments]
 ---
 
 # Startup Properties

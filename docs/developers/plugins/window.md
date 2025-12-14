@@ -5,12 +5,12 @@ description: Guide to implementing a modal window in PacOS by creating a class t
 keywords: [pacos, modal window, window implementation, WindowConfig, spring, plugin, desktop window, ui, prototype, spring scope]
 ---
 
-# Modal Window Implementation in Coupler
+# Modal Window Implementation in PacOS
 
-To add a new application window to Coupler, a plugin must implement the WindowConfig interface.
+To add a new application window to PacOS, a plugin must implement the WindowConfig interface.
 This interface defines the configuration and behavior of modal windows within the system.
 
-Coupler automatically detects modal windows during plugin initialization and integrates them into the system UI.
+PacOS automatically detects modal windows during plugin initialization and integrates them into the system UI.
 
 ---
 
@@ -63,7 +63,7 @@ public interface WindowConfig {
 Both classes involved in window creation must be Spring-managed beans:
 
 1. **WindowConfig implementation**  
-   Must be annotated with `@Component` so that Coupler Core can detect it.
+   Must be annotated with `@Component` so that PacOS Core can detect it.
 
 2. **Activator class (DesktopWindow implementation)**  
    Must be annotated with:
@@ -71,7 +71,7 @@ Both classes involved in window creation must be Spring-managed beans:
     - `@Component`
     - `@Scope("prototype")`
 
-   The prototype scope is required because **Coupler creates a new instance of the window every time the user opens it**.  
+   The prototype scope is required because **PacOS creates a new instance of the window every time the user opens it**.  
    If the scope is not set to prototype, Spring would reuse a single instance across multiple window activations, which would break window lifecycle and user experience.
 
 ---
@@ -99,7 +99,7 @@ import org.springframework.stereotype.Component;
 
 /**
 * This class represents a simple window example.
-* It is marked as a prototype because Coupler is responsible for creating
+* It is marked as a prototype because PacOS is responsible for creating
 * instances dynamically whenever a window is opened.
   */
 @Component
@@ -114,7 +114,7 @@ public class MyWindow extends DesktopWindow {
 ```
 Explanation of the example:
 
-- The class extends DesktopWindow, which is required for any Coupler window
+- The class extends DesktopWindow, which is required for any PacOS window
 - The constructor receives a config that matches the WindowConfig implementation
 - The prototype scope ensures a new instance is created for every activation
 - A simple Vaadin Span is added as the UI content
@@ -123,13 +123,13 @@ Explanation of the example:
 
 ## Integrating the Window Into the Plugin
 
-To make the window visible in Coupler, ensure your WindowConfig implementation returns MyWindow in activatorClass():
+To make the window visible in PacOS, ensure your WindowConfig implementation returns MyWindow in activatorClass():
 ```java
 public Class<? extends DesktopWindow> activatorClass() {
     return MyWindow.class;
 }
 ```
-Coupler Core will automatically:
+PacOS Core will automatically:
 
 - detect the config class
 - load prototype-scoped window classes
@@ -142,7 +142,7 @@ Coupler Core will automatically:
 
 - Every window must define its configuration through WindowConfig
 - The UI class must extend DesktopWindow and use prototype scope
-- Coupler handles window lifecycle and instance creation
+- PacOS handles window lifecycle and instance creation
 - Windows become available automatically after plugin initialization
 - Even simple windows can be implemented with just a few lines of code  
 

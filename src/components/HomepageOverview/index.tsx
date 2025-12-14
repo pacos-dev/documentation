@@ -15,7 +15,7 @@ export default function HomepageOverview(): ReactNode {
                         <div>
                             <Link
                                 className="button button--lg primary-btn"
-                                to="https://demo.coupler.best">
+                                to="https://demo.pacos.dev">
                                 View Demo
                             </Link>
                         </div>
@@ -23,8 +23,7 @@ export default function HomepageOverview(): ReactNode {
 
 
                     <div className={styles.blockScreen}>
-                        <img src="/img/screen.png" className={styles.screen} alt="perspective"/>
-                        <img src="/img/laptop.png" className={styles.laptop} alt="laptop"/>
+                        <img src="/img/laptop-screem.png" alt="perspective"/>
                     </div>
                 </div>
             </div>

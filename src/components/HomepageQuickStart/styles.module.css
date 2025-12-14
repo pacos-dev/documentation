@@ -1,8 +1,7 @@
-
-.codeBlock{
-    width: 550px;
-    display: inline-block;
+.blocks{
+    /*display: flex;*/
 }
+
 .alignLeft{
     text-align: left;
 }

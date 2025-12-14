@@ -2,7 +2,7 @@
 sidebar_position: 4
 title: Plugin Management
 description: Learn how to manage plugins in PacOS, including installation, activation, and removal.
-keywords: [Coupler, plugins, management, installation, configuration]
+keywords: [pacos, plugins, management, installation, configuration]
 ---
 
 # Plugin Management
@@ -18,7 +18,7 @@ The **Plugin Management** tab is divided into two main sections:
 This section allows you to install new plugins directly from a JAR file.
 
 - **Upload JAR file** – Select a plugin file from your local system.
-- **Validation** – Coupler automatically checks whether the uploaded file is a valid plugin and compatible with the system.
+- **Validation** – PacOS automatically checks whether the uploaded file is a valid plugin and compatible with the system.
 - **Installation** – Once validated, the plugin is added to the system and becomes available in the management list.
 
 :::tip[Best Practice]
@@ -31,7 +31,7 @@ Always verify that the plugin comes from a trusted source before uploading.
 This section displays all installed plugins and their current status.  
 For each plugin, you can perform the following actions:
 
-- **Automatic startup** – Enable or disable automatic startup when Coupler launches.
+- **Automatic startup** – Enable or disable automatic startup when PacOS launches.
 - **Start/Stop** – Temporarily turn the plugin on or off without uninstalling.
 - **Uninstall** – Remove the plugin completely from the system.
 - **Logs** – Inspect startup logs for each plugin individually, useful for debugging and monitoring.
@@ -51,5 +51,5 @@ No system restart is required.
 
 ## Summary
 
-The combination of **Upload Plugin** and **Plugin Management** provides full control over Coupler’s modular environment.  
+The combination of **Upload Plugin** and **Plugin Management** provides full control over PacOS’s modular environment.  
 Administrators can easily extend the system with new functionality, manage existing plugins, and ensure stability through log inspection.

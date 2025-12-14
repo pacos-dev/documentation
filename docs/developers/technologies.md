@@ -6,16 +6,16 @@ description: Overview of the main technologies and frameworks used in PacOS, inc
 keywords: [pacos, technologies, java 21, vaadin, spring boot, plugin system, modular architecture, backend, frontend]
 ---
 
-# Technologies Used in Coupler
+# Technologies Used in PacOS
 
-Coupler is built on a modern, modular technology stack designed for building extensible enterprise applications. 
+PacOS is built on a modern, modular technology stack designed for building extensible enterprise applications. 
 Below is an overview of the main technologies currently used.
 
 ---
 
 ## Java 21
 
-- Coupler is fully developed in **Java 21**, taking advantage of the latest language features and performance improvements
+- PacOS is fully developed in **Java 21**, taking advantage of the latest language features and performance improvements
 - Java provides the core runtime for both the backend and plugin system
 - Ensures high compatibility with Spring Boot, Vaadin, and other libraries
 
@@ -25,7 +25,7 @@ Below is an overview of the main technologies currently used.
 
 - **Vaadin** is used as the primary **UI framework**
 - Enables creating rich, interactive web interfaces in Java without directly writing HTML, CSS, or JavaScript
-- Supports modular UI components, which integrates seamlessly with Coupler’s plugin-based architecture
+- Supports modular UI components, which integrates seamlessly with PacOS’s plugin-based architecture
 - Provides **themeing, layouts, and responsive design** out of the box
 
 ---
@@ -41,7 +41,7 @@ Below is an overview of the main technologies currently used.
 
 ## Database Support
 
-- Coupler Core uses **HSQLDB** as the default embedded database for quick setup and testing
+- PacOS Core uses **HSQLDB** as the default embedded database for quick setup and testing
 - Plugins may use their own independent database
 - Database access is fully configured via Spring Boot, with support for transactional operations and repositories
 
@@ -51,7 +51,7 @@ Below is an overview of the main technologies currently used.
 
 - Each plugin runs in a **separate Spring context** to maintain isolation
 - Plugins can expose APIs and listen to system events, enabling communication between modules
-- Coupler supports dynamic installation and removal of plugins without restarting the application
+- PacOS supports dynamic installation and removal of plugins without restarting the application
 - Modular architecture allows developers to extend or replace system functionality safely
 
 ---
@@ -59,7 +59,7 @@ Below is an overview of the main technologies currently used.
 ## Additional Technologies
 
 - **Maven** for build management and dependency control
-- **BOM (Bill of Materials)** ensures all plugin dependencies are compatible with Coupler Core
+- **BOM (Bill of Materials)** ensures all plugin dependencies are compatible with PacOS Core
 - **JUnit / Testcontainers** for plugin testing
 - **Cora base context** as a foundation for all plugin contexts
 
@@ -67,7 +67,7 @@ Below is an overview of the main technologies currently used.
 
 ## Summary
 
-Coupler combines:
+PacOS combines:
 
 - **Java 21** for modern backend and plugin development
 - **Vaadin** for rich, modular web UI

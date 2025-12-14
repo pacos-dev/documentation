@@ -44,7 +44,7 @@ The skeleton project is organized into several packages, each with a specific re
 - **org.pacos.plugin.skeleton** – primary package containing all source code for this plugin component
 - **org.pacos.plugin.skeleton.config** – configuration package read by Spring from the core module; contains Spring context setup and database configuration
 - **org.pacos.plugin.skeleton.backend** – contains all classes defining backend logic and services
-- **org.pacos.plugin.skeleton.security** – defines permissions, which are loaded and managed by the Coupler core
+- **org.pacos.plugin.skeleton.security** – defines permissions, which are loaded and managed by the PacOS core
 - **org.pacos.plugin.skeleton.system** – contains classes responsible for module behavior, including event handling and listener implementations
 - **org.pacos.plugin.skeleton.view** – contains classes responsible for creating the frontend view and UI components
 
@@ -58,7 +58,7 @@ Each package is designed to be modular, so developers can extend, replace, or re
 
 ## Maven Configuration
 
-The plugin skeleton is a **Maven project**. All dependencies are managed via the Coupler **BOM** (Bill of Materials).
+The plugin skeleton is a **Maven project**. All dependencies are managed via the PacOS **BOM** (Bill of Materials).
 
 - Any additional libraries must be compatible with the BOM
 - The skeleton project includes all necessary dependencies for basic plugin functionality
@@ -80,11 +80,11 @@ The plugin is immediately available for use, without restarting the system.
 
 ## Summary
 
-The Coupler plugin skeleton project:
+The PacOS plugin skeleton project:
 
 - Accelerates plugin development
 - Provides tested, base implementations for essential features
-- Ensures compatibility with Coupler Core and its Spring-based architecture
+- Ensures compatibility with PacOS Core and its Spring-based architecture
 - Offers a ready-to-use Maven configuration for packaging and deployment
 
 Using this skeleton guarantees that your plugin integrates seamlessly with the platform and follows best practices for modular development.
