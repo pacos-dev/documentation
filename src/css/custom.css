@@ -122,6 +122,7 @@ p.center{
   color: var(--window-text);
   border-radius: 15px;
   padding:20px;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   gap: 2rem;
 }

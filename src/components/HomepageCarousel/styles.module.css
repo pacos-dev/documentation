@@ -2,8 +2,7 @@
     --swiper-theme-color: #205d3b;
 }
 .wrapper {
-    max-width: 1200px;
-    margin: 40px auto;
+    width: auto;
     padding: 20px;
 }
 
@@ -15,7 +14,6 @@
 }
 
 .image {
-    max-width: 900px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     border: 1px solid rgba(255,255,255,0.05);

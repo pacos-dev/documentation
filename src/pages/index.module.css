@@ -28,7 +28,6 @@
   display: inline-block;
 }
 .headerContainer p {
-  white-space: nowrap;
   text-wrap: auto;
 }
 .appName{
