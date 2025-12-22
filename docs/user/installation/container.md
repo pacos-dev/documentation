@@ -9,7 +9,7 @@ keywords: [pacos, installation, Containerized, Podman, Docker]
 # Containerized Installation (Docker / Podman)
 
 PacOS can be run in a containerized environment using **Docker** or **Podman**.  
-The official image is available on [Docker Hub](https://hub.docker.com/repository/docker/pacosdev/webos).
+The official image is available on [Docker Hub](https://hub.docker.com/r/pacosdev/webos).
 
 ## Running PacOS
 
