@@ -13,35 +13,35 @@ import clsx from "clsx";
 export default function HomepageCarousel() {
     const slides = [
         {
-            src: '/img/screens/coupler-desktop.png',
+            src: '/img/screens/desktop.jpg',
             caption: 'The Application button in the top bar provides quick access to all installed modules. Click to launch any plugin directly, giving a familiar OS-like experience.',
         },
         {
-            src: '/img/screens/coupler-plugin-management.png',
+            src: '/img/screens/plugin-management.jpg',
             caption: 'Plugin Management lets users view, configure, and remove installed plugins safely. Each plugin runs in its own context and can be managed without restarting.',
         },
         {
-            src: '/img/screens/coupler-marketplace.png',
+            src: '/img/screens/marketplace.jpg',
             caption: 'The App Store is the central hub to discover and install plugins. Browse available modules and extend PacOS instantly with a single click.',
         },
         {
-            src: '/img/screens/coupler-explorer.png',
+            src: '/img/screens/explorer.jpg',
             caption: 'A powerful file manager that lets you browse, edit, archive, and transfer files across local and remote locations.',
         },
         {
-            src: '/img/screens/coupler-logs.png',
+            src: '/img/screens/logs.jpg',
             caption: 'A fast log viewer with real-time tailing and an integrated search engine — perfect for debugging and log analysis.',
         },
         {
-            src: '/img/screens/coupler-mock.png',
+            src: '/img/screens/mock.jpg',
             caption: 'A real-time synchronized REST & SOAP mock server. Lets you quickly create backend-free test environments shared across all active sessions.',
         },
         {
-            src: '/img/screens/coupler-apinity.png',
+            src: '/img/screens/apinity.jpg',
             caption: 'A complete console for sending REST and SOAP requests. Ideal for working with integrations and testing APIs.',
         },
         {
-            src: '/img/screens/coupler-variable.png',
+            src: '/img/screens/variable.jpg',
             caption: 'A central configuration layer that allows plugins to change behavior dynamically — without reloads or configuration restarts.',
         }
     ];
