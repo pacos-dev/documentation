@@ -17,10 +17,11 @@ export default function HomepageQuickStart(): ReactNode {
                         <div className={clsx('col feature-border')}>
                             <h2>Run PacOS in seconds using container</h2>
                         <CodeBlock language="bash" className={styles.alignLeft}>
-                            {`docker run --name webos 
-  --mount type=bind,source=/host/working/dir target=/opt/.pacos 
-  -p 8086:8086 
-  -ti pacosdev/webos:latest 
+                            {`docker run --name webos \\
+  -e JAVA_OPTS="-Djava.rmi.server.hostname=127.0.0.1" \\
+  --platform linux/amd64 \\
+  -p 8086:8086 \\
+  -ti pacosdev/webos:latest
 `}
                         </CodeBlock>
                         <Link
@@ -35,6 +36,7 @@ export default function HomepageQuickStart(): ReactNode {
                             <h2>Run PacOS in Standalone Mode (JAR)</h2>
                             <CodeBlock language="bash" className={styles.alignLeft}>
                                 {`java -jar pacos.jar -DworkingDir=/path/to/working/dir    
+                                
                                 
                                 
                                     `}

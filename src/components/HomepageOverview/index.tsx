@@ -23,7 +23,7 @@ export default function HomepageOverview(): ReactNode {
 
 
                     <div className={styles.blockScreen}>
-                        <img src="/img/laptop-screem.png" alt="perspective"/>
+                        <img src="/img/laptop-screen.png" alt="perspective"/>
                     </div>
                 </div>
             </div>

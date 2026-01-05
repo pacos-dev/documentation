@@ -21,7 +21,7 @@ function HomepageHeader() {
                 <div className="container">
                     <div className={styles.headerContainer}>
 
-                            <img src="/img/logo2.png" alt="PacOS Logo" width="300px"/>
+                            <img src="/img/logo.png" alt="PacOS Logo" width="300px"/>
 
                         <div style={{lineHeight: "30px", marginLeft: "20px", textAlign: "center"}}>
                             <p className="hero__subtitle"> An application that connects your tools, data, and workflows
