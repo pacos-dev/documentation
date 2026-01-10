@@ -22,11 +22,11 @@ Variables are divided into three groups, ordered by priority (from lowest to hig
     - Always start with the `$` prefix to indicate they belong to the system.
     - Configured in: **Applications → Settings → System Variables**.
     - Can return both static values and dynamically calculated results.
-![system-variable.png](../../static/img/docs/variable/system-variable.png)
+![system-variable.png](../../../static/img/docs/variable/system-variable.png)
 2. **Plugin variables**
     - Configurable at the plugin/module level (if supported).
     - Can override system variables.
-![plugin-variable.png](../../static/img/docs/variable/plugin-variable.png)
+![plugin-variable.png](../../../static/img/docs/variable/plugin-variable.png)
 3. **User variables**
     - Divided into two sections:
         - **Collection variables** – users can create as many collections of variables as needed.
@@ -34,7 +34,7 @@ Variables are divided into three groups, ordered by priority (from lowest to hig
     - User variables can override plugin and system variables.
     - Global variables have the highest priority and can override all other variable types.
     - Configured in: **Applications → Variables**.
-![user-variable.png](../../static/img/docs/variable/user-variable.png)
+![user-variable.png](../../../static/img/docs/variable/user-variable.png)
 ---
 
 ## Using Variables
@@ -42,18 +42,18 @@ Variables are divided into three groups, ordered by priority (from lowest to hig
 - Variables can be used in any field that explicitly supports them.
 - Such fields display a **variable icon prefix** before the input box.
 
-![variable-field.png](../../static/img/docs/variable/variable-field.png)
+![variable-field.png](../../../static/img/docs/variable/variable-field.png)
 
 - Variables are inserted using **double curly braces**: ```{{myVariable}}```
 - To open the variable suggestion window:
 -- Use the keyboard shortcut **Ctrl+Space**, or
 -- Type the curly brace `{` to trigger the suggestions automatically.
 
-![modal-variable.png](../../static/img/docs/variable/modal-variable.png)
+![modal-variable.png](../../../static/img/docs/variable/modal-variable.png)
 
 :::tip[Hover preview]  
 When hovering the mouse over a variable inside a field that supports variables, a **modal window** will appear showing the **current value of the variable**.  
-This preview reflects the value that will be used during form processing.![hover.png](../../static/img/docs/variable/hover.png)
+This preview reflects the value that will be used during form processing.![hover.png](../../../static/img/docs/variable/hover.png)
 :::
 
 ---
@@ -79,7 +79,7 @@ From there, you can:
 - Override the current value of a variable.
 
 
-![quick-access.png](../../static/img/docs/variable/quick-access.png)
+![quick-access.png](../../../static/img/docs/variable/quick-access.png)
 ---
 
 ##  Persistence

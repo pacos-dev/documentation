@@ -1,13 +1,13 @@
 ---
 sidebar_position: 5
-title: System Access
+title: Guest & Registration
 description: Learn how to configure guest login and registration panel in PacOS.
 keywords: [pacos, system access, guest account, registration, permissions]
 ---
 
 # System Access
 
-The **System Access** tab allows administrators to configure how users can access PacOS.  
+The **Guest & Registration** tab allows administrators to configure how users can access PacOS.  
 It provides options for enabling guest login and managing the registration panel.
 
 ![system-access.png](/img/docs/settings/system-access.png)

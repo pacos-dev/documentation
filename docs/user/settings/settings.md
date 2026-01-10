@@ -1,11 +1,11 @@
 ---
 sidebar_position: 2
-title: Configuration
+title: Settings
 description: Learn how to configure PacOS through the Application Settings module, including plugins, permissions, and system behavior.
 keywords: [pacos, configuration, settings, plugins, permissions, system access, API]
 ---
 
-# Configuration
+# Settings
 
 PacOS is configured directly from the **Application → Settings** window.  
 This module provides tabs that allow you to manage both the behavior of the system itself and the configuration of each installed plugin.
@@ -37,7 +37,7 @@ This ensures that PacOS remains modular and adaptable to your team’s needs.
 
 ---
 
-## **[System](./system)**
+## **[System](./systemUpdate)**
 Control system-level operations.  
 Options include:
 - Updating PacOS to the latest version

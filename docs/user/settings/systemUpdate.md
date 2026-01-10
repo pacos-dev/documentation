@@ -1,11 +1,11 @@
 ---
 sidebar_position: 6
-title: System
+title: System update
 description: Learn how to configure automatic updates and system restart in PacOS.
 keywords: [pacos, system, updates, restart, plugins, automation]
 ---
 
-# System
+# System Update
 
 The **System** tab provides options for managing automatic updates and system maintenance.  
 It ensures that PacOS remains up to date with minimal manual intervention.
@@ -38,13 +38,6 @@ This feature removes the need for manual deployments in most cases.
 
 A dedicated **Check for Updates** button allows administrators to manually trigger an update check.  
 If updates are available, they can be applied immediately without waiting for the scheduled time.
-
----
-
-## Manual System Restart
-
-The **Restart System** button enables administrators to restart PacOS on demand.  
-This is useful after configuration changes or troubleshooting.
 
 ---
 
