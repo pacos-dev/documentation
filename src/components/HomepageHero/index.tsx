@@ -5,24 +5,16 @@ import styles from '@site/src/pages/index.module.css';
 
 export default function HomepageHero(): ReactNode {
     const screenshotUrl = useBaseUrl('/img/laptop-screen.png');
-    const logoUrl = useBaseUrl('/img/logo.png');
 
     return (
         <header className={styles.hero}>
-            <div className={styles.container}>
+            <div className={`${styles.container} ${styles.heroLayout}`}>
                 <div className={styles.heroCopy}>
-                    {/*<Link className={styles.heroBrand} to="/" aria-label="PacOS home">*/}
-                    {/*    <img src={logoUrl} alt="PacOS — Web-based Operating System" width={680} height={220}/>*/}
-                    {/*</Link>*/}
                     <p className={styles.eyebrow}>Enterprise web control plane</p>
-                    <h1>Your application environment.<br/>One interface.</h1>
+                    <h1>Your application environment.<br/><span>One interface.</span></h1>
                     <p>
-                        PacOS gives developers, QA and support teams controlled access to the
-                        resources behind complex applications.
-                    </p>
-                    <p>
-                        Files, logs, APIs, databases, services, mocks and tools.
-                        Give your team the access they need, without direct access to the infrastructure.
+                        Give developers, QA and support teams controlled access to files, logs,
+                        APIs, mocks and services &mdash; without direct infrastructure access.
                     </p>
                     <div className={styles.actions}>
                         <Link className={styles.primaryButton} to="https://demo.pacos.dev">
@@ -38,14 +30,14 @@ export default function HomepageHero(): ReactNode {
                         <img
                             className={styles.productImageNoFrame}
                             src={screenshotUrl}
-                            alt="PacOS desktop with Explorer, log viewer, API client and mock server tools in the application menu"
-                            width={1884}
-                            height={1052}
+                            alt="Real PacOS desktop with Explorer, logs, database and MockServer application windows"
+                            width={1260}
+                            height={756}
                             fetchPriority="high"
                         />
                     </Link>
                     <figcaption>
-                        Real PacOS UI. Your application tools, accessible from the browser.
+                        Real PacOS UI. Explore it in the live demo &rarr;
                     </figcaption>
                 </figure>
             </div>

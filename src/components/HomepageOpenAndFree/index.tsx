@@ -18,12 +18,6 @@ export default function HomepageOpenAndFree(): ReactNode {
                         <Link className={styles.secondaryButton} to="/docs/user">Read Documentation</Link>
                     </div>
                 </div>
-                <p className={styles.licenseNote}>
-                    Free for personal and commercial use. Redistribution and resale are restricted.
-                    {' '}<Link className={styles.textLink} to="/docs/license">Read the license</Link>
-                    {' '}&middot;{' '}
-                    <Link className={styles.textLink} to="https://github.com/pacos-dev/pacos">View source</Link>
-                </p>
             </div>
         </section>
     );

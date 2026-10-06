@@ -8,15 +8,15 @@ const teams = [
     },
     {
         name: 'QA & Testers',
-        description: 'Manage mocks and shared test resources interactively. Reproduce issues against the same environment.',
+        description: 'Mocks, test resources and shared environment state.',
     },
     {
         name: 'Support',
-        description: 'Investigate application state without direct server access.',
+        description: 'Application diagnostics without direct server access.',
     },
     {
         name: 'Enterprise teams',
-        description: 'Provide controlled access to operational resources without exposing the underlying infrastructure.',
+        description: 'Controlled access to operational resources.',
     },
 ];
 
@@ -27,7 +27,6 @@ export default function HomepageTeams(): ReactNode {
                 <div className={styles.intro}>
                     <p className={styles.eyebrow}>Built for teams</p>
                     <h2 id="teams-title">Different roles. The same environment.</h2>
-                    <p>Give each team a practical way to work with the application resources they need.</p>
                 </div>
                 <div className={styles.teamGrid}>
                     {teams.map(({name, description}) => (

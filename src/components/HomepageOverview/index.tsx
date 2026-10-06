@@ -1,7 +1,16 @@
 import type {ReactNode} from 'react';
+import AppIcon, {type AppIconName} from '@site/src/components/HomepageAppIcon';
 import styles from '@site/src/pages/index.module.css';
 
-const resources = ['Service A', 'Service B', 'Database', 'Mock server', 'Logs', 'Files', 'APIs', 'Test tools'];
+const resources: {name: string; icon: AppIconName}[] = [
+    {name: 'Services', icon: 'services'},
+    {name: 'Files', icon: 'files'},
+    {name: 'Database', icon: 'database'},
+    {name: 'Logs', icon: 'logs'},
+    {name: 'APIs', icon: 'api'},
+    {name: 'Mocks', icon: 'mocks'},
+    {name: 'Test tools', icon: 'tools'},
+];
 
 export default function HomepageOverview(): ReactNode {
     return (
@@ -21,16 +30,19 @@ export default function HomepageOverview(): ReactNode {
                     </p>
                 </div>
                 <div className={styles.flow} role="group" aria-label="Application resources exposed through PacOS to one controlled web interface">
-                    <ul className={styles.resources}>
-                        {resources.map(resource => <li key={resource}>{resource}</li>)}
-                    </ul>
+                    <div className={styles.resourceCloud}>
+                        <p className={styles.diagramLabel}>Application environment</p>
+                        <ul className={styles.resources}>
+                            {resources.map(({name, icon}) => <li key={name}><AppIcon name={icon}/>{name}</li>)}
+                        </ul>
+                    </div>
                     <span className={styles.connector} aria-hidden="true"/>
                     <div className={styles.controlPlane}>
                         <strong>PacOS</strong>
-                        <span>Application resources, made accessible</span>
+                        <span>Controlled web interface</span>
                     </div>
                     <span className={styles.connector} aria-hidden="true"/>
-                    <strong className={styles.flowEnd}>One controlled web interface</strong>
+                    <strong className={styles.flowEnd}>Developers <span>/</span> QA <span>/</span> Support</strong>
                 </div>
             </div>
         </section>

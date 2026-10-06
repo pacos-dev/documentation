@@ -134,7 +134,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} PacOS.dev All rights reserved.`,
+            copyright: `Copyright © ${new Date().getFullYear()} PacOS.dev All rights reserved.<br/><small>Free to use. Free for personal and commercial use. Source available. Redistribution and resale of PacOS itself are restricted. <a href="/docs/license">View License</a> / <a href="https://github.com/pacos-dev/pacos">GitHub</a></small>`,
         },
         prism: {
             theme: prismThemes.github,

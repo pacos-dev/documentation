@@ -14,7 +14,8 @@ export default function HomepageQuickStart(): ReactNode {
                 </div>
                 <div className={styles.quickStart}>
                     <div>
-                        <h3>Run with Docker</h3>
+                        <p className={styles.eyebrow}>Try PacOS</p>
+                        <h3>Docker &middot; Quick local trial</h3>
                         <CodeBlock language="bash">
                             {`docker run --name webos \\
   -e JAVA_OPTS="-Djava.rmi.server.hostname=127.0.0.1" \\
@@ -24,18 +25,22 @@ export default function HomepageQuickStart(): ReactNode {
                         </CodeBlock>
                         <p>
                             Open <Link to="http://localhost:8086">localhost:8086</Link> to complete
-                            the initial setup. This command is for a local trial; see the guide
-                            for persistent storage and shared deployment configuration.
+                            the initial setup. Local trial only, not a production deployment.
                         </p>
                         <Link className={styles.textLink} to="/docs/user/installation/container">
                             Docker / Podman installation &rarr;
                         </Link>
                     </div>
                     <div>
-                        <h3>Prefer a standalone application?</h3>
+                        <p className={styles.eyebrow}>Deploy PacOS</p>
+                        <h3>Your shared environment</h3>
+                        <p>Configure persistent storage and team access with the deployment guides.</p>
+                        <Link className={styles.textLink} to="/docs/user/installation/container">
+                            Docker / Podman deployment &rarr;
+                        </Link>
+                        <h4 className={styles.standaloneHeading}>Standalone Java</h4>
                         <p>
                             Run the PacOS starter JAR with Java 21.
-                            The installation guide covers the download and configuration.
                         </p>
                         <CodeBlock language="bash">{'java -jar pacos-starter.jar'}</CodeBlock>
                         <Link className={styles.textLink} to="/docs/user/installation/standalone">

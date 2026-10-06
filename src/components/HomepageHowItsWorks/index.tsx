@@ -10,25 +10,22 @@ export default function HomepageHowItsWorks(): ReactNode {
                     <p className={styles.eyebrow}>How it works</p>
                     <h2 id="architecture-title">Above your application environment. Not instead of your infrastructure.</h2>
                     <p>
-                        Keep Docker, Kubernetes and your existing infrastructure and monitoring tools.
-                        PacOS adds a user-facing layer for working with application resources;
-                        it does not replace your orchestration or infrastructure management.
+                        PacOS does not replace Docker, Kubernetes or infrastructure management.
                     </p>
                     <p>
-                        Run PacOS locally or as a shared server. Plugins expose the resources you
-                        configure through a desktop-like web interface, with access managed through
-                        PacOS permissions.
+                        Plugins expose your configured resources through a desktop-like web interface,
+                        with access managed through PacOS permissions.
                     </p>
                     <Link className={styles.textLink} to="/docs/developers/plugins">
                         Explore the plugin architecture &rarr;
                     </Link>
                 </div>
                 <ol className={styles.architectureFlow} aria-label="Layers from infrastructure to team access">
-                    <li>Infrastructure</li>
-                    <li>Containers / Services</li>
-                    <li>Application Environment</li>
-                    <li className={styles.architecturePacos}>PacOS / Controlled web interface</li>
-                    <li>Developers / QA / Support</li>
+                    <li><span className={styles.layerNumber}>01</span><strong>Infrastructure</strong><small>Docker / Kubernetes</small></li>
+                    <li><span className={styles.layerNumber}>02</span><strong>Containers / Services</strong></li>
+                    <li><span className={styles.layerNumber}>03</span><strong>Application Environment</strong></li>
+                    <li className={styles.architecturePacos}><strong>PacOS</strong><small>Controlled web interface</small></li>
+                    <li className={styles.architectureTeam}><strong>Developers / QA / Support</strong></li>
                 </ol>
             </div>
         </section>

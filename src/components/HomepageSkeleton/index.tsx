@@ -5,12 +5,15 @@ import styles from '@site/src/pages/index.module.css';
 export default function HomepageSkeleton(): ReactNode {
     return (
         <div className={styles.developerCallout}>
-            <p>
-                Build a plugin in Java with the ready-to-use skeleton project.
-                Bring your own APIs, UI and application-specific operations into PacOS.
-            </p>
+            <div>
+                <h3>Build tools for your environment</h3>
+                <p>
+                    Custom Java plugins expose environment-specific tools and workflows through
+                    the same interface. Build it once. Install it alongside your other PacOS tools.
+                </p>
+            </div>
             <Link className={styles.textLink} to="/docs/developers/plugins/skeleton">
-                Build your plugin &rarr;
+                Start with the skeleton project &rarr;
             </Link>
         </div>
     );
