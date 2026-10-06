@@ -1,43 +1,507 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.home {
+  --home-bg: #ffffff;
+  --home-surface: #f5f7fa;
+  --home-text: #172536;
+  --home-muted: #536274;
+  --home-border: #dce3eb;
+  --home-accent: #0869ad;
+  background: var(--home-bg);
+  color: var(--home-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+:global([data-theme='dark']) .home {
+  --home-bg: #111820;
+  --home-surface: #19232e;
+  --home-text: #edf2f8;
+  --home-muted: #aebdce;
+  --home-border: #334252;
+  --home-accent: #75bfff;
+}
+
+.home h1,
+.home h2,
+.home h3 {
+  color: var(--home-text);
+  text-shadow: none;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.home h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.home h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.home p {
+  color: var(--home-muted);
+  margin-bottom: 1.25rem;
+}
+
+.container {
+  width: min(1200px, calc(100% - 4rem));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 6rem;
+  border-top: 1px solid var(--home-border);
+}
+
+.tinted {
+  background: var(--home-surface);
+}
+
+.eyebrow {
+  color: var(--home-accent) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+
+.hero {
+  padding: 5rem 0 4rem;
+  background:
+    radial-gradient(ellipse 52% 55% at 12% 4%, rgb(2 138 224 / 10%), transparent 100%),
+    radial-gradient(ellipse 45% 50% at 88% 12%, rgb(158 190 47 / 11%), transparent 100%),
+    var(--home-bg);
+}
+
+:global([data-theme='dark']) .hero {
+  background:
+    radial-gradient(ellipse 52% 55% at 12% 4%, rgb(2 138 224 / 18%), transparent 100%),
+    radial-gradient(ellipse 45% 50% at 88% 12%, rgb(158 190 47 / 12%), transparent 100%),
+    var(--home-bg);
+}
+
+.heroCopy {
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.heroCopy h1 {
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  margin-bottom: 1.5rem;
+}
+
+.heroCopy > p:not(.eyebrow) {
+  max-width: 680px;
+  margin-inline: auto;
+  font-size: 1.15rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.heroCopy .actions {
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 150ms;
+}
+
+.primaryButton {
+  background: #0869ad;
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: #05558e;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.secondaryButton {
+  border-color: var(--home-border);
+  color: var(--home-text);
+  background: var(--home-bg);
+}
+
+.secondaryButton:hover {
+  background: var(--home-surface);
+  color: var(--home-text);
+  text-decoration: none;
+}
+
+.textLink {
+  color: var(--home-accent);
+  font-weight: 600;
+}
+
+.home a:focus-visible,
+.home button:focus-visible {
+  outline: 3px solid var(--home-accent);
+  outline-offset: 4px;
+}
+
+.productFigure {
+  margin: 0;
+  min-width: 0;
+}
+
+.productImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--home-border);
+  border-radius: 10px;
+  box-shadow: 0 18px 50px rgb(12 29 49 / 10%);
+}
+.productImageNoFrame {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.productFigure figcaption {
+  margin-top: 1rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.hero .productFigure figcaption {
+  text-align: center;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.flow {
+  padding: 2rem;
+  border: 1px solid var(--home-border);
+  border-radius: 10px;
+  background: var(--home-bg);
+  text-align: center;
+}
+
+.resources {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resources li {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--home-border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.connector {
+  display: block;
+  width: 1px;
+  height: 2rem;
+  background: var(--home-border);
+  margin: 0 auto;
+}
+
+.controlPlane {
+  padding: 1.1rem;
+  border: 1px solid var(--home-accent);
+  border-radius: 6px;
+  background: var(--home-surface);
+}
+
+.controlPlane strong,
+.controlPlane span {
+  display: block;
+}
+
+.controlPlane strong {
+  font-size: 1.4rem;
+}
+
+.controlPlane span {
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.flowEnd {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 3rem;
+  margin-bottom: 3rem;
+}
+
+.capability {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--home-border);
+}
+
+.capability p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.toolPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.toolButton {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--home-border);
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--home-muted);
+  background: var(--home-bg);
+  cursor: pointer;
+}
+
+.toolButton[aria-pressed='true'] {
+  color: var(--home-accent);
+  border-color: var(--home-accent);
+  background: var(--home-surface);
+}
+
+.sharedFlow,
+.architectureFlow {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.sharedFlow li {
+  padding: 0.85rem 0 0.85rem 1.2rem;
+  border-left: 2px solid var(--home-accent);
+}
+
+.sharedFlow strong,
+.sharedFlow span {
+  display: block;
+}
+
+.sharedFlow span {
+  font-size: 0.95rem;
+  color: var(--home-muted);
+}
+
+.pluginList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-block: 1px solid var(--home-border);
+}
+
+.pluginList li {
+  padding: 1.75rem 1rem;
+}
+
+.pluginList span,
+.pluginList strong {
+  display: block;
+}
+
+.pluginList span {
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.pluginList strong {
+  font-size: 1.2rem;
+}
+
+.customPlugin {
+  background: var(--home-surface);
+}
+
+.developerCallout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.developerCallout p {
+  max-width: 650px;
+  margin: 0;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 4rem;
+}
+
+.teamGrid article {
+  border-top: 1px solid var(--home-border);
+  padding-top: 1.5rem;
+}
+
+.teamGrid p {
+  margin: 0;
+}
+
+.architectureFlow {
+  margin: 0;
+}
+
+.architectureFlow li {
+  padding: 1rem;
+  border: 1px solid var(--home-border);
+  border-radius: 5px;
+  text-align: center;
+  background: var(--home-bg);
+}
+
+.architectureFlow li + li {
+  margin-top: 1.25rem;
+  position: relative;
+}
+
+.architectureFlow li + li::before {
+  content: '';
+  position: absolute;
+  height: 1.25rem;
+  width: 1px;
+  background: var(--home-border);
+  top: -1.25rem;
+  left: 50%;
+}
+
+.architectureFlow .architecturePacos {
+  border-color: var(--home-accent);
+  color: var(--home-accent);
+  font-weight: 700;
+}
+
+.quickStart {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+}
+
+.quickStart > div {
+  min-width: 0;
+}
+
+.quickStart pre {
+  font-size: 0.85rem;
+}
+
+.closing {
+  text-align: center;
+}
+
+.closing .intro {
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+.closing .actions {
+  justify-content: center;
+}
+
+.home .licenseNote {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 996px) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .split,
+  .quickStart {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .capabilities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pluginList {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.headerContainer {
-  text-align: center;
-}
-.headerContainer span{
-  display: inline-block;
-}
-.headerContainer p {
-  text-wrap: auto;
-}
-.appName{
-  font-weight: bold;
-  font-size: 30px;
-}
-.os{
-  font-weight: normal;
-}
-.thin{
-  font-size: 15px;
-  color: var(--ifm-navbar-link-color)
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .heroCopy {
+    margin-bottom: 2rem;
+  }
+
+  .heroBrand {
+    margin-bottom: 1.25rem;
+  }
+
+  .capabilities,
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pluginList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flow {
+    padding: 1.25rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
 }

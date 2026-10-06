@@ -5,8 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-    title: 'Pac OS',
-    tagline: "Enterprise control plane for complex application environments",
+    title: 'PacOS',
+    titleDelimiter: '—',
+    tagline: 'Enterprise Control Plane for Application Environments',
     favicon: 'favicon.ico',
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -61,13 +62,13 @@ const config: Config = {
     ],
 
     themeConfig: {
-        image: 'img/icon.png',
+        image: 'img/screens/desktop.jpg',
         colorMode: {
             defaultMode: 'light',
             respectPrefersColorScheme: false,
         },
         navbar: {
-            title: 'Pac OS',
+            title: 'PacOS',
             logo: {
                 alt: 'PacOS Logo',
                 src: 'img/icon.png',
@@ -81,7 +82,7 @@ const config: Config = {
                 },
                 {
                     to: 'https://demo.pacos.dev',
-                    label: 'Demo',
+                    label: 'Explore Demo',
                     position: 'left'
                 },
                 // { type: 'doc', docId: 'installation/overview', label: 'Installation', position: 'left' },

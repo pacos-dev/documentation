@@ -1,71 +1,53 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import HomepageCarousel from '@site/src/components/HomepageCarousel';
+import styles from '@site/src/pages/index.module.css';
 
-type FeatureItem = {
-  title: string;
-  image: string;
-  description: ReactNode;
-};
-
-const FeatureList: FeatureItem[] = [
+const capabilities = [
     {
-        title: 'Files & Resources',
-        image: '/img/feature2.png',
-        description: (
-            <>
-                Browse, search, upload, download, pack and unpack files
-                from your application environments through a web interface.
-            </>
-        ),
+        title: 'Files',
+        description: 'Browse, search, upload, download, pack and unpack files through the browser.',
     },
     {
-        title: 'Logs & Diagnostics',
-        image: '/img/feature1.png',
-        description: (
-            <>
-                Inspect large log files and application data without
-                requiring direct access to servers or containers.
-            </>
-        ),
+        title: 'Logs',
+        description: 'Inspect large log files and application data without direct server or container access.',
+    },
+    {
+        title: 'APIs & Services',
+        description: 'Interact with application APIs and services from one interface.',
+    },
+    {
+        title: 'Database',
+        description: 'Connect to any database to browse schemas, inspect tables and run queries from PacOS.',
     },
     {
         title: 'Shared Test Environments',
-        image: '/img/feature3.png',
-        description: (
-            <>
-                Manage shared mocks, test resources and development tools
-                interactively across multiple users and sessions.
-            </>
-        ),
+        description: 'Manage shared mocks, test resources and environment state with your team.',
+    },
+    {
+        title: 'Tools',
+        description: 'Expose application-specific tools through plugins, alongside the resources they work with.',
     },
 ];
 
-function Feature({title, image, description}: FeatureItem) {
-  return (
-    <div className={clsx('col feature-border')}>
-      <div className="text--center">
-        <img src={image} className={styles.featureSvg} alt={title} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function HomepageFeatures(): ReactNode {
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+    return (
+        <section className={styles.section} aria-labelledby="capabilities-title">
+            <div className={styles.container}>
+                <div className={styles.intro}>
+                    <p className={styles.eyebrow}>What you can do</p>
+                    <h2 id="capabilities-title">Everything your team needs.</h2>
+                    <p>Work with the resources behind your application, not the infrastructure behind them.</p>
+                </div>
+                <div className={styles.capabilities}>
+                    {capabilities.map(({title, description}) => (
+                        <article key={title} className={styles.capability}>
+                            <h3>{title}</h3>
+                            <p>{description}</p>
+                        </article>
+                    ))}
+                </div>
+                <HomepageCarousel/>
+            </div>
+        </section>
+    );
 }

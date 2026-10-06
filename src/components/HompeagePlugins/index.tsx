@@ -1,48 +1,38 @@
-import React, {ReactNode} from 'react';
-import styles from './styles.module.css';
-import clsx from "clsx";
+import type {ReactNode} from 'react';
+import HomepageSkeleton from '@site/src/components/HomepageSkeleton';
+import styles from '@site/src/pages/index.module.css';
+
+const plugins = [
+    {resource: 'Files', name: 'Explorer'},
+    {resource: 'Logs', name: 'Glogg'},
+    {resource: 'APIs', name: 'ApiNity'},
+    {resource: 'Mocks', name: 'MockServer'},
+    {resource: 'Databases', name: 'Database'},
+    {resource: 'Custom tools', name: '+ Your Plugin'},
+];
 
 export default function HomepagePlugins(): ReactNode {
     return (
-
-        <section className={styles.features}>
-            <div className="container text--center">
-
-
-                <div className="row">
-                    <div className={clsx('col feature-border')}>
-                        <h1 className={styles.center}>Extend PacOS with plugins</h1>
-                        <div className={styles.codeBlock} >
-                            <p>
-                                PacOS is designed to adapt to the environment around it.
-                                Plugins turn application infrastructure and development tools
-                                into accessible web interfaces.
-                            </p>
-                            <ul className={styles.listLeft} style={{ listStyle: 'none', textAlign: 'left', marginLeft: '10%' }}>
-                                <li><strong>Explorer</strong> — browse and manage files.</li>
-                                <li><strong>Glogg</strong> — inspect and search large log files.</li>
-                                <li><strong>ApiNity</strong> — work with APIs.</li>
-                                <li><strong>MockServer</strong> — create and manage REST and SOAP mocks.</li>
-                                <li><strong>Database</strong> — browse and manage all your databases.</li>
-                            </ul>
-                            <p>
-                                Plugins run in isolated contexts and can share their configuration
-                                and state across user sessions, making PacOS suitable for
-                                collaborative development and testing environments.
-                            </p>
-                            <p>
-                                Build your own plugins and integrate the tools specific to your
-                                application environment.
-                            </p>
-                        </div>
-                    </div>
-
+        <section className={styles.section} aria-labelledby="plugins-title">
+            <div className={styles.container}>
+                <div className={styles.intro}>
+                    <p className={styles.eyebrow}>Adapt to your environment</p>
+                    <h2 id="plugins-title">Extend PacOS for your environment.</h2>
+                    <p>
+                        One interface for different operational tools. Start with existing plugins,
+                        then add the tools specific to your application.
+                    </p>
                 </div>
-
-
+                <ul className={styles.pluginList}>
+                    {plugins.map(({resource, name}, index) => (
+                        <li key={name} className={index === plugins.length - 1 ? styles.customPlugin : undefined}>
+                            <span>{resource}</span>
+                            <strong>{name}</strong>
+                        </li>
+                    ))}
+                </ul>
+                <HomepageSkeleton/>
             </div>
         </section>
-
-
     );
 }
