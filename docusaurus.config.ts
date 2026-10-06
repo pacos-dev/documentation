@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
     title: 'Pac OS',
-    tagline: "Web application that connects your tools, data, and workflows in one unified workspace",
+    tagline: "Enterprise control plane for complex application environments",
     favicon: 'favicon.ico',
 
     // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

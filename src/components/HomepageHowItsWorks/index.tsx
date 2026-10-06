@@ -11,37 +11,60 @@ export default function HomepageHowItsWorks(): ReactNode {
                 <div className="row">
                     <div className={clsx('col feature-border')}>
                         <div className="text--center">
-                            <h1 className={styles.center}>How it Works</h1>
+                            <h1 className={styles.center}>How it works</h1>
                             <p>
-                                PacOS provides a modular, windowed Web-OS environment where each tool runs independently.
-                                Configure workflows, automation tasks, and plugins locally, then seamlessly transfer them to a server.
+                                PacOS connects to the services and resources that make up your
+                                application environment and exposes them through a controlled
+                                web interface.
                             </p>
                             <ul className={styles.listLeft}>
-                                <li>Run locally or in shared server mode for team-wide collaboration.</li>
-                                <li>All automation workflows and plugin configurations can be transferred to a server effortlessly.</li>
-                                <li>Local work or automation created on one machine runs seamlessly on the server environment.</li>
-                                <li>Fully scalable — supports multiple users, permissions, and shared resources without conflicts.</li>
+                                <li>
+                                    Connect PacOS to your containerized application environment.
+                                </li>
+                                <li>
+                                    Expose files, logs, APIs, services and test tools through plugins.
+                                </li>
+                                <li>
+                                    Give users access to resources without giving them direct
+                                    infrastructure access.
+                                </li>
+                                <li>
+                                    Share configuration and state across team members.
+                                </li>
+                                <li>
+                                    Run PacOS locally or as a shared server environment.
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <div className={clsx('col feature-border')}>
                         <div className="text--center">
-                            <h1 className={styles.center}>Why PacOS?</h1>
-                            A flexible platform built for teams who automate, integrate, and streamline work.
-                            <br/><br/>
+                            <h1 className={styles.center}>Built for teams</h1>
+
                             <ul className={styles.listLeft}>
-                                <li>Modular Web-OS where tools run as independent windowed apps.</li>
-                                <li>Unified workspace instead of a scattered toolchain.</li>
-                                <li>Quickly automate workflows using the built-in BPMN editor and automation engine.</li>
-                                <li>Extend functionality with plugins or custom modules via Marketplace.</li>
-                                <li>Fully extensible: any Java developer can write their own extension based on the provided skeleton project and install it on-the-fly.</li>
-                                <li>Works locally or in shared server mode for team-wide collaboration.</li>
-                                <li>Free to use in both personal and business projects (with licensing restrictions).</li>
+                                <li>
+                                    <strong>Developers</strong> — inspect files, logs and services
+                                    without switching between infrastructure tools.
+                                </li>
+                                <li>
+                                    <strong>QA & Testers</strong> — manage mocks and shared test
+                                    resources interactively.
+                                </li>
+                                <li>
+                                    <strong>Support teams</strong> — investigate application state
+                                    without direct server access.
+                                </li>
+                                <li>
+                                    <strong>Enterprise teams</strong> — control access to operational
+                                    resources through a single interface.
+                                </li>
                             </ul>
-                            This makes it easy to bundle multiple tools into one consistent experience, instead of
-                            separate
-                            services, UIs, and deployments.
+
+                            <p>
+                                Extend PacOS with plugins and custom modules whenever your environment
+                                requires additional tools.
+                            </p>
                         </div>
                     </div>
 

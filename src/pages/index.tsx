@@ -39,26 +39,30 @@ export default function Home(): ReactNode {
     return (
         <>
             <Head>
-                <meta name="description" content="PacOS is a modular Web-OS for workflow automation."/>
-                <meta name="keywords" content="PacOS, Web OS, modular, workflow automation, plugins"/>
+                <meta
+                    name="description"
+                    content="PacOS is an enterprise web control plane for complex containerized application environments. Give developers, QA teams and testers a single interface for files, logs, mocks, APIs and tools."
+                />
+
+                <meta
+                    name="keywords"
+                    content="PacOS, enterprise, containerized environments, application management, logs, files, mocks, testing, QA, plugins, Web OS"
+                />
             </Head>
             <Layout
-                title={`${siteConfig.title}`}
-                description="PacOS — modular Web-OS for engineering teams, automation & devtools">
+                title="PacOS — Enterprise Control Plane for Application Environments"
+                description="A unified web interface for files, logs, services, APIs, mocks and tools across complex containerized environments.">
                 <HomepageHeader/>
                 <main>
                     <HomepageOverview/>
                     <HomepageHero/>
                     <HomepageFeatures/>
-
-
                     <HomepageHowItsWorks/>
                     <HomepagePlugins/>
                     <HomepageCarousel/>
                     <HomepageQuickStart/>
                     <HomepageOpenAndFree/>
                     <HomepageSkeleton/>
-
                 </main>
             </Layout>
         </>

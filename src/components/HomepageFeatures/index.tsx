@@ -10,36 +10,36 @@ type FeatureItem = {
 };
 
 const FeatureList: FeatureItem[] = [
-  {
-    title: 'Web-OS for Your Business',
-    image: '/img/feature2.png',
-    description: (
-      <>
-          PacOS brings together tools, processes, and automation inside a
-          desktop-like environment designed for engineering teams..
-      </>
-    ),
-  },
-  {
-    title: 'Modularity',
-    image: '/img/feature1.png',
-    description: (
-      <>
-          Install modules like apps. Extend PacOS with your own tools or
-          integrate existing ones through a simple plugin model.
-      </>
-    ),
-  },
-  {
-    title: 'Interface',
-    image: '/img/feature3.png',
-    description: (
-      <>
-          Work in windows, switch between modules, and manage multiple tasks
-          at once — all inside a flexible, desktop-style UI..
-      </>
-    ),
-  },
+    {
+        title: 'Files & Resources',
+        image: '/img/feature2.png',
+        description: (
+            <>
+                Browse, search, upload, download, pack and unpack files
+                from your application environments through a web interface.
+            </>
+        ),
+    },
+    {
+        title: 'Logs & Diagnostics',
+        image: '/img/feature1.png',
+        description: (
+            <>
+                Inspect large log files and application data without
+                requiring direct access to servers or containers.
+            </>
+        ),
+    },
+    {
+        title: 'Shared Test Environments',
+        image: '/img/feature3.png',
+        description: (
+            <>
+                Manage shared mocks, test resources and development tools
+                interactively across multiple users and sessions.
+            </>
+        ),
+    },
 ];
 
 function Feature({title, image, description}: FeatureItem) {
