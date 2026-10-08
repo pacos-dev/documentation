@@ -11,7 +11,7 @@ A PacOS plugin is a Maven artifact loaded dynamically by the PacOS runtime. The 
 
 ## What PacOS discovers
 
-During plugin initialization PacOS inspects the plugin Spring context for these extension types:
+During plugin initialization PacOS inspects the plugin Spring context for the extension types listed below. Automation blocks are described separately because their discovery belongs to the automation/Camunda integration rather than `PluginDataLoader`.
 
 | Extension | Purpose |
 | --- | --- |
