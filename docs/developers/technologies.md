@@ -2,77 +2,94 @@
 sidebar_position: 98
 id: technologies
 title: Technologies
-description: Overview of the main technologies and frameworks used in PacOS, including Java 21, Vaadin for UI, Spring Boot for backend, and additional components for plugin support and modular architecture.
-keywords: [pacos, technologies, java 21, vaadin, spring boot, plugin system, modular architecture, backend, frontend]
+description: Current PacOS technology stack and the versions relevant to plugin development.
+keywords: [pacos, technologies, java 21, spring boot 4, vaadin 25, maven, plugin system]
 ---
 
 # Technologies Used in PacOS
 
-PacOS is built on a modern, modular technology stack designed for building extensible enterprise applications. 
-Below is an overview of the main technologies currently used.
+The PacOS platform and its plugins use a Java/Spring/Vaadin stack with explicit version alignment. Plugin developers should treat the PacOS release and its BOM as the compatibility baseline.
 
----
+## Current baseline
 
-## Java 21
+| Technology | Current version |
+| --- | --- |
+| Java | **21** |
+| Spring Boot | **4.1.1** |
+| Vaadin | **25.3.0** |
+| PacOS | <code>3.4.0</code> |
+| PacOS BOM | <code>3.4.0</code> |
 
-- PacOS is fully developed in **Java 21**, taking advantage of the latest language features and performance improvements
-- Java provides the core runtime for both the backend and plugin system
-- Ensures high compatibility with Spring Boot, Vaadin, and other libraries
+The plugin skeleton is aligned with the same Java, Spring Boot, Vaadin and PacOS BOM baseline.
 
----
+## Java
 
-## Vaadin Framework
+PacOS uses Java 21 for the platform and the plugin skeleton. Compile plugins against the Java level supported by the target PacOS release.
 
-- **Vaadin** is used as the primary **UI framework**
-- Enables creating rich, interactive web interfaces in Java without directly writing HTML, CSS, or JavaScript
-- Supports modular UI components, which integrates seamlessly with PacOS’s plugin-based architecture
-- Provides **themeing, layouts, and responsive design** out of the box
+Java is used for:
 
----
+- plugin business logic and services
+- Spring configuration and dependency injection
+- Vaadin UI components
+- persistence and REST APIs
+- PacOS platform extension APIs
 
 ## Spring Boot
 
-- **Spring Boot** is the main framework for backend development
-- Handles dependency injection, configuration, database integration, security, and service orchestration
-- Every plugin runs in its **own Spring context**, extending the base context to ensure isolation and safe interaction with the platform
-- Makes it easier to implement REST APIs, services, and listeners for plugins
+Spring Boot provides dependency injection, configuration, persistence integration, REST support and application lifecycle management.
 
----
+Each plugin runs in its own Spring application context. The plugin context is connected to the PacOS platform context, while plugin implementation classes remain owned by the plugin context and class loader.
 
-## Database Support
+Plugin configuration should therefore be explicit. The skeleton uses a dedicated configuration package under:
 
-- PacOS Core uses **HSQLDB** as the default embedded database for quick setup and testing
-- Plugins may use their own independent database
-- Database access is fully configured via Spring Boot, with support for transactional operations and repositories
+~~~text
+org.pacos.plugin.skeleton.config
+~~~
 
----
+## Vaadin
 
-## Modular Plugin Architecture
+Vaadin is the primary UI framework.
 
-- Each plugin runs in a **separate Spring context** to maintain isolation
-- Plugins can expose APIs and listen to system events, enabling communication between modules
-- PacOS supports dynamic installation and removal of plugins without restarting the application
-- Modular architecture allows developers to extend or replace system functionality safely
+PacOS uses Vaadin for:
 
----
+- desktop windows and dialogs
+- settings pages
+- notifications and interactive controls
+- keyboard shortcuts
+- browser-side resource handling
 
-## Additional Technologies
+Plugin UI classes should follow the PacOS lifecycle rules for session-bound and component-bound state.
 
-- **Maven** for build management and dependency control
-- **BOM (Bill of Materials)** ensures all plugin dependencies are compatible with PacOS Core
-- **JUnit / Testcontainers** for plugin testing
-- **Cora base context** as a foundation for all plugin contexts
+## Maven and the PacOS BOM
 
----
+Maven manages plugin builds and dependency resolution.
+
+The PacOS BOM aligns plugin dependencies with the platform version. A plugin should import the BOM for the target PacOS release instead of independently choosing versions for PacOS-owned Spring, Vaadin or platform libraries.
+
+Most platform dependencies in the skeleton use <code>provided</code> scope because those libraries are supplied by the PacOS runtime.
+
+## Persistence
+
+PacOS core uses HSQLDB as its default embedded database for local operation.
+
+A plugin can define its own persistence infrastructure using Spring Data JPA, Hibernate and Flyway. The plugin should use unique datasource, entity manager, transaction manager and migration names so that its database remains isolated from other contexts.
+
+## Testing
+
+The plugin skeleton uses JUnit and Mockito for unit tests and Spring test support for context and web tests. The repository also contains WireMock as a test dependency for HTTP integration scenarios.
+
+Vaadin UI tests use a dedicated test helper that creates the current Vaadin and PacOS session objects without starting the full platform.
+
+See [Testing Plugins](plugins/testing.md) for the recommended test layers.
 
 ## Summary
 
-PacOS combines:
+Plugin development should start from the target PacOS version and then align:
 
-- **Java 21** for modern backend and plugin development
-- **Vaadin** for rich, modular web UI
-- **Spring Boot** for backend services and plugin context management
-- **HSQLDB** for default database access
-- **Maven and BOM** for consistent dependency management
+1. Java
+2. PacOS BOM
+3. Spring Boot
+4. Vaadin
+5. plugin dependencies and packaging
 
-This stack ensures a stable, extensible, and performant platform for building and running modular applications and plugins.
+Do not copy version values from unrelated or older examples. The target PacOS release is the source of truth for compatibility.
