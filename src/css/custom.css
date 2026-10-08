@@ -16,8 +16,8 @@
   --pacos-brand-dark: #0b1d2d;
   --pacos-control-plane-bg: linear-gradient(135deg, rgba(155, 212, 42, 0.14), rgba(22, 140, 255, 0.08)), #ffffff;
   --pacos-control-plane-border: var(--pacos-lime);
-  --pacos-control-plane-text: var(--pacos-ink);
-  --pacos-control-plane-muted: var(--pacos-ink-soft);
+  --pacos-control-plane-foreground: #0b1724;
+  --pacos-control-plane-muted: #314252;
   --pacos-control-plane-label-bg: rgba(255, 255, 255, 0.9);
   --pacos-control-plane-label-text: #187b7d;
 
@@ -76,7 +76,7 @@
   --pacos-brand-dark: #081725;
   --pacos-control-plane-bg: var(--pacos-brand-dark);
   --pacos-control-plane-border: var(--pacos-blue);
-  --pacos-control-plane-text: #fff;
+  --pacos-control-plane-foreground: #ffffff;
   --pacos-control-plane-muted: rgba(255, 255, 255, 0.72);
   --pacos-control-plane-label-bg: var(--pacos-brand-dark);
   --pacos-control-plane-label-text: var(--pacos-blue);
