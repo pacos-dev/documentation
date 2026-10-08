@@ -14,6 +14,9 @@
   --pacos-magenta: #c83b72;
   --pacos-red: #ef4a43;
   --pacos-brand-dark: #0b1d2d;
+  --pacos-control-plane-bg: linear-gradient(125deg, #168cff 0%, #169f8a 68%, #9bd42a 100%);
+  --pacos-control-plane-label-bg: rgba(255, 255, 255, 0.94);
+  --pacos-control-plane-label-text: #147a7b;
 
   --ifm-color-primary: var(--pacos-blue);
   --ifm-color-primary-dark: var(--pacos-blue-dark);
@@ -68,6 +71,9 @@
   --pacos-magenta: #e26898;
   --pacos-red: #ff7770;
   --pacos-brand-dark: #081725;
+  --pacos-control-plane-bg: var(--pacos-brand-dark);
+  --pacos-control-plane-label-bg: var(--pacos-brand-dark);
+  --pacos-control-plane-label-text: var(--pacos-blue);
 
   --ifm-color-primary: var(--pacos-blue);
   --ifm-color-primary-dark: #258fe8;

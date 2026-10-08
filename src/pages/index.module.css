@@ -411,7 +411,7 @@
   background:
     radial-gradient(circle at 50% 0%, rgba(73, 168, 255, 0.18), transparent 55%),
     linear-gradient(135deg, rgba(255,255,255,0.07), transparent),
-    var(--pacos-brand-dark);
+    var(--pacos-control-plane-bg);
   color: #fff;
   box-shadow:
     0 0 0 5px rgba(22, 140, 255, 0.06),
@@ -427,8 +427,8 @@
   padding: 0.22rem 0.62rem;
   border: 1px solid var(--home-accent);
   border-radius: 999px;
-  background: var(--pacos-brand-dark);
-  color: var(--home-accent);
+  background: var(--pacos-control-plane-label-bg);
+  color: var(--pacos-control-plane-label-text);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -997,7 +997,7 @@
   border: 0;
   border-radius: 12px;
   background:
-    linear-gradient(var(--pacos-brand-dark), var(--pacos-brand-dark)) padding-box,
+    var(--pacos-control-plane-bg) padding-box,
     linear-gradient(110deg, var(--home-accent), var(--home-lime)) border-box;
   color: #fff;
   box-shadow:
@@ -1026,8 +1026,8 @@
   padding: 0.22rem 0.65rem;
   border: 1px solid var(--home-accent);
   border-radius: 999px;
-  background: var(--pacos-brand-dark);
-  color: var(--home-accent);
+  background: var(--pacos-control-plane-label-bg);
+  color: var(--pacos-control-plane-label-text);
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.12em;
