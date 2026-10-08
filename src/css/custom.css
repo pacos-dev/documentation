@@ -14,10 +14,20 @@
   --pacos-magenta: #c83b72;
   --pacos-red: #ef4a43;
   --pacos-brand-dark: #0b1d2d;
-  --pacos-control-plane-bg: linear-gradient(135deg, rgba(155, 212, 42, 0.14), rgba(22, 140, 255, 0.08)), #ffffff;
+  --pacos-control-plane-bg: linear-gradient(135deg, rgba(155, 212, 42, 0.14), var(--pacos-blue-tint)), #ffffff;
   --pacos-control-plane-border: var(--pacos-lime);
   --pacos-control-plane-foreground: #0b1724;
   --pacos-control-plane-muted: #314252;
+
+  --pacos-shadow-card: var(--pacos-shadow-card);
+  --pacos-shadow-subtle: var(--pacos-shadow-subtle);
+  --pacos-shadow-strong: var(--pacos-shadow-strong);
+  --pacos-blue-tint: var(--pacos-blue-tint);
+  --pacos-lime-tint: var(--pacos-lime-tint);
+  --pacos-orange-tint: var(--pacos-orange-tint);
+  --pacos-magenta-tint: var(--pacos-magenta-tint);
+  --pacos-light-on-dark-muted: var(--pacos-light-on-dark-muted);
+  --pacos-light-on-dark-soft: var(--pacos-light-on-dark-soft);
   --pacos-control-plane-label-bg: rgba(255, 255, 255, 0.9);
   --pacos-control-plane-label-text: #187b7d;
 
@@ -37,14 +47,14 @@
   --ifm-background-color: var(--pacos-paper);
   --ifm-background-surface-color: var(--pacos-white);
   --ifm-navbar-background-color: rgba(247, 245, 239, 0.92);
-  --ifm-navbar-shadow: 0 1px 0 rgba(11, 23, 36, 0.08);
+  --ifm-navbar-shadow: 0 1px 0 var(--pacos-shadow-subtle);
   --ifm-menu-color-active: var(--pacos-blue-dark);
   --ifm-code-font-size: 92%;
   --ifm-footer-background-color: var(--pacos-ink);
   --docusaurus-highlighted-code-line-bg: rgba(22, 140, 255, 0.1);
 
   --nav-background-color: rgba(247, 245, 239, 0.92);
-  --nav-border: rgba(11, 23, 36, 0.08);
+  --nav-border: var(--pacos-shadow-subtle);
   --background: var(--pacos-paper);
   --window-colotr: var(--pacos-ink);
   --window-background: var(--pacos-white);
@@ -77,7 +87,7 @@
   --pacos-control-plane-bg: var(--pacos-brand-dark);
   --pacos-control-plane-border: var(--pacos-blue);
   --pacos-control-plane-foreground: #ffffff;
-  --pacos-control-plane-muted: rgba(255, 255, 255, 0.72);
+  --pacos-control-plane-muted: var(--pacos-light-on-dark-muted);
   --pacos-control-plane-label-bg: var(--pacos-brand-dark);
   --pacos-control-plane-label-text: var(--pacos-blue);
 
@@ -114,7 +124,7 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 8% 4%, rgba(22, 140, 255, 0.08), transparent 26rem),
+    radial-gradient(circle at 8% 4%, var(--pacos-blue-tint), transparent 26rem),
     radial-gradient(circle at 92% 10%, rgba(155, 212, 42, 0.07), transparent 24rem),
     radial-gradient(circle at 78% 86%, rgba(255, 122, 36, 0.055), transparent 28rem),
     radial-gradient(circle at 18% 90%, rgba(200, 59, 114, 0.045), transparent 25rem),
@@ -246,7 +256,7 @@ body {
   border: 1px solid var(--pacos-line);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(11, 23, 36, 0.05);
+  box-shadow: 0 10px 30px var(--pacos-shadow-card);
 }
 
 .theme-doc-markdown th {
@@ -272,7 +282,7 @@ body {
 .theme-code-block {
   border: 1px solid var(--pacos-line);
   border-radius: 12px;
-  box-shadow: 0 14px 34px rgba(11, 23, 36, 0.08);
+  box-shadow: 0 14px 34px var(--pacos-shadow-subtle);
 }
 
 .pagination-nav__link {
@@ -285,7 +295,7 @@ body {
 .pagination-nav__link:hover {
   border-color: var(--pacos-blue);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(11, 23, 36, 0.08);
+  box-shadow: 0 12px 28px var(--pacos-shadow-subtle);
 }
 
 .footer {
@@ -316,7 +326,7 @@ body {
 }
 
 .footer__link-item {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--pacos-light-on-dark-soft);
 }
 
 .footer__link-item:hover {
@@ -328,7 +338,7 @@ body {
 }
 
 .footer a {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--pacos-light-on-dark-soft);
 }
 
 .footer a:hover {
@@ -378,7 +388,7 @@ p.see,
   padding: 20px;
   margin: 20px 10px;
   gap: 2rem;
-  box-shadow: 0 12px 35px rgba(11, 23, 36, 0.05);
+  box-shadow: 0 12px 35px var(--pacos-shadow-card);
 }
 
 @media (max-width: 996px) {
