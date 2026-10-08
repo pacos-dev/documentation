@@ -2,86 +2,62 @@
 sidebar_position: 3
 id: plugins
 title: Plugins
-description: Overview of the PacOS plugin architecture, installation methods, runtime behavior, Spring context isolation, communication between plugins, and API exposure.
-keywords: [pacos, plugins, plugin system, modular architecture, app store, jar installation, spring context, extension modules, plugin api, dynamic installation]
+description: Overview of the PacOS plugin architecture, runtime behavior, extension points, API exposure, and dynamic lifecycle.
+keywords: [pacos, plugins, plugin system, modular architecture, spring context, extension modules, plugin api, dynamic installation]
 ---
 
 # Plugins
 
-PacOS provides a fully modular architecture built around dynamically installed plugins. Plugins can be added or
-removed at any time, and the system immediately makes them available without requiring a restart. This enables
-rapid feature development, flexible deployments, and seamless extension of the platform.
+PacOS is built around dynamically managed plugins. A plugin is an independently packaged Maven artifact that is loaded into its own Spring context and class loader.
 
----
+Plugins can be installed, updated and removed without restarting the main PacOS process.
 
-## Spring Context Isolation
+## Spring context isolation
 
-Each plugin runs in its **own independent Spring context**.  
-This architecture ensures:
+Each plugin runs in its own Spring application context. The plugin context extends the PacOS platform context and receives access to the platform APIs while keeping plugin implementation details isolated.
 
-- complete isolation between plugins
-- safe class loading
-- freedom from dependency conflicts (except those used by the system)
+The skeleton exposes its plugin configuration from:
 
-### **Base Context Inheritance**
+`org.pacos.plugin.skeleton.config`
 
-Every plugin context is built on top of a *base context* (called **pacos-core**).  
-The plugin's classpath is then added as an extension, giving the plugin:
+PacOS uses that configuration package as the entry point for scanning plugin components.
 
-- **full access to the PacOS platform**
-- complete visibility of platform APIs and components
+## Extension points
 
-At the same time, PacOS itself is unaware of the plugin internals, which preserves isolation and stability.
+The current PacOS runtime discovers these plugin extensions:
 
----
+- `WindowConfig` - desktop applications and windows
+- `SettingTab` - settings pages
+- `VariableProvider` - plugin variable scopes
+- `PluginListener` - plugin lifecycle integration
+- Vaadin `RequestHandler` - custom HTTP/resource handling
+- Spring MVC controllers - plugin REST APIs
+- `ExecutableBlock` - automation blocks
 
-## Plugin Listener Mechanism
+The practical implementation details are documented in the dedicated developer pages.
 
-PacOS provides a system-wide listener interface that plugins may implement.
+## Dynamic lifecycle
 
-If a plugin implements this listener, it will receive events whenever:
+PacOS notifies `PluginListener` implementations when plugin contexts are initialized or removed.
 
-- another plugin is installed
-- another plugin is uninstalled
+A plugin should therefore be safe to start and stop independently. Avoid long-lived static references to plugin classes, UI components or services.
 
-This mechanism is especially useful when:
+## Cross-plugin communication
 
-- one plugin needs to extend or modify the behavior of another plugin
-- plugins need to communicate or coordinate functionality
+Use `InternalApiAccess` for authenticated API communication between plugins instead of depending directly on another plugin's implementation classes.
 
----
+## Creating your own plugin
 
-## Plugin API Exposure
+The recommended starting point is the [skeleton project](https://github.com/pacos-dev/skeleton).
 
-A plugin may expose its own API depending on the functionality it provides.  
-The platform:
+See [Plugin Runtime Architecture](architecture.md), then choose the extension guide relevant to your plugin:
 
-- automatically detects plugin API endpoints
-- integrates them into the PacOS API system
-- applies PacOS’s security and permission model
-
-This allows plugins to safely offer services to the entire platform or to other plugins.
-
----
-
-## Creating Your Own Plugin
-
-To build a new plugin, it is recommended to start with the **[skeleton-project](https://github.com/pacos-dev/skeleton)**
-
-More in [skeleton documentation](skeleton.md)
-
-The template includes:
-
-- sample API implementations
-- variable management system
-- permission model examples
-- a reference window implementation
-- a fully configured plugin structure
-
-This greatly speeds up development and ensures compatibility with the PacOS runtime environment.
-
----
-
-## Summary
-
-PacOS’s plugin architecture enables powerful and dynamic application extension. Thanks to isolated Spring contexts, runtime installation, and built-in communication mechanisms, developers can build independent, secure, and highly modular features that integrate seamlessly with the core system.
+- [Windows and Desktop UI](windows.md)
+- [Permissions and Security](security.md)
+- [Settings Extensions](settings.md)
+- [Variable Providers](variables.md)
+- [Events and Plugin Lifecycle](events.md)
+- [REST APIs and Resources](rest-api.md)
+- [Plugin Database](database.md)
+- [Automation Blocks](automation.md)
+- [Build, Package and Release](build-and-release.md)
