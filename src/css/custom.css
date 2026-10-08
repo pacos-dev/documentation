@@ -7,8 +7,8 @@
   --pacos-surface: #eeece5;
   --pacos-white: #ffffff;
   --pacos-line: #d8d6cf;
-  --pacos-blue: #168cff;
-  --pacos-blue-dark: #0069cf;
+  --pacos-blue: #2a7898;
+  --pacos-blue-dark: #185f7c;
   --pacos-lime: #9bd42a;
   --pacos-orange: #ff7a24;
   --pacos-magenta: #c83b72;
@@ -17,11 +17,11 @@
 
   --ifm-color-primary: var(--pacos-blue);
   --ifm-color-primary-dark: var(--pacos-blue-dark);
-  --ifm-color-primary-darker: #0059b2;
-  --ifm-color-primary-darkest: #00478d;
-  --ifm-color-primary-light: #45a7ff;
-  --ifm-color-primary-lighter: #70b9ff;
-  --ifm-color-primary-lightest: #9dceff;
+  --ifm-color-primary-darker: #14536d;
+  --ifm-color-primary-darkest: #103f54;
+  --ifm-color-primary-light: #4b8ba5;
+  --ifm-color-primary-lighter: #70a7bb;
+  --ifm-color-primary-lightest: #9ac2d0;
 
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -282,8 +282,13 @@ body {
 
 .footer::before {
   content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: block;
   height: 4px;
+  z-index: 1;
   background: linear-gradient(
     90deg,
     var(--pacos-blue) 0 25%,
