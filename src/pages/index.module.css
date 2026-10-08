@@ -409,7 +409,7 @@
   border: 1px solid var(--pacos-control-plane-border);
   border-radius: 15px;
   background: var(--pacos-control-plane-bg);
-  color: var(--pacos-control-plane-text);
+  color: var(--pacos-control-plane-foreground);
   box-shadow:
     0 0 0 5px rgba(22, 140, 255, 0.045),
     0 18px 40px rgba(11, 23, 36, 0.12);
