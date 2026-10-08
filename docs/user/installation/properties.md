@@ -12,7 +12,7 @@ Below is a list of available properties you can pass when launching PacOS (stand
 
 | Parameter | Default | Description |
 |---|---|---|
-| <code>workingDir</code> | Windows - <code>{userHome}/.pacos</code>, <br/>Linux - <code>/usr/local/.pacos</code> | The installation directory where all resources including libraries, logs, and DB will be placed. |
+| <code>workingDir</code> | Windows - <code>&#123;userHome&#125;/.pacos</code>, <br/>Linux - <code>/usr/local/.pacos</code> | The installation directory where all resources including libraries, logs, and DB will be placed. |
 | <code>serverPort</code> | <code>8086</code> | The port on which PacOS will be launched. |
 | <code>module.list.repo.url</code> | <code>https://repo.pacos.dev/repository/pacos-maven-repo</code> | The repository URL from which PacOS modules will be downloaded. |
 | <code>plugin.list.repo.url</code> | <code>https://repo.pacos.dev/repository/pacos-maven-repo</code> | The repository URL from which PacOS plugins will be downloaded. |
