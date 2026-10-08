@@ -33,7 +33,7 @@ export default function HomepageOverview(): ReactNode {
                     <div className={styles.resourceCloud}>
                         <p className={styles.diagramLabel}>Application environment</p>
                         <ul className={styles.resources}>
-                            {resources.map(({name, icon}) => <li key={name}><AppIcon name={icon}/>{name}</li>)}
+                            {resources.map(({name, icon}) => <li key={name}><span className={styles.appIcon}><AppIcon name={icon}/></span>{name}</li>)}
                         </ul>
                     </div>
                     <span className={styles.connector} aria-hidden="true"/>
