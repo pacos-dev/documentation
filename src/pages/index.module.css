@@ -353,45 +353,26 @@
 }
 
 .resources li:nth-child(1) .appIcon,
-.resources li:nth-child(7) .appIcon {
+.resources li:nth-child(6) .appIcon {
   color: var(--home-orange);
+  background: rgba(255, 122, 36, 0.1);
 }
 
 .resources li:nth-child(2) .appIcon,
 .resources li:nth-child(5) .appIcon {
   color: var(--home-accent);
+  background: rgba(42, 120, 152, 0.1);
 }
 
 .resources li:nth-child(3) .appIcon {
   color: var(--home-lime);
+  background: rgba(155, 212, 42, 0.11);
 }
 
-.resources li:nth-child(1) .appIcon {
-  color: var(--home-orange);
-}
-
-.resources li:nth-child(2) .appIcon {
-  color: var(--home-accent);
-}
-
-.resources li:nth-child(3) .appIcon {
-  color: var(--home-lime);
-}
-
-.resources li:nth-child(4) .appIcon {
-  color: var(--home-magenta);
-}
-
-.resources li:nth-child(5) .appIcon {
-  color: var(--home-accent);
-}
-
-.resources li:nth-child(6) .appIcon {
-  color: var(--home-orange);
-}
-
+.resources li:nth-child(4) .appIcon,
 .resources li:nth-child(7) .appIcon {
   color: var(--home-magenta);
+  background: rgba(200, 59, 114, 0.09);
 }
 
 .connector {
@@ -1007,13 +988,45 @@
 }
 
 .architectureFlow .architecturePacos {
+  position: relative;
   border: 0;
-  border-radius: 11px;
+  border-radius: 12px;
   background:
-    linear-gradient(135deg, rgba(22, 140, 255, 0.12), rgba(155, 212, 42, 0.08)),
-    var(--pacos-brand-dark);
+    linear-gradient(var(--pacos-brand-dark), var(--pacos-brand-dark)) padding-box,
+    linear-gradient(110deg, var(--home-accent), var(--home-lime)) border-box;
   color: #fff;
-  box-shadow: 0 16px 34px rgba(11, 23, 36, 0.16);
+  box-shadow:
+    0 0 0 4px rgba(22, 140, 255, 0.055),
+    0 18px 40px rgba(11, 23, 36, 0.2);
+  isolation: isolate;
+}
+
+.architectureFlow .architecturePacos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 25% 50%, rgba(22, 140, 255, 0.15), transparent 32%),
+    radial-gradient(circle at 78% 50%, rgba(155, 212, 42, 0.1), transparent 32%);
+  z-index: -1;
+}
+
+.architectureFlow .architecturePacos::after {
+  content: 'PACOS CONTROL PLANE';
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.22rem 0.65rem;
+  border: 1px solid var(--home-accent);
+  border-radius: 999px;
+  background: var(--pacos-brand-dark);
+  color: var(--home-accent);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
 .architecturePacos strong {
