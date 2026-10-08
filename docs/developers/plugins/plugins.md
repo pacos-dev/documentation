@@ -32,7 +32,8 @@ The current PacOS runtime discovers these plugin extensions:
 - `PluginListener` - plugin lifecycle integration
 - Vaadin `RequestHandler` - custom HTTP/resource handling
 - Spring MVC controllers - plugin REST APIs
-- `ExecutableBlock` - automation blocks
+
+Automation blocks use the `ExecutableBlock` SPI from `pacos-base` when the PacOS automation/Camunda integration is enabled; see [Automation Blocks](automation.md).
 
 The practical implementation details are documented in the dedicated developer pages.
 
