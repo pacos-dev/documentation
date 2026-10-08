@@ -989,11 +989,9 @@
 
 .architectureFlow .architecturePacos {
   position: relative;
-  border: 1px solid transparent;
+  border: 1px solid var(--pacos-control-plane-border);
   border-radius: 12px;
-  background:
-    var(--pacos-control-plane-bg) padding-box,
-    linear-gradient(110deg, var(--pacos-control-plane-border), var(--home-accent)) border-box;
+  background: var(--pacos-control-plane-bg);
   color: var(--pacos-control-plane-foreground);
   box-shadow:
     0 0 0 4px rgba(22, 140, 255, 0.045),
