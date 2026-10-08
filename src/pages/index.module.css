@@ -116,9 +116,9 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
   align-items: center;
-  gap: clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(2.25rem, 5vw, 4.5rem);
 }
 
 .heroCopy {
@@ -127,7 +127,7 @@
 
 .heroCopy h1 {
   max-width: 760px;
-  font-size: clamp(3.4rem, 6.2vw, 6.4rem);
+  font-size: clamp(3.15rem, 5.4vw, 5.55rem);
   font-weight: 600;
   letter-spacing: -0.075em;
   line-height: 0.96;
@@ -389,8 +389,8 @@
   border-radius: 14px;
   background:
     linear-gradient(135deg, rgba(255,255,255,0.07), transparent),
-    var(--home-text);
-  color: var(--home-card);
+    var(--pacos-brand-dark);
+  color: #fff;
   box-shadow: 0 18px 38px rgba(11, 23, 36, 0.18);
 }
 
@@ -515,6 +515,12 @@
   scroll-margin-top: 5rem;
 }
 
+.appWindow .productFigure {
+  position: relative;
+  overflow: hidden;
+  background: var(--home-surface);
+}
+
 .appWindow .productImage {
   width: auto;
   max-width: 100%;
@@ -523,11 +529,26 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  filter: saturate(0.88) contrast(1.03);
+  transform: scale(1.012);
+  transform-origin: center;
 }
 
 .appWindow figcaption {
+  position: relative;
+  z-index: 3;
   margin: 0;
   padding: 1rem 1.35rem;
+  background: var(--home-surface);
+}
+
+.appWindow figcaption::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
   background: var(--home-surface);
 }
 
@@ -840,8 +861,8 @@
   border-radius: 11px;
   background:
     linear-gradient(135deg, rgba(22, 140, 255, 0.12), rgba(155, 212, 42, 0.08)),
-    var(--home-text);
-  color: var(--home-card);
+    var(--pacos-brand-dark);
+  color: #fff;
   box-shadow: 0 16px 34px rgba(11, 23, 36, 0.16);
 }
 
@@ -958,7 +979,7 @@
   }
 
   .heroCopy h1 {
-    font-size: clamp(3.2rem, 11vw, 5.3rem);
+    font-size: clamp(3rem, 10vw, 4.8rem);
   }
 
   .container {
