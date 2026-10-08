@@ -19,15 +19,15 @@
   --pacos-control-plane-foreground: #0b1724;
   --pacos-control-plane-muted: #314252;
 
-  --pacos-shadow-card: var(--pacos-shadow-card);
-  --pacos-shadow-subtle: var(--pacos-shadow-subtle);
-  --pacos-shadow-strong: var(--pacos-shadow-strong);
-  --pacos-blue-tint: var(--pacos-blue-tint);
-  --pacos-lime-tint: var(--pacos-lime-tint);
-  --pacos-orange-tint: var(--pacos-orange-tint);
-  --pacos-magenta-tint: var(--pacos-magenta-tint);
-  --pacos-light-on-dark-muted: var(--pacos-light-on-dark-muted);
-  --pacos-light-on-dark-soft: var(--pacos-light-on-dark-soft);
+  --pacos-shadow-card: rgba(11, 23, 36, 0.05);
+  --pacos-shadow-subtle: rgba(11, 23, 36, 0.08);
+  --pacos-shadow-strong: rgba(11, 23, 36, 0.12);
+  --pacos-blue-tint: rgba(22, 140, 255, 0.08);
+  --pacos-lime-tint: rgba(155, 212, 42, 0.08);
+  --pacos-orange-tint: rgba(255, 122, 36, 0.08);
+  --pacos-magenta-tint: rgba(200, 59, 114, 0.08);
+  --pacos-light-on-dark-muted: rgba(255, 255, 255, 0.72);
+  --pacos-light-on-dark-soft: rgba(255, 255, 255, 0.78);
   --pacos-control-plane-label-bg: rgba(255, 255, 255, 0.9);
   --pacos-control-plane-label-text: #187b7d;
 
