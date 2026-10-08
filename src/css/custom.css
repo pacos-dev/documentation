@@ -1,138 +1,325 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #028AE0;
-  --ifm-color-primary-dark: #028AE0;
-  --ifm-color-primary-darker: #028AE0;
-  --ifm-color-primary-darkest: #028AE0;
-  --ifm-color-primary-light: #028AE0;
-  --ifm-color-primary-lighter: #028AE0;
-  --ifm-color-primary-lightest: #028AE0;
-  --ifm-navbar-link-hover-color: #01629f;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --nav-background-color: white;
-  --nav-border: #b9b9b9;
-  --background: linear-gradient(90deg,rgba(197, 216, 230, 1) 0%, rgba(239, 244, 247, 1) 50%, rgba(197, 216, 230, 1) 100%);;
-  --window-colotr: black;
-  --window-background: #F0F1F3;
-  --font-color: #383838;
-  --ifm-menu-color-active: #028AE0;
-  --header-color: white;
-  --ifm-footer-background-color: black;
+  --pacos-ink: #0b1724;
+  --pacos-ink-soft: #314252;
+  --pacos-paper: #f7f5ef;
+  --pacos-surface: #eeece5;
+  --pacos-white: #ffffff;
+  --pacos-line: #d8d6cf;
+  --pacos-blue: #168cff;
+  --pacos-blue-dark: #0069cf;
+  --pacos-lime: #9bd42a;
+  --pacos-orange: #ff7a24;
+  --pacos-magenta: #c83b72;
+  --pacos-red: #ef4a43;
 
-  --ifm-navbar-link-color: #6E6E70;
-  --header-text-color: #484848;
-  --header-shadow-color: white;
-  --ifm-footer-link-color: #dddddd;
-  --ifm-footer-title-color: white;
-  --ifm-footer-color: white;
+  --ifm-color-primary: var(--pacos-blue);
+  --ifm-color-primary-dark: var(--pacos-blue-dark);
+  --ifm-color-primary-darker: #0059b2;
+  --ifm-color-primary-darkest: #00478d;
+  --ifm-color-primary-light: #45a7ff;
+  --ifm-color-primary-lighter: #70b9ff;
+  --ifm-color-primary-lightest: #9dceff;
+
+  --ifm-font-family-base: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-font-weight-base: 400;
+  --ifm-heading-font-weight: 600;
+  --ifm-line-height-base: 1.65;
+  --ifm-background-color: var(--pacos-paper);
+  --ifm-background-surface-color: var(--pacos-white);
+  --ifm-navbar-background-color: rgba(247, 245, 239, 0.92);
+  --ifm-navbar-shadow: 0 1px 0 rgba(11, 23, 36, 0.08);
+  --ifm-menu-color-active: var(--pacos-blue-dark);
+  --ifm-code-font-size: 92%;
+  --ifm-footer-background-color: var(--pacos-ink);
+  --docusaurus-highlighted-code-line-bg: rgba(22, 140, 255, 0.1);
+
+  --nav-background-color: rgba(247, 245, 239, 0.92);
+  --nav-border: rgba(11, 23, 36, 0.08);
+  --background: var(--pacos-paper);
+  --window-colotr: var(--pacos-ink);
+  --window-background: var(--pacos-white);
+  --font-color: var(--pacos-ink);
+  --header-color: var(--pacos-white);
+  --header-text-color: var(--pacos-ink);
+  --header-shadow-color: transparent;
+  --ifm-navbar-link-color: var(--pacos-ink-soft);
+  --ifm-navbar-link-hover-color: var(--pacos-ink);
+  --ifm-footer-link-color: rgba(255, 255, 255, 0.75);
+  --ifm-footer-title-color: var(--pacos-white);
+  --ifm-footer-color: rgba(255, 255, 255, 0.75);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
+  --pacos-ink: #f2f7fb;
+  --pacos-ink-soft: #b9c8d5;
+  --pacos-paper: #0a1622;
+  --pacos-surface: #111f2c;
+  --pacos-white: #172736;
+  --pacos-line: #2c4051;
 
-  --ifm-navbar-link-hover-color: white;
-  --ifm-color-primary: #028AE0;
-  --ifm-color-primary-dark: #028AE0;
-  --ifm-color-primary-darker: #028AE0;
-  --ifm-color-primary-darkest: #028AE0;
-  --ifm-color-primary-light: #028AE0;
-  --ifm-color-primary-lighter: #028AE0;
-  --ifm-color-primary-lightest: #028AE0;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --nav-background-color: #323436;
-  --nav-border: #343434;;
-  --background: radial-gradient(#2B2F31, #15181a);
-  --window-background: #323436;
-  --font-color: white;
-  --ifm-menu-color-active: white;
-  --ifm-menu-color: #b9b9b9;
-  --header-color: white;
-  --ifm-navbar-link-color: #aeaeae;
-  --header-text-color: white;
-  --header-shadow-color: black;
+  --pacos-blue: #49a8ff;
+  --pacos-blue-dark: #78bcff;
+  --pacos-lime: #b4e651;
+  --pacos-orange: #ff9a59;
+  --pacos-magenta: #e26898;
+  --pacos-red: #ff7770;
+
+  --ifm-color-primary: var(--pacos-blue);
+  --ifm-color-primary-dark: #258fe8;
+  --ifm-color-primary-darker: #1781dc;
+  --ifm-color-primary-darkest: #0e6bb9;
+  --ifm-color-primary-light: #74bdff;
+  --ifm-color-primary-lighter: #94ccff;
+  --ifm-color-primary-lightest: #b8ddff;
+  --ifm-background-color: var(--pacos-paper);
+  --ifm-background-surface-color: var(--pacos-white);
+  --ifm-navbar-background-color: rgba(10, 22, 34, 0.92);
+  --ifm-navbar-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  --ifm-menu-color-active: var(--pacos-blue);
+  --docusaurus-highlighted-code-line-bg: rgba(73, 168, 255, 0.14);
+
+  --nav-background-color: rgba(10, 22, 34, 0.92);
+  --nav-border: rgba(255, 255, 255, 0.07);
+  --background: var(--pacos-paper);
+  --window-background: var(--pacos-white);
+  --font-color: var(--pacos-ink);
+  --header-color: var(--pacos-white);
+  --header-text-color: var(--pacos-ink);
+  --ifm-navbar-link-color: var(--pacos-ink-soft);
+  --ifm-navbar-link-hover-color: var(--pacos-ink);
+  --ifm-footer-background-color: #07111a;
 }
 
-/*.theme-layout-main{*/
-/*  background: radial-gradient(#2B2F31, #15181a);*/
-/*}*/
+html {
+  background: var(--pacos-paper);
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(22, 140, 255, 0.08), transparent 28rem),
+    radial-gradient(circle at 96% 8%, rgba(155, 212, 42, 0.08), transparent 24rem),
+    var(--pacos-paper);
+  color: var(--pacos-ink);
 }
-html{
-  background-color: inherit;
-  color: var(--font-color);
+
+[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(73, 168, 255, 0.09), transparent 28rem),
+    radial-gradient(circle at 96% 8%, rgba(180, 230, 81, 0.06), transparent 24rem),
+    var(--pacos-paper);
 }
+
 .navbar {
-  background-color: var(--nav-background-color);
+  background: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--nav-border);
   box-shadow: none;
-  border-bottom: solid 1px var(--nav-border);
+  backdrop-filter: blur(14px);
 }
-.theme-doc-sidebar-container{
-  background: var(--window-background);
+
+.navbar__brand {
+  gap: 0.65rem;
 }
-p.center{
-  text-shadow: 1px 1px var(--header-shadow-color);
-  color: var(--header-text-color);
+
+.navbar__logo {
+  height: 32px;
+  width: 32px;
 }
-.see{
-  color: var(--header-text-color);
-  text-shadow: 2px 2px 2px var(--header-shadow-color);
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
-.hero__subtitle,
-.text--center h3,
-.text--center h1,
-.text--center h2{
-  color: var(--header-text-color);
-  text-shadow: 2px 2px var(--header-shadow-color);
+
+.navbar__link {
+  font-weight: 500;
 }
-.center{
+
+.navbar__link--active,
+.navbar__link:hover {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.main-wrapper {
+  background: transparent;
+}
+
+.theme-doc-sidebar-container {
+  background: rgba(255, 255, 255, 0.34);
+  border-right: 1px solid var(--pacos-line);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background: rgba(17, 31, 44, 0.62);
+}
+
+.theme-doc-sidebar-menu {
+  padding-top: 0.5rem;
+}
+
+.menu__link {
+  border-radius: 8px;
+  font-size: 0.94rem;
+}
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+.theme-doc-markdown {
+  max-width: 850px;
+}
+
+.theme-doc-markdown h1 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.theme-doc-markdown h2 {
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  letter-spacing: -0.045em;
+}
+
+.theme-doc-markdown h3 {
+  letter-spacing: -0.03em;
+}
+
+.theme-doc-markdown p,
+.theme-doc-markdown li {
+  color: var(--pacos-ink-soft);
+}
+
+.theme-doc-markdown table {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--pacos-line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(11, 23, 36, 0.05);
+}
+
+.theme-doc-markdown th {
+  background: var(--pacos-surface);
+}
+
+.theme-doc-markdown td,
+.theme-doc-markdown th {
+  border-color: var(--pacos-line);
+}
+
+.theme-doc-markdown blockquote {
+  border-left-color: var(--pacos-blue);
+  background: rgba(22, 140, 255, 0.06);
+  border-radius: 0 10px 10px 0;
+  padding: 0.75rem 1rem;
+}
+
+[data-theme='dark'] .theme-doc-markdown blockquote {
+  background: rgba(73, 168, 255, 0.08);
+}
+
+.theme-code-block {
+  border: 1px solid var(--pacos-line);
+  border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(11, 23, 36, 0.08);
+}
+
+.pagination-nav__link {
+  border-color: var(--pacos-line);
+  background: var(--pacos-white);
+  border-radius: 12px;
+  transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--pacos-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(11, 23, 36, 0.08);
+}
+
+.footer {
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--pacos-blue) 0 25%,
+    var(--pacos-lime) 25% 50%,
+    var(--pacos-orange) 50% 75%,
+    var(--pacos-magenta) 75% 100%
+  );
+}
+
+.footer__title {
+  letter-spacing: -0.02em;
+}
+
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.center {
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.primary-btn {
-  color: #ffffff;
-  margin-top: 20px;
-  min-width: 100px;
-  background-color:var(--ifm-color-primary);
-  font-size:16px;
-  display: block;
-  left: 130px;
-}
-.green-invert-btn {
-  color: #ffffff;
-  margin-top: 20px;
-  min-width: 100px;
-  background-color: #141516;
-  font-size:16px;
-  display: block;
-  text-wrap: auto;
+p.center,
+p.see,
+.hero__subtitle,
+.text--center h1,
+.text--center h2,
+.text--center h3 {
+  text-shadow: none;
+  color: var(--pacos-ink);
 }
 
-.feature-border{
-  background-color: var(--window-background);
-  color: var(--window-text);
-  border-radius: 15px;
-  padding:20px;
+.primary-btn {
+  color: #fff;
   margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 10px;
-  margin-left: 10px;
+  min-width: 100px;
+  background: var(--pacos-blue);
+  font-size: 16px;
+  display: block;
+}
+
+.green-invert-btn {
+  color: var(--pacos-ink);
+  margin-top: 20px;
+  min-width: 100px;
+  background: var(--pacos-lime);
+  font-size: 16px;
+  display: block;
+}
+
+.feature-border {
+  background: var(--pacos-white);
+  color: var(--pacos-ink);
+  border: 1px solid var(--pacos-line);
+  border-radius: 14px;
+  padding: 20px;
+  margin: 20px 10px;
   gap: 2rem;
+  box-shadow: 0 12px 35px rgba(11, 23, 36, 0.05);
 }
 
 @media (max-width: 996px) {
-  .feature-border{
+  .feature-border {
     margin-left: 0;
     margin-right: 0;
   }
+
+  .theme-doc-sidebar-container {
+    border-right: 0;
+  }
 }
+
