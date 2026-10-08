@@ -65,7 +65,7 @@ mvn
 Then use:
 
 ~~~text
-http://localhost:8099/
+http://localhost:8099/desktop
 ~~~
 
 The Jetty mode is a separate local execution path from <code>Skeleton.main</code>. Do not confuse port 8099 with the PacOS application's default port 8086.
