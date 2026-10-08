@@ -989,7 +989,7 @@
 
 .architectureFlow .architecturePacos {
   position: relative;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 12px;
   background:
     var(--pacos-control-plane-bg) padding-box,
