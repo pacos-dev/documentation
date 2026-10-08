@@ -1,67 +1,93 @@
 ---
 id: skeleton-configuration
-title: Skeleton project - First launch
-description: Step-by-step guide to clone, compile, and run the PacOS plugin skeleton project using Spring Boot, with details on first-time setup and default module installation.
-keywords: [pacos, plugin skeleton, configuration, spring boot, app shell, compilation, setup, installation mode, default module]
+title: Skeleton Project - First Launch
+description: Build and run the PacOS plugin skeleton locally, including the application and Maven Jetty execution modes.
+keywords: [pacos, plugin skeleton, spring boot, maven, jetty, 8086, 8099, installation mode]
 ---
 
-# Skeleton project configuration
+# Skeleton Project - First Launch
 
-This page explains how to configure and run the PacOS plugin skeleton project locally.
+The skeleton is a runnable PacOS development environment and a reference Maven project for building plugins.
 
----
+## Prerequisites
 
-## 1. Clone the Project
+Use the Java version required by the target PacOS release. The current skeleton targets Java 21, Spring Boot 4.1.1, Vaadin 25.3.0 and PacOS BOM 3.4.0.
 
-Clone the skeleton project from the official repository:
+Clone the project:
 
-https://github.com/pacos-dev/skeleton
+~~~bash
+git clone https://github.com/pacos-dev/skeleton.git
+cd skeleton
+~~~
 
----
+## Build
 
-## 2. Compile the Project
+Create the plugin artifact with:
 
-The skeleton project is a **Spring Boot** application.  
-To compile it locally, simply build the project using Maven:
+~~~bash
+mvn clean package
+~~~
 
-- Ensure you have the correct JDK and Maven versions installed
-- Navigate to the project root
-- Run the standard Maven build command
+The build also prepares the Vaadin frontend and creates the shaded plugin JAR.
 
-This will compile all sources and prepare the project for execution.
+## Run the local PacOS application
 
----
+The main class is:
 
-## 3. Run the Skeleton Application
+<code>org.pacos.plugin.skeleton.Skeleton</code>
 
-Once compiled, you can start the skeleton application.
+This launcher starts the PacOS application with the skeleton available in the same local environment.
 
-The main class is: **org.pacos.plugin.skeleton.Skeleton**
+The default PacOS server port is **8086**:
 
+~~~text
+http://localhost:8086/desktop
+~~~
 
-This class implements `AppShellConfigurator` and is ready to run.
+On the first launch, PacOS can enter installation mode. Complete the installation flow before using the desktop.
 
-### Behavior on First Launch
+To change the PacOS working directory, add:
 
-- Running the skeleton project will start the **full PacOS application**
-- The skeleton module will appear as a **pre-installed module** in the system
-- On first launch, PacOS will enter **[installation mode](../../user/installation/installationMode.md)**, requiring the user to complete the basic installation scenario
-- This ensures the system is fully configured before using the skeleton module or adding other plugins
+~~~text
+-DworkingDir=/path/to/dir
+~~~
 
-### Default Module
+## Run through Maven Jetty
 
-- The skeleton module is automatically recognized by the platform
-- It is visible in the PacOS interface as an installed module
-- Developers can immediately start using or extending it for plugin development
+The Maven build has Jetty as its default goal and configures its HTTP connector on **8099**.
 
----
+Run:
 
-## 4. Summary
+~~~bash
+mvn
+~~~
 
-- Clone the project from the repository
-- Compile it locally using Maven
-- Run `org.pacos.plugin.skeleton.Skeleton` to start the skeleton application
-- On first launch, complete the PacOS installation scenario
-- The skeleton module will be installed by default and available for development and testing
+Then use:
 
+~~~text
+http://localhost:8099/desktop
+~~~
 
+The Jetty mode is a separate local execution path from <code>Skeleton.main</code>. Do not confuse port 8099 with the PacOS application's default port 8086.
+
+## What the skeleton demonstrates
+
+The reference project contains examples for:
+
+- desktop windows using <code>WindowConfig</code> and <code>DesktopWindow</code>
+- settings using <code>SettingTab</code>
+- permissions
+- variable providers
+- plugin events and lifecycle listeners
+- REST endpoints and OpenAPI
+- independent database configuration with Flyway and JPA
+- static plugin resources
+- plugin packaging and shaded JAR creation
+
+Remove example functionality that your plugin does not need rather than carrying the entire skeleton into production unchanged.
+
+## Useful references
+
+- [PacOS developer documentation](https://pacos.dev)
+- [PacOS core repository](https://github.com/pacos-dev/pacos)
+- [PacOS plugin skeleton](https://github.com/pacos-dev/skeleton)

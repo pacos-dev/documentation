@@ -1,90 +1,86 @@
 ---
 id: skeleton
 title: New plugin
-description: Overview of the PacOS plugin skeleton project, including base implementations for window, API, permissions, database access, Spring configuration, and testing.
-keywords: [pacos, plugin skeleton, plugin development, spring, maven, hsqldb, base implementation, api, permissions, database, plugin testing]
+description: Create a PacOS plugin from the skeleton project and understand the supported extension points.
+keywords: [pacos, plugin skeleton, plugin development, spring, maven, java 21, vaadin 25, permissions, database, automation]
 ---
 
 # New plugin - Skeleton project
 
-The **[skeleton-project](https://github.com/pacos-dev/skeleton)** provides a ready-to-use starting point for creating new plugins. It includes the basic implementations for essential plugin features and ensures compatibility with the PacOS platform.
+The [PacOS skeleton project](https://github.com/pacos-dev/skeleton) is the reference starting point for creating extensions.
 
----
+The current skeleton targets:
 
-## Features Provided
+- Java 21
+- Spring Boot 4.1.1
+- Vaadin 25.3.0
+- PacOS BOM 3.4.0
 
-The skeleton project offers implementations for:
+Keep these versions aligned with the PacOS release that will run the plugin.
 
-- **Window implementation** – a basic UI window ready to extend
-- **API implementation** – sample service classes and API endpoints
-- **Permissions** – setup for plugin-specific access rights
-- **Database access** – pre-configured connections and usage examples
-- **Testing** – basic test setup for plugin functionality
+## What the skeleton demonstrates
 
-These features allow developers to quickly create plugins that follow PacOS standards and best practices.
+The example project contains reference implementations for:
 
----
+- a desktop application window
+- REST and OpenAPI documentation
+- plugin permissions
+- a plugin-specific datasource and Flyway migrations
+- plugin-local events
+- a dynamic plugin lifecycle listener
+- variable providers
+- a settings page
+- an automation `ExecutableBlock`
+- shaded JAR packaging
 
-## Spring Integration
+Each part can be removed when the plugin does not need it.
 
-Since PacOS is built on **Spring**, every plugin must implement fundamental Spring concepts:
+## Spring integration
 
-- `@Component` and `@Service` annotations
-- Dependency injection via constructor or field
-- Isolated Spring context while extending the base context (Cora)
+PacOS discovers plugin extensions from the plugin Spring context. The skeleton uses a dedicated configuration package:
 
-This ensures plugin isolation while granting access to platform services.
+`org.pacos.plugin.skeleton.config`
 
----
+Use constructor injection for dependencies and keep UI classes prototype-scoped.
 
-## Project Structure
+## Static resources
 
-The skeleton project is organized into several packages, each with a specific responsibility:
+Put plugin web resources under:
 
-- **org.pacos.plugin.skeleton** – primary package containing all source code for this plugin component
-- **org.pacos.plugin.skeleton.config** – configuration package read by Spring from the core module; contains Spring context setup and database configuration
-- **org.pacos.plugin.skeleton.backend** – contains all classes defining backend logic and services
-- **org.pacos.plugin.skeleton.security** – defines permissions, which are loaded and managed by the PacOS core
-- **org.pacos.plugin.skeleton.system** – contains classes responsible for module behavior, including event handling and listener implementations
-- **org.pacos.plugin.skeleton.view** – contains classes responsible for creating the frontend view and UI components
+`src/main/resources/META-INF/resources/`
 
-- all static resources used by fronted (like imagse,script,css) should be placed inside META-INF/resources directory. All resources from this directory will be made available by the pacos as static web elements
+The runtime exposes these resources through the plugin class loader and HTTP resource handling.
 
-Developers can extend or remove any of these packages based on the plugin’s needs.
+## Database
 
-Each package is designed to be modular, so developers can extend, replace, or remove components based on their plugin requirements.
+The skeleton configures an independent HSQLDB datasource and JPA persistence unit and runs Flyway migrations from:
 
----
+`src/main/resources/db/migration/skeleton`
 
-## Maven Configuration
+Use a plugin-specific property prefix and migration location for real plugins.
 
-The plugin skeleton is a **Maven project**. All dependencies are managed via the PacOS **BOM** (Bill of Materials).
+## Packaging
 
-- Any additional libraries must be compatible with the BOM
-- The skeleton project includes all necessary dependencies for basic plugin functionality
+Run:
 
-To package your plugin, simply run the standard Maven package command. 
 ```bash
 mvn clean package
 ```
-This will create a **shaded JAR** containing all required dependencies by module.
 
----
+The build produces a shaded JAR that can be installed through PacOS plugin management or supplied by a configured Maven repository.
 
-## Deployment
+## Developer guides
 
-Once the JAR is built, install the plugin directly via the **[Plugin management](../../user/settings/pluginManagement.md)**. 
-The plugin is immediately available for use, without restarting the system.
+Start with [Plugin Runtime Architecture](architecture.md), then use the dedicated extension guides:
 
----
+- [Windows and Desktop UI](windows.md)
+- [Permissions and Security](security.md)
+- [Settings Extensions](settings.md)
+- [Variable Providers](variables.md)
+- [Events and Plugin Lifecycle](events.md)
+- [REST APIs and Resources](rest-api.md)
+- [Plugin Database](database.md)
+- [Automation Blocks](automation.md)
+- [Build, Package and Release](build-and-release.md)
 
-## Summary
-
-The PacOS plugin skeleton project:
-
-- Accelerates plugin development
-- Provides tested, base implementations for essential features
-- Ensures compatibility with PacOS Core and its Spring-based architecture
-- Offers a ready-to-use Maven configuration for packaging and deployment
-
-Using this skeleton guarantees that your plugin integrates seamlessly with the platform and follows best practices for modular development.
+For local execution, see [Skeleton project - First launch](skeletonRun.md).
