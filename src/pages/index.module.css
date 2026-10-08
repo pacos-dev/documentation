@@ -577,22 +577,28 @@
 
 .toolPicker {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
   align-items: stretch;
   gap: 0.15rem;
   padding: 0.55rem 0.55rem 0;
   border-bottom: 1px solid var(--home-border);
   background: var(--home-card);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.toolPicker::-webkit-scrollbar {
+  display: none;
 }
 
 .toolButton {
   display: inline-flex;
   width: 100%;
-  min-width: 0;
+  min-width: 120px;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.68rem 0.45rem 0.72rem;
+  padding: 0.68rem 0.55rem 0.72rem;
   border: 0;
   border-bottom: 3px solid transparent;
   border-radius: 7px 7px 0 0;
@@ -603,8 +609,9 @@
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
-  box-sizing: border-box;
-}
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;}
 
 .toolButton:hover,
 .toolButton[aria-selected='true'] {
@@ -612,8 +619,8 @@
 }
 
 .toolButton[aria-selected='true'] {
-  color: var(--home-text);
-  border-bottom-color: var(--home-lime);
+  color: var(--home-accent);
+  border-bottom-color: var(--home-accent);
   background: var(--home-surface);
 }
 
