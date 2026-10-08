@@ -83,8 +83,8 @@ Use `isAllowedForCurrentSession` when an entire application/window should be una
 
 For an action inside an already opened window, use a permission check such as:
 
-```java
-UserSession.getCurrent().hasActionPermission(MyPermissions.MY_ACTION)
+```javascript
+    UserSession.getCurrent().hasActionPermission(MyPermissions.MY_ACTION)
 ```
 
 The skeleton also demonstrates a UI helper that hides a button for a missing permission.

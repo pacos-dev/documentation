@@ -3,7 +3,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from '@site/src/pages/index.module.css';
 
 export default function HomepageSharedEnvironment(): ReactNode {
-    const screenshotUrl = useBaseUrl('/img/screens/mock.jpg');
+    const screenshotUrl = useBaseUrl('/img/screens/desktop.jpg');
 
     return (
         <section className={`${styles.section} ${styles.sharedSection}`} aria-labelledby="shared-title">
