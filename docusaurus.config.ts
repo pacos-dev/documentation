@@ -5,8 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-    title: 'Pac OS',
-    tagline: "Web application that connects your tools, data, and workflows in one unified workspace",
+    title: 'PacOS',
+    titleDelimiter: '—',
+    tagline: 'Enterprise Control Plane for Application Environments',
     favicon: 'favicon.ico',
 
     future: {
@@ -50,13 +51,13 @@ const config: Config = {
     ],
 
     themeConfig: {
-        image: 'img/icon.png',
+        image: 'img/screens/desktop.jpg',
         colorMode: {
             defaultMode: 'light',
             respectPrefersColorScheme: false,
         },
         navbar: {
-            title: 'Pac OS',
+            title: 'PacOS',
             logo: {
                 alt: 'PacOS Logo',
                 src: 'img/icon.png',
@@ -70,7 +71,7 @@ const config: Config = {
                 },
                 {
                     to: 'https://demo.pacos.dev',
-                    label: 'Demo',
+                    label: 'Explore Demo',
                     position: 'left'
                 },
                 {
@@ -120,7 +121,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: 'Copyright © ' + new Date().getFullYear() + ' PacOS.dev All rights reserved.',
+            copyright: `Copyright © ${new Date().getFullYear()} PacOS.dev All rights reserved.<br/><small>Free to use. Free for personal and commercial use. Source available. Redistribution and resale of PacOS itself are restricted. <a href="/docs/license">View License</a> / <a href="https://github.com/pacos-dev/pacos">GitHub</a></small>`,
         },
         prism: {
             theme: prismThemes.github,

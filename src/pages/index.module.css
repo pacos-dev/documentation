@@ -1,43 +1,850 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.home {
+  --home-bg: #ffffff;
+  --home-surface: #f5f7fa;
+  --home-text: #172536;
+  --home-muted: #536274;
+  --home-border: #dce3eb;
+  --home-accent: #0869ad;
+  background: var(--home-bg);
+  color: var(--home-text);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
 
-.heroBanner {
-  padding: 4rem 0;
+:global([data-theme='dark']) .home {
+  --home-bg: #111820;
+  --home-surface: #19232e;
+  --home-text: #edf2f8;
+  --home-muted: #aebdce;
+  --home-border: #334252;
+  --home-accent: #75bfff;
+}
+
+.home h1,
+.home h2,
+.home h3 {
+  color: var(--home-text);
+  text-shadow: none;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.home h2 {
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  margin-bottom: 1.5rem;
+}
+
+.home h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.home p {
+  color: var(--home-muted);
+  margin-bottom: 1.25rem;
+}
+
+.container {
+  width: min(1320px, calc(100% - 5rem));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 7rem;
+}
+
+.tinted {
+  background: var(--home-surface);
+}
+
+.eyebrow {
+  color: var(--home-accent) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+
+.hero {
+  padding: clamp(3.5rem, 7vw, 7rem) 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 40%, rgb(2 138 224 / 9%), transparent 100%),
+    var(--home-bg);
+}
+
+:global([data-theme='dark']) .hero {
+  background:
+    radial-gradient(ellipse 60% 80% at 85% 40%, rgb(2 138 224 / 16%), transparent 100%),
+    var(--home-bg);
+}
+
+.heroLayout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.heroCopy h1 {
+  font-size: clamp(3rem, 4.7vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+  margin-bottom: 1.75rem;
+}
+
+.heroCopy h1 span {
+  color: var(--home-accent);
+}
+
+.heroCopy > p:not(.eyebrow) {
+  max-width: 490px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.heroCopy .actions {
+  justify-content: flex-start;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 150ms;
+}
+
+.primaryButton {
+  background: #0869ad;
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: #05558e;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.secondaryButton {
+  border-color: var(--home-border);
+  color: var(--home-text);
+  background: var(--home-bg);
+}
+
+.secondaryButton:hover {
+  background: var(--home-surface);
+  color: var(--home-text);
+  text-decoration: none;
+}
+
+.textLink {
+  color: var(--home-accent);
+  font-weight: 600;
+}
+
+.home a:focus-visible,
+.home button:focus-visible {
+  outline: 3px solid var(--home-accent);
+  outline-offset: 4px;
+}
+
+.productFigure {
+  margin: 0;
+  min-width: 0;
+}
+
+.productImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--home-border);
+  border-radius: 10px;
+  box-shadow: 0 18px 50px rgb(12 29 49 / 10%);
+}
+.productImageNoFrame {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 20px rgb(12 29 49 / 12%));
+}
+
+.productFigure figcaption {
+  margin-top: 1rem;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.hero .productFigure figcaption {
   text-align: center;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.flow {
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+.home .diagramLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 125px;
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--home-text);
+}
+
+.resourceCloud {
   position: relative;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.resourceCloud::before {
+  content: '';
+  position: absolute;
+  inset: 20% 18%;
+  border: 1px dashed var(--home-border);
+  border-radius: 50%;
+}
+
+.resources {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.resources li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--home-muted);
+}
+
+.resources li:nth-child(4) {
+  grid-area: 2 / 1;
+}
+
+.resources li:nth-child(5) {
+  grid-area: 2 / 3;
+}
+
+.resources li:nth-child(6) {
+  grid-area: 3 / 1;
+}
+
+.resources li:nth-child(7) {
+  grid-area: 3 / 3;
+}
+
+.connector {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  background: var(--home-border);
+  margin: 0.75rem auto;
+}
+
+.connector::after,
+.sharedFlow li + li::before,
+.architectureFlow li + li::before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--home-muted);
+  border-bottom: 1px solid var(--home-muted);
+  transform: rotate(45deg);
+}
+
+.connector::after {
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+}
+
+.controlPlane {
+  max-width: 360px;
+  margin: auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: #0869ad;
+  color: #fff;
+  box-shadow: 0 14px 32px rgb(8 105 173 / 18%);
+}
+
+.controlPlane strong,
+.controlPlane span {
+  display: block;
+}
+
+.controlPlane strong {
+  font-size: 2rem;
+}
+
+.controlPlane span {
+  color: #e1f3ff;
+  font-size: 0.9rem;
+}
+
+.flowEnd {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.flowEnd span {
+  margin-inline: 0.4rem;
+  color: var(--home-muted);
+  font-weight: 400;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.capability {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: var(--home-surface);
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 150ms;
+}
+
+.capability[data-active='true'] {
+  box-shadow: inset 0 0 0 1px var(--home-accent);
+}
+
+.capabilityHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.capabilityHeading h3 {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.appIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--home-bg);
+  color: var(--home-accent);
+}
+
+.capability p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.appLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--home-accent);
+  padding: 0;
+  margin-top: 1.25rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.appLink:hover {
+  text-decoration: underline;
+}
+
+.appWindow {
+  border: 1px solid var(--home-border);
+  border-radius: 12px;
+  background: var(--home-surface);
+  box-shadow: 0 24px 60px rgb(12 29 49 / 10%);
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+.previewAnchor {
+  scroll-margin-top: 5rem;
+}
+
+.appWindow .productImage {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.appWindow figcaption {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: var(--home-bg);
+}
+
+.toolPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.65rem 0.65rem 0;
+  border-bottom: 1px solid var(--home-border);
+}
+
+.toolButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 7px 7px 0 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--home-muted);
+  background: transparent;
+  cursor: pointer;
+}
+
+.toolButton[aria-selected='true'] {
+  color: var(--home-accent);
+  border-bottom-color: var(--home-accent);
+  background: var(--home-bg);
+}
+
+.toolButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sharedSection {
+  background: linear-gradient(135deg, rgb(2 138 224 / 6%), transparent 65%), var(--home-surface);
+}
+
+.sharedIntro {
+  max-width: 720px;
+  margin-bottom: 3.5rem;
+}
+
+.sharedIntro h2 {
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+}
+
+.sharedLayout {
+  grid-template-columns: 1.6fr 1fr;
+}
+
+.screenshotLabel {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.screenshotLabel span {
+  font-weight: 400;
+  color: var(--home-muted);
+}
+
+.sharedFlow,
+.architectureFlow {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.sharedFlow li {
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+}
+
+.sharedFlow li + li {
+  margin-top: 2.75rem;
+}
+
+.sharedFlow li + li::before {
+  position: absolute;
+  top: -1.75rem;
+  left: calc(50% - 4px);
+}
+
+.sharedFlow .sharedEnvironment {
+  background: var(--home-bg);
+  border: 2px solid var(--home-accent);
+  border-radius: 12px;
+  padding: 1.75rem 1rem;
+  box-shadow: 0 12px 35px rgb(8 105 173 / 10%);
+}
+
+.sharedEnvironment strong {
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: var(--home-accent);
+  margin-bottom: 0.5rem;
+}
+
+.sharedFlow strong,
+.sharedFlow span {
+  display: block;
+}
+
+.sharedFlow span {
+  font-size: 0.95rem;
+  color: var(--home-muted);
+}
+
+.pluginList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pluginList li {
+  position: relative;
+  padding: 1.5rem 0.75rem;
+  text-align: center;
+  border-radius: 10px;
+  background: var(--home-surface);
+}
+
+.pluginList strong {
+  display: block;
+}
+
+.pluginList li > span:not(.appIcon) {
+  display: block;
+  color: var(--home-muted);
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.pluginList .appIcon {
+  margin-bottom: 1rem;
+}
+
+.pluginList strong {
+  font-size: 1rem;
+}
+
+.pluginList .customPlugin {
+  border: 1px dashed var(--home-border);
+  background: var(--home-bg);
+}
+
+.customPlugin::before {
+  content: '+';
+  position: absolute;
+  left: -0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--home-accent);
+  background: var(--home-bg);
+  font-size: 1.3rem;
+}
+
+.developerCallout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.developerCallout p {
+  max-width: 650px;
+  margin: 0;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.teamGrid article {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--home-border);
+}
+
+.teamGrid p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.architectureFlow {
+  margin: 0;
+  padding: 2rem;
+  background: var(--home-surface);
+  border-radius: 16px;
+}
+
+.architectureFlow li {
+  position: relative;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--home-border);
+  text-align: center;
+}
+
+.architectureFlow strong,
+.architectureFlow small {
+  display: block;
+}
+
+.architectureFlow small {
+  color: var(--home-muted);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.layerNumber {
+  position: absolute;
+  left: 0;
+  top: 1.15rem;
+  font-size: 0.75rem;
+  color: var(--home-muted);
+}
+
+.architectureFlow li + li {
+  margin-top: 1.75rem;
+}
+
+.architectureFlow li + li::before {
+  position: absolute;
+  top: -1.25rem;
+  left: calc(50% - 4px);
+}
+
+.architectureFlow .architecturePacos {
+  border: 0;
+  border-radius: 10px;
+  background: #0869ad;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgb(8 105 173 / 18%);
+}
+
+.architecturePacos strong {
+  font-size: 2rem;
+}
+
+.architecturePacos small {
+  color: #e1f3ff;
+}
+
+.architectureFlow .architectureTeam {
+  border: 0;
+}
+
+.quickStart {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+}
+
+.quickStart > div {
+  min-width: 0;
+}
+
+.quickStart > div + div {
+  border-left: 1px solid var(--home-border);
+  padding-left: 3rem;
+}
+
+.standaloneHeading {
+  margin-top: 2rem;
+}
+
+.quickStart pre {
+  font-size: 0.85rem;
+}
+
+.closing {
+  text-align: center;
+}
+
+.closing .intro {
+  margin-inline: auto;
+  margin-bottom: 0;
+}
+
+.closing .actions {
+  justify-content: center;
+}
+
+@media (max-width: 996px) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .split,
+  .quickStart {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .heroLayout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroCopy {
+    text-align: center;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.7rem, 6.5vw, 4.3rem);
+  }
+
+  .heroCopy > p:not(.eyebrow) {
+    max-width: 620px;
+    margin-inline: auto;
+  }
+
+  .heroCopy .actions {
+    justify-content: center;
+  }
+
+  .hero .productFigure {
+    width: min(720px, 100%);
+    margin-inline: auto;
+  }
+
+  .quickStart > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--home-border);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .capabilities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pluginList {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.headerContainer {
-  text-align: center;
-}
-.headerContainer span{
-  display: inline-block;
-}
-.headerContainer p {
-  text-wrap: auto;
-}
-.appName{
-  font-weight: bold;
-  font-size: 30px;
-}
-.os{
-  font-weight: normal;
-}
-.thin{
-  font-size: 15px;
-  color: var(--ifm-navbar-link-color)
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 2rem);
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .heroCopy > p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .heroCopy .actions {
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  .heroCopy .primaryButton,
+  .heroCopy .secondaryButton {
+    width: auto;
+    flex: 1;
+    padding-inline: 0.75rem;
+  }
+
+  .heroLayout {
+    gap: 1.5rem;
+  }
+
+  .capabilities,
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pluginList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flow {
+    padding: 1.25rem 0;
+  }
+
+  .toolPicker {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .toolButton {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+  }
+
+  .architectureFlow {
+    padding: 1.5rem 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
 }

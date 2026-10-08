@@ -1,43 +1,20 @@
-import React, {ReactNode} from 'react';
-import styles from './styles.module.css';
-import clsx from "clsx";
-import CodeBlock from '@theme/CodeBlock';
-import Link from "@docusaurus/Link";
+import type {ReactNode} from 'react';
+import Link from '@docusaurus/Link';
+import styles from '@site/src/pages/index.module.css';
 
 export default function HomepageSkeleton(): ReactNode {
     return (
-
-        <section className={styles.features}>
-            <div className="container text--center">
-
-
-                <div className="row">
-                    <div className={clsx('col feature-border')}>
-                        <h1 className={styles.center}>Extensible by Any Java Developer</h1>
-                        <div>
-                            PacOS can be expanded with custom modules built by any Java developer, allowing teams to add exactly the tools they need in their environment.
-                            Whether it’s Kafka utilities, AI-powered helpers, domain-specific business operations, or entirely new developer tools — PacOS adapts to your stack instead of the other way around.
-
-                            PacOS provides a ready-to-use skeleton project that is always compatible with the latest release.
-                            It includes examples for building modal windows, APIs, permissions, UI components, and background services — giving developers everything needed to create powerful extensions that install instantly and run like native modules.
-                            <Link
-                                aria-label="Go to skeleton project"
-                                className="button button--lg green-invert-btn"
-                                to="https://github.com/pacos-dev/skeleton">
-                                Skeleton project source code
-                            </Link>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-
+        <div className={styles.developerCallout}>
+            <div>
+                <h3>Build tools for your environment</h3>
+                <p>
+                    Custom Java plugins expose environment-specific tools and workflows through
+                    the same interface. Build it once. Install it alongside your other PacOS tools.
+                </p>
             </div>
-        </section>
-
-
+            <Link className={styles.textLink} to="/docs/developers/plugins/skeleton">
+                Start with the skeleton project &rarr;
+            </Link>
+        </div>
     );
 }

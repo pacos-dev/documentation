@@ -1,54 +1,33 @@
 import type {ReactNode} from 'react';
-import styles from './styles.module.css';
-import clsx from "clsx";
-
+import Link from '@docusaurus/Link';
+import styles from '@site/src/pages/index.module.css';
 
 export default function HomepageHowItsWorks(): ReactNode {
     return (
-
-        <section className={styles.features}>
-            <div className="container text--center">
-                <div className="row">
-                    <div className={clsx('col feature-border')}>
-                        <div className="text--center">
-                            <h1 className={styles.center}>How it Works</h1>
-                            <p>
-                                PacOS provides a modular, windowed Web-OS environment where each tool runs independently.
-                                Configure workflows, automation tasks, and plugins locally, then seamlessly transfer them to a server.
-                            </p>
-                            <ul className={styles.listLeft}>
-                                <li>Run locally or in shared server mode for team-wide collaboration.</li>
-                                <li>All automation workflows and plugin configurations can be transferred to a server effortlessly.</li>
-                                <li>Local work or automation created on one machine runs seamlessly on the server environment.</li>
-                                <li>Fully scalable — supports multiple users, permissions, and shared resources without conflicts.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className={clsx('col feature-border')}>
-                        <div className="text--center">
-                            <h1 className={styles.center}>Why PacOS?</h1>
-                            A flexible platform built for teams who automate, integrate, and streamline work.
-                            <br/><br/>
-                            <ul className={styles.listLeft}>
-                                <li>Modular Web-OS where tools run as independent windowed apps.</li>
-                                <li>Unified workspace instead of a scattered toolchain.</li>
-                                <li>Quickly automate workflows using the built-in BPMN editor and automation engine.</li>
-                                <li>Extend functionality with plugins or custom modules via Marketplace.</li>
-                                <li>Fully extensible: any Java developer can write their own extension based on the provided skeleton project and install it on-the-fly.</li>
-                                <li>Works locally or in shared server mode for team-wide collaboration.</li>
-                                <li>Free to use in both personal and business projects (with licensing restrictions).</li>
-                            </ul>
-                            This makes it easy to bundle multiple tools into one consistent experience, instead of
-                            separate
-                            services, UIs, and deployments.
-                        </div>
-                    </div>
-
+        <section className={styles.section} aria-labelledby="architecture-title">
+            <div className={`${styles.container} ${styles.split}`}>
+                <div>
+                    <p className={styles.eyebrow}>How it works</p>
+                    <h2 id="architecture-title">Above your application environment. Not instead of your infrastructure.</h2>
+                    <p>
+                        PacOS does not replace Docker, Kubernetes or infrastructure management.
+                    </p>
+                    <p>
+                        Plugins expose your configured resources through a desktop-like web interface,
+                        with access managed through PacOS permissions.
+                    </p>
+                    <Link className={styles.textLink} to="/docs/developers/plugins">
+                        Explore the plugin architecture &rarr;
+                    </Link>
                 </div>
+                <ol className={styles.architectureFlow} aria-label="Layers from infrastructure to team access">
+                    <li><span className={styles.layerNumber}>01</span><strong>Infrastructure</strong><small>Docker / Kubernetes</small></li>
+                    <li><span className={styles.layerNumber}>02</span><strong>Containers / Services</strong></li>
+                    <li><span className={styles.layerNumber}>03</span><strong>Application Environment</strong></li>
+                    <li className={styles.architecturePacos}><strong>PacOS</strong><small>Controlled web interface</small></li>
+                    <li className={styles.architectureTeam}><strong>Developers / QA / Support</strong></li>
+                </ol>
             </div>
         </section>
-
-
     );
 }

@@ -1,36 +1,39 @@
-import React, {ReactNode} from 'react';
-import styles from './styles.module.css';
-import clsx from "clsx";
+import type {ReactNode} from 'react';
+import HomepageSkeleton from '@site/src/components/HomepageSkeleton';
+import AppIcon, {type AppIconName} from '@site/src/components/HomepageAppIcon';
+import styles from '@site/src/pages/index.module.css';
+
+const plugins = [
+    {resource: 'Files', name: 'Explorer', icon: 'files'},
+    {resource: 'Logs', name: 'Glogg', icon: 'logs'},
+    {resource: 'APIs', name: 'ApiNity', icon: 'api'},
+    {resource: 'Mocks', name: 'MockServer', icon: 'mocks'},
+    {resource: 'Databases', name: 'Database', icon: 'database'},
+    {resource: 'Custom tools', name: 'Your Plugin', icon: 'tools'},
+] satisfies {resource: string; name: string; icon: AppIconName}[];
 
 export default function HomepagePlugins(): ReactNode {
     return (
-
-        <section className={styles.features}>
-            <div className="container text--center">
-
-
-                <div className="row">
-                    <div className={clsx('col feature-border')}>
-                        <h1 className={styles.center}>Plugins</h1>
-                        <div className={styles.codeBlock}>
-                            PacOS Web-OS offers a rich ecosystem of plugins that extend the platform in real time.
-                            Manage your files with the Explorer, monitor and search logs instantly with Glogg, test APIs
-                            with ApiNity, or create mock REST and SOAP servers with MockServer — all without leaving the
-                            workspace. Every plugin runs in an isolated context and is synchronized across all user
-                            sessions, allowing multiple users to collaborate seamlessly while configuring or interacting
-                            with the same modules. The dynamic variable system lets users adjust plugin behavior on the
-                            fly, so you can customize your workspace instantly without restarting or reloading
-                            configurations.
-
-                        </div>
-                    </div>
-
+        <section className={styles.section} aria-labelledby="plugins-title">
+            <div className={styles.container}>
+                <div className={styles.intro}>
+                    <p className={styles.eyebrow}>Adapt to your environment</p>
+                    <h2 id="plugins-title">Extend PacOS for your environment.</h2>
+                    <p>
+                        PacOS provides the common interface. Add the tools specific to your environment.
+                    </p>
                 </div>
-
-
+                <ul className={styles.pluginList}>
+                    {plugins.map(({resource, name, icon}, index) => (
+                        <li key={name} className={index === plugins.length - 1 ? styles.customPlugin : undefined}>
+                            <span className={styles.appIcon}><AppIcon name={icon}/></span>
+                            <strong>{name}</strong>
+                            <span>{resource}</span>
+                        </li>
+                    ))}
+                </ul>
+                <HomepageSkeleton/>
             </div>
         </section>
-
-
     );
 }

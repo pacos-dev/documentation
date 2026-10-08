@@ -1,30 +1,48 @@
 import type {ReactNode} from 'react';
-import styles from './styles.module.css';
-import Link from "@docusaurus/Link";
+import AppIcon, {type AppIconName} from '@site/src/components/HomepageAppIcon';
+import styles from '@site/src/pages/index.module.css';
 
+const resources: {name: string; icon: AppIconName}[] = [
+    {name: 'Services', icon: 'services'},
+    {name: 'Files', icon: 'files'},
+    {name: 'Database', icon: 'database'},
+    {name: 'Logs', icon: 'logs'},
+    {name: 'APIs', icon: 'api'},
+    {name: 'Mocks', icon: 'mocks'},
+    {name: 'Test tools', icon: 'tools'},
+];
 
 export default function HomepageOverview(): ReactNode {
     return (
-        <section className={styles.features}>
-            <div className="container">
-                <div className="row">
-                    <div className={styles.centerCol}>
-                        <h1 className="see">
-                            Try PacOS in action!
-                        </h1>
-                        <div>
-                            <Link
-                                className="button button--lg primary-btn"
-                                to="https://demo.pacos.dev">
-                                View Demo
-                            </Link>
-                        </div>
+        <section className={`${styles.section} ${styles.tinted}`} aria-labelledby="problem-title">
+            <div className={`${styles.container} ${styles.split}`}>
+                <div>
+                    <p className={styles.eyebrow}>The problem</p>
+                    <h2 id="problem-title">Modern applications are not one application.</h2>
+                    <p>
+                        They are services, files, databases, APIs and test resources spread across
+                        an environment. Working with them often means switching tools or asking for
+                        server and container access.
+                    </p>
+                    <p>
+                        PacOS puts the resources your team works with behind one controlled web
+                        interface. Your infrastructure stays where it is.
+                    </p>
+                </div>
+                <div className={styles.flow} role="group" aria-label="Application resources exposed through PacOS to one controlled web interface">
+                    <div className={styles.resourceCloud}>
+                        <p className={styles.diagramLabel}>Application environment</p>
+                        <ul className={styles.resources}>
+                            {resources.map(({name, icon}) => <li key={name}><AppIcon name={icon}/>{name}</li>)}
+                        </ul>
                     </div>
-
-
-                    <div className={styles.blockScreen}>
-                        <img src="/img/laptop-screen.png" alt="perspective"/>
+                    <span className={styles.connector} aria-hidden="true"/>
+                    <div className={styles.controlPlane}>
+                        <strong>PacOS</strong>
+                        <span>Controlled web interface</span>
                     </div>
+                    <span className={styles.connector} aria-hidden="true"/>
+                    <strong className={styles.flowEnd}>Developers <span>/</span> QA <span>/</span> Support</strong>
                 </div>
             </div>
         </section>
