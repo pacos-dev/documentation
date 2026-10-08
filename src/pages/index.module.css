@@ -1030,8 +1030,8 @@
 }
 
 .architecturePacos strong {
+  color: var(--pacos-control-plane-foreground);
   font-size: 1.9rem;
-  color: #fff;
 }
 
 .architecturePacos small {
