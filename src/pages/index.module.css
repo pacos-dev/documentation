@@ -9,7 +9,12 @@
   --home-lime: var(--pacos-lime);
   --home-orange: var(--pacos-orange);
   --home-magenta: var(--pacos-magenta);
-  background: transparent;
+  background:
+    radial-gradient(circle at 4% 8%, rgba(22, 140, 255, 0.045), transparent 24rem),
+    radial-gradient(circle at 96% 20%, rgba(155, 212, 42, 0.045), transparent 22rem),
+    radial-gradient(circle at 76% 86%, rgba(255, 122, 36, 0.035), transparent 24rem),
+    radial-gradient(circle at 20% 94%, rgba(200, 59, 114, 0.03), transparent 24rem),
+    transparent;
   color: var(--home-text);
   font-size: 1.06rem;
   line-height: 1.7;
@@ -200,12 +205,17 @@
 }
 
 .textLink {
-  color: var(--home-accent);
+  color: var(--home-text);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--home-lime);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
 }
 
 .textLink:hover {
-  color: var(--pacos-blue-dark);
+  color: var(--home-accent);
+  text-decoration-color: var(--home-accent);
 }
 
 .home a:focus-visible,
@@ -489,7 +499,7 @@
   gap: 0.5rem;
   border: 0;
   background: transparent;
-  color: var(--home-accent);
+  color: var(--home-text);
   padding: 0;
   margin-top: 1.4rem;
   font: inherit;
@@ -499,8 +509,9 @@
 }
 
 .appLink:hover {
-  color: var(--pacos-blue-dark);
+  color: var(--home-accent);
   text-decoration: underline;
+  text-decoration-color: var(--home-lime);
 }
 
 .appWindow {
@@ -521,6 +532,18 @@
   background: var(--home-surface);
 }
 
+.appWindow .productFigure::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: var(--home-surface);
+  z-index: 2;
+  pointer-events: none;
+}
+
 .appWindow .productImage {
   width: auto;
   max-width: 100%;
@@ -530,7 +553,7 @@
   border-radius: 0;
   box-shadow: none;
   filter: saturate(0.88) contrast(1.03);
-  transform: scale(1.012);
+  transform: scale(1.018);
   transform-origin: center;
 }
 
@@ -553,27 +576,34 @@
 }
 
 .toolPicker {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  padding: 0.6rem 0.6rem 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.15rem;
+  padding: 0.55rem 0.55rem 0;
   border-bottom: 1px solid var(--home-border);
   background: var(--home-card);
 }
 
 .toolButton {
   display: inline-flex;
+  width: 100%;
+  min-width: 0;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.72rem 0.8rem;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.68rem 0.45rem 0.72rem;
   border: 0;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   border-radius: 7px 7px 0 0;
   font: inherit;
-  font-size: 0.84rem;
+  font-size: clamp(0.72rem, 0.8vw, 0.82rem);
+  line-height: 1.25;
   color: var(--home-muted);
   background: transparent;
   cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .toolButton:hover,
@@ -582,9 +612,18 @@
 }
 
 .toolButton[aria-selected='true'] {
-  color: var(--home-accent);
-  border-bottom-color: var(--home-accent);
+  color: var(--home-text);
+  border-bottom-color: var(--home-lime);
   background: var(--home-surface);
+}
+
+.toolButton svg {
+  color: var(--home-muted);
+  flex-shrink: 0;
+}
+
+.toolButton[aria-selected='true'] svg {
+  color: var(--home-accent);
 }
 
 .toolButton svg {
@@ -967,6 +1006,18 @@
     width: 36px;
     height: 2px;
   }
+
+  .toolPicker {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.15rem;
+  }
+
+  .toolButton {
+    width: auto;
+    min-width: 8.5rem;
+    flex: 0 0 auto;
+  }
 }
 
 @media (max-width: 996px) {
@@ -1043,12 +1094,11 @@
   }
 
   .toolPicker {
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    gap: 0.1rem;
   }
 
   .toolButton {
-    flex-shrink: 0;
+    min-width: 8rem;
   }
 
   .architectureFlow {

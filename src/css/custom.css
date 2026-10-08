@@ -102,16 +102,20 @@ html {
 
 body {
   background:
-    radial-gradient(circle at 8% 0%, rgba(22, 140, 255, 0.08), transparent 28rem),
-    radial-gradient(circle at 96% 8%, rgba(155, 212, 42, 0.08), transparent 24rem),
+    radial-gradient(circle at 8% 4%, rgba(22, 140, 255, 0.08), transparent 26rem),
+    radial-gradient(circle at 92% 10%, rgba(155, 212, 42, 0.07), transparent 24rem),
+    radial-gradient(circle at 78% 86%, rgba(255, 122, 36, 0.055), transparent 28rem),
+    radial-gradient(circle at 18% 90%, rgba(200, 59, 114, 0.045), transparent 25rem),
     var(--pacos-paper);
   color: var(--pacos-ink);
 }
 
 [data-theme='dark'] body {
   background:
-    radial-gradient(circle at 8% 0%, rgba(73, 168, 255, 0.09), transparent 28rem),
-    radial-gradient(circle at 96% 8%, rgba(180, 230, 81, 0.06), transparent 24rem),
+    radial-gradient(circle at 8% 4%, rgba(73, 168, 255, 0.09), transparent 27rem),
+    radial-gradient(circle at 92% 10%, rgba(180, 230, 81, 0.07), transparent 24rem),
+    radial-gradient(circle at 78% 88%, rgba(255, 154, 89, 0.055), transparent 28rem),
+    radial-gradient(circle at 18% 90%, rgba(226, 104, 152, 0.05), transparent 25rem),
     var(--pacos-paper);
 }
 
@@ -145,6 +149,21 @@ body {
   color: var(--ifm-navbar-link-hover-color);
 }
 
+.navbar__link--active {
+  position: relative;
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.2rem;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--pacos-lime);
+}
+
 .main-wrapper {
   background: transparent;
 }
@@ -168,7 +187,10 @@ body {
 }
 
 .menu__link--active {
+  color: var(--pacos-ink);
   font-weight: 600;
+  background: rgba(155, 212, 42, 0.12);
+  box-shadow: inset 3px 0 0 var(--pacos-lime);
 }
 
 .theme-doc-markdown {
@@ -193,6 +215,17 @@ body {
 .theme-doc-markdown p,
 .theme-doc-markdown li {
   color: var(--pacos-ink-soft);
+}
+
+.theme-doc-markdown a {
+  color: var(--pacos-ink);
+  text-decoration-color: var(--pacos-lime);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.theme-doc-markdown a:hover {
+  color: var(--pacos-blue-dark);
 }
 
 .theme-doc-markdown table {
