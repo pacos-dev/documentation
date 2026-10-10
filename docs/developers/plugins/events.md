@@ -1,54 +1,47 @@
 ---
 id: plugin-events
 title: Events and Plugin Lifecycle
-description: Build plugin-local events and react to dynamic plugin installation and removal in PacOS.
+description: Use SystemEvent for plugin events and PluginListener for dynamic plugin lifecycle callbacks.
 keywords: [pacos, events, SystemEvent, PluginListener, lifecycle, plugin]
 ---
 
 # Events and Plugin Lifecycle
 
-There are two useful levels of eventing in a plugin:
+PacOS plugins use different mechanisms for UI/application events and for plugin lifecycle callbacks. These mechanisms serve different purposes.
 
-1. plugin-local events for communication between UI/backend components
-2. plugin lifecycle events for reacting to other plugins being initialized or removed
+## Application and UI events
 
-## Plugin-local events
+Extend `SystemEvent<T>` with the event type used by your plugin. The skeleton's `ToDoSystem` and `ToDoEvent` demonstrate a plugin-local event coordinator.
 
-Extend `SystemEvent<T>` with your event type:
+Use `notify(...)` to publish and `subscribe(...)` to listen. For listeners owned by a Vaadin component, prefer `subscribeOnAttached`: it subscribes when the component is attached and removes the subscription on detach.
 
-```java
-public class ExampleSystem extends SystemEvent<ExampleEvent> {
-}
-```
+Keep event payloads small and explicit. Avoid publishing Vaadin components or session-bound objects outside the UI that owns them.
 
-Publish an event with `notify` and subscribe with `subscribe`.
+For platform services and session/UI context, see [Platform Services](platform-services.md).
 
-For Vaadin components use `subscribeOnAttached`. PacOS will subscribe on attach and automatically unsubscribe on detach, which avoids UI listener leaks.
+## Plugin lifecycle callbacks
 
-## Plugin lifecycle listener
-
-Implement `PluginListener` when the plugin must observe dynamic plugin changes:
+Implement `PluginListener` when code needs to react to a plugin being initialized or removed. This is separate from `SystemEvent<T>`.
 
 ```java
 @Component
 public class ExamplePluginListener implements PluginListener {
-
     @Override
     public void pluginInitialized(ApplicationContext context) {
-        // discover or integrate with a newly available plugin
+        // Acquire only the references or resources this plugin needs.
     }
 
     @Override
     public void pluginRemoved(ApplicationContext context) {
-        // release references to the removed plugin
+        // Release references and resources associated with the removed plugin.
     }
 }
 ```
 
-Both callbacks are part of the runtime lifecycle. Do not assume that all plugins are present at application startup.
+Use the exact method signatures from the PacOS base API for the target release. Do not assume all plugins are present at application startup, and do not retain plugin context or bean references after removal.
 
-## Event design
+## Cleanup
 
-Keep event payloads small and explicit. Prefer immutable DTOs/records when an event crosses component boundaries.
+Subscriptions registered outside component attachment, executors, timers and external clients need an explicit cleanup path. Use Spring lifecycle mechanisms for resources owned by the plugin context. See [Plugin Runtime Architecture](architecture.md) for the broader unload lifecycle.
 
-Do not publish UI components as event payloads unless the event is strictly local to one UI system.
+The [PacOS plugin skeleton](https://github.com/pacos-dev/skeleton) contains working examples of event handling.

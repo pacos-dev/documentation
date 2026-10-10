@@ -2,65 +2,59 @@
 id: plugin-architecture
 title: Plugin Runtime Architecture
 description: How PacOS loads plugins, isolates Spring contexts, discovers extension points, and removes plugins at runtime.
-keywords: [pacos, plugin, runtime, spring context, classloader, extension point, PluginDataLoader, lifecycle]
+keywords: [pacos, plugin, runtime, spring context, classloader, extension point, PluginManager, lifecycle]
 ---
 
 # Plugin Runtime Architecture
 
-A PacOS plugin is a Maven artifact loaded dynamically by the PacOS runtime. The plugin gets its own Spring application context and class loader while extending the PacOS base context.
+A PacOS plugin is a JAR loaded dynamically by the PacOS runtime. The runtime creates a plugin-specific Spring application context and class loader. The plugin context has access to platform beans through the parent context, but plugin implementation classes should remain owned by the plugin.
 
-## What PacOS discovers
+## Loading and discovery
 
-During plugin initialization PacOS inspects the plugin Spring context for the extension types listed below. Automation blocks are described separately because their discovery belongs to the automation/Camunda integration rather than `PluginDataLoader`.
+At a high level, the lifecycle is:
+
+`plugin JAR -> metadata read -> plugin context and class loader -> extension discovery -> registration -> running -> removal`
+
+The runtime discovers extension beans from the plugin context, including:
 
 | Extension | Purpose |
 | --- | --- |
-| `WindowConfig` | Adds application/window definitions to the desktop |
+| `WindowConfig` | Registers a desktop application/window |
 | `SettingTab` | Adds a page to PacOS settings |
-| `VariableProvider` | Adds variables and a variable scope |
-| `PluginListener` | Reacts to plugin initialization/removal |
-| Vaadin `RequestHandler` | Handles plugin-specific HTTP/static resources |
+| `VariableProvider` | Supplies plugin variables and supported scopes |
+| `PluginListener` | Receives plugin initialization/removal callbacks |
+| Vaadin `RequestHandler` | Handles plugin-specific requests/resources |
 | Spring MVC controllers | Exposes plugin REST endpoints |
 
-The runtime collects these beans from the plugin context and registers them with the corresponding PacOS services.
+Automation blocks use the automation integration's own discovery path; do not assume they are registered by the same extension-discovery component.
 
-## Spring context
+## Spring configuration
 
-Keep plugin-specific components in the plugin context. The skeleton uses:
+The plugin entry-point configuration belongs under `org.pacos.plugin.<module>.config`. Keep component scanning explicit and narrow. See [Plugin Configuration](configuration.md) for the actual skeleton configuration, properties and resource conventions.
 
-`org.pacos.plugin.<module>.config`
+Do not assume that the core application scans every class in a plugin package.
 
-as the entry point for Spring scanning.
+## Class loading and resources
 
-Do not rely on the core application scanning the whole plugin package. Instead, expose a configuration class in the `config` package and use it to select the plugin components that belong to the runtime.
+A plugin has its own class loader. Plugin resources—especially database migrations and static assets—must be packaged in the JAR and loaded through a resource mechanism that can see the plugin class path. Do not assume the core class loader can see plugin-owned resources.
 
-## Class loading
+See [Plugin Database](database.md) for Flyway resource loading and [REST APIs and Resources](rest-api.md) for browser-accessible assets.
 
-Plugins are loaded with their own class loader. This is important when the plugin declares libraries that are not part of the PacOS platform.
+## Removal and lifecycle discipline
 
-Code that accesses resources from the plugin classpath must use the plugin class loader or resource mechanisms rather than assuming the core class loader contains the resource.
-
-This is particularly important for Flyway migrations and plugin-specific static resources.
-
-## Runtime lifecycle
-
-The conceptual lifecycle is:
-
-`artifact -> plugin context -> extension discovery -> registration -> running plugin -> removal`
-
-When a plugin is removed, PacOS notifies registered `PluginListener` implementations and closes the plugin context and class loader.
-
-### Design implications
+During removal, PacOS notifies registered `PluginListener` implementations and closes the plugin context/class loader. This is not a guarantee that every external resource or reference is cleaned up automatically.
 
 Plugin code must:
+- release external clients, executors, timers and other resources it owns;
+- avoid static references to plugin classes from long-lived core objects;
+- avoid retaining Vaadin components or session objects in global state;
+- unregister subscriptions that are not tied to a component lifecycle;
+- tolerate other plugins being installed or removed while PacOS remains running.
 
-- release external resources it owns
-- avoid static references to plugin classes from long-lived core objects
-- avoid leaking Vaadin UI objects through global/static collections
-- treat plugin removal as a real lifecycle event, not only as an application shutdown scenario
+Use Spring lifecycle callbacks for plugin-context-owned resources and `subscribeOnAttached` for UI-bound event subscriptions. See [Events and Plugin Lifecycle](events.md).
 
 ## Cross-plugin communication
 
-PacOS provides an `InternalApiAccess` abstraction for authenticated API communication between plugins. Use the platform API instead of sharing implementation classes directly between plugin contexts.
+Use `InternalApiAccess` for authenticated REST communication between plugins. Prefer explicit API contracts and DTOs over sharing implementation classes across plugin class loaders. See [Platform Services](platform-services.md) for token access.
 
-When a plugin needs to react to another plugin being installed or removed, implement `PluginListener`.
+For practical examples, use the [PacOS plugin skeleton](https://github.com/pacos-dev/skeleton).
