@@ -1,67 +1,37 @@
 ---
 id: plugin-settings
 title: Settings Extensions
-description: Add plugin settings pages to PacOS with SettingTab, session filtering, grouping, ordering, and prototype-safe content generation.
+description: Add plugin settings pages with SettingTab and session-aware visibility.
 keywords: [pacos, SettingTab, settings, plugin, configuration, Vaadin]
 ---
 
 # Settings Extensions
 
-A plugin can add its own section to the PacOS settings module by implementing `SettingTab`.
+Implement `SettingTab` to add a page to PacOS settings. The skeleton's `ToDoSettingsConfig` is the reference implementation.
 
-## Minimal implementation
+## Contract
 
-```java
-@Component
-public class ExampleSettingsConfig implements SettingTab {
+A settings configuration provides a title, a content factory and an ordering value. `shouldBeDisplayed(UserSession)` controls whether the entry is visible to the current session. `generateContent()` must return a fresh `SettingPageLayout` instance; do not share a Vaadin component between sessions or page openings.
 
-    @Override
-    public String getTitle() {
-        return "Example";
-    }
-
-    @Override
-    public SettingPageLayout generateContent() {
-        return new ExampleSettingsPage();
-    }
-
-    @Override
-    public int getOrder() {
-        return 100;
-    }
-
-    @Override
-    public boolean shouldBeDisplayed(UserSession userSession) {
-        return true;
-    }
-}
-```
-
-## Page instances must be fresh
-
-`generateContent()` must return a new `SettingPageLayout` instance. Settings pages contain UI state and must not be shared as singleton Vaadin components.
-
-## Visibility and permissions
-
-Use `shouldBeDisplayed` to decide whether the settings entry is visible to the current session. For settings that expose privileged operations, also enforce the corresponding permission at action time.
-
-## Grouping and ordering
-
-Override `getGroup()` to place the tab under a settings tree path:
+The skeleton follows this pattern:
 
 ```java
 @Override
-public String[] getGroup() {
-    return new String[] {"My Plugin"};
+public SettingPageLayout generateContent() {
+    return new ToDoSettingsPage(variableProcessor);
 }
 ```
 
-Use `getOrder()` to control the position among sibling entries.
+Use constructor injection for Spring-managed services and keep business logic in services rather than in the tab configuration.
 
-## Search
+## Grouping, ordering and search
 
-Override `getSearchIndex()` when the page should be discoverable through PacOS settings search. Return normalized, searchable terms covering the page title and the most important labels/content.
+Override `getGroup()` to place a page under a settings group and `getOrder()` to order sibling entries. Override `getSearchIndex()` when the page should be discoverable through settings search; return useful normalized terms for its title and content.
 
-## Dependency injection
+Check the `SettingTab` interface in the PacOS base API for the exact contract supported by the target release.
 
-The `SettingTab` implementation may use constructor injection for Spring-managed services. Keep the configuration bean lightweight; put business logic in ordinary services.
+## Visibility is not authorization
+
+Use `shouldBeDisplayed` for navigation visibility, not as the only security boundary. Enforce permissions again when a privileged operation is executed. See [Permissions and Security](security.md).
+
+For UI/session lifecycle considerations, see [Platform Services](platform-services.md). The complete example is in the [PacOS plugin skeleton](https://github.com/pacos-dev/skeleton).

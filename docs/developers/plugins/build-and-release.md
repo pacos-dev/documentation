@@ -1,150 +1,65 @@
 ---
 id: plugin-build-release
 title: Build, Package and Release
-description: Build, package, test and release PacOS plugins using the PacOS BOM and shaded JAR packaging.
-keywords: [pacos, plugin, maven, BOM, manifest, shaded jar, shadow jar, release, repository]
+description: Build, verify, install and distribute PacOS plugins using the target PacOS BOM and JAR manifest.
+keywords: [pacos, plugin, maven, BOM, manifest, shaded jar, release]
 ---
 
 # Build, Package and Release
 
-## Dependency alignment
+## Align with the target runtime
 
-Use the PacOS BOM declared by the skeleton. It aligns plugin dependencies with the PacOS runtime.
+Import the PacOS BOM for the PacOS release that will load the plugin. Do not independently upgrade platform-owned Spring, Vaadin or PacOS dependencies. Check [Compatibility and Dependency Alignment](compatibility.md) for the current repository baseline and version-upgrade checklist.
 
-The current PacOS repository is version `3.4.0`, and the skeleton also imports `pacos-bom:3.4.0`. Keep the plugin runtime version aligned with the target PacOS release.
+The plugin artifact version is independent of the PacOS platform version. Keep the two concepts separate.
 
-The current PacOS main build uses Java 21 and Vaadin 25.3.0. The skeleton's Maven configuration matches these values.
+## Dependency scopes
 
-## Provided dependencies
+Use `provided` scope for libraries supplied by the target PacOS runtime, as the skeleton does for platform dependencies. Bundle additional libraries only when the plugin needs them and the runtime does not provide them. Avoid packaging duplicate PacOS/Spring/Vaadin classes into the plugin.
 
-Most PacOS/Spring/Vaadin runtime dependencies in the skeleton use Maven `provided` scope. This prevents the plugin from bundling copies of libraries already supplied by PacOS.
+## Manifest metadata is required
 
-Only package additional libraries when the plugin actually needs them and they are not provided by the platform.
+PacOS reads plugin metadata from `META-INF/MANIFEST.MF` inside the uploaded JAR. The following main attributes are required for identification:
 
-## Required JAR manifest configuration
+| Manifest attribute | Meaning |
+| --- | --- |
+| `Implementation-Version` | Plugin version |
+| `Implementation-Group` | Maven group ID |
+| `Implementation-Title` | Maven artifact ID |
 
-A PacOS plugin must contain a valid `META-INF/MANIFEST.MF` in the final JAR.
+The runtime also reads optional attributes such as `Name`, `Implementation-Vendor` and `Icon`. The icon value must point to a resource included in the JAR. The skeleton configures these entries in its Maven JAR plugin configuration.
 
-PacOS reads the manifest directly from the uploaded plugin JAR during installation. The following entries are required for plugin identification:
+Do not assume that Maven project fields alone are sufficient: verify the final manifest, not just the POM.
 
-| Manifest entry | Maven value | Purpose |
-| --- | --- | --- |
-| `Implementation-Version` | `${project.version}` | Plugin version |
-| `Implementation-Group` | `${project.groupId}` | Maven group ID |
-| `Implementation-Title` | `${project.artifactId}` | Maven artifact ID |
+## Build and inspect
 
-PacOS also reads these entries when present:
+Build from the plugin project root:
 
-| Manifest entry | Maven value | Purpose |
-| --- | --- | --- |
-| `Name` | `${project.name}` | Display name |
-| `Description` | `${project.description}` | Plugin description |
-| `Icon` | plugin resource path | Plugin icon |
-| `Implementation-Vendor` | vendor/author name | Plugin author |
-
-The recommended configuration is:
-
-~~~xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-jar-plugin</artifactId>
-    <configuration>
-        <archive>
-            <index>true</index>
-            <manifest>
-                <addClasspath>false</addClasspath>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-            </manifest>
-            <manifestEntries>
-                <Vaadin-Package-Version>1</Vaadin-Package-Version>
-
-                <Implementation-Version>${project.version}</Implementation-Version>
-                <Implementation-Title>${project.artifactId}</Implementation-Title>
-                <Implementation-Group>${project.groupId}</Implementation-Group>
-
-                <Description>${project.description}</Description>
-                <Icon>img/icon/to-do-list.png</Icon>
-                <Name>${project.name}</Name>
-            </manifestEntries>
-        </archive>
-    </configuration>
-</plugin>
-~~~
-
-The icon path must point to a resource that is actually included in the plugin JAR, for example:
-
-~~~text
-src/main/resources/META-INF/resources/img/icon/to-do-list.png
-~~~
-
-Do not rely only on Maven project fields such as `<name>` and `<description>`. PacOS installation depends on the explicit manifest entries generated by `maven-jar-plugin`.
-
-### Shaded JAR
-
-The plugin distributed to PacOS should be the shaded JAR produced during the `package` phase. Configure the Maven Shade Plugin:
-
-~~~xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-shade-plugin</artifactId>
-    <version>3.5.0</version>
-    <executions>
-        <execution>
-            <id>shade</id>
-            <phase>package</phase>
-            <goals>
-                <goal>shade</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-~~~
-
-Keep both plugins in the build:
-
-1. `maven-jar-plugin` creates the plugin JAR manifest with the metadata required by PacOS.
-2. `maven-shade-plugin` creates the distributable shaded JAR that contains the plugin and its non-provided dependencies.
-
-When changing the shading configuration, verify that the final shaded artifact still contains:
-
-~~~text
-META-INF/MANIFEST.MF
-~~~
-
-and that the manifest contains at least:
-
-~~~text
-Implementation-Version
-Implementation-Group
-Implementation-Title
-~~~
-
-PacOS installation does not require a separate `METADATA.MD` file. The authoritative plugin metadata is read from `META-INF/MANIFEST.MF` inside the uploaded JAR.
-
-## Packaging
-
-Build the plugin with:
-
-~~~bash
+```bash
 mvn clean package
-~~~
+```
 
-Before uploading the plugin to PacOS, inspect the shaded JAR and verify the manifest:
+Inspect the produced JAR. If the build produces both original and shaded artifacts, identify the artifact configured for distribution rather than guessing from the filename.
 
-~~~bash
-jar tf target/*.jar | grep 'META-INF/MANIFEST.MF'
-jar xf target/*.jar META-INF/MANIFEST.MF
-cat META-INF/MANIFEST.MF
-~~~
+```bash
+jar tf target/<plugin-artifact>.jar | grep 'META-INF/MANIFEST.MF'
+unzip -p target/<plugin-artifact>.jar META-INF/MANIFEST.MF
+```
 
-The manifest should contain the three required identification fields and any additional metadata used by the plugin.
+Verify that the manifest includes the three required attributes above and that plugin resources and any non-provided runtime dependencies are present. The skeleton is the reference for its own packaging configuration; check its current POM before copying plugin or Shade Plugin settings.
 
-The skeleton is configured with the same packaging model and can be used as the reference Maven build.
+## Install and verify
 
-## Distribution
+1. Install the distributable JAR through PacOS plugin management.
+2. Confirm that the displayed plugin metadata matches the manifest.
+3. Exercise the plugin's UI, REST endpoints, variables, events and persistence as applicable.
+4. Review logs for class-loading, resource and migration errors.
+5. Remove the plugin and verify that its external resources and subscriptions are released.
 
-A plugin can be uploaded through PacOS plugin management or published to a configured Maven-compatible repository.
+A successful unit-test run does not prove that dynamic installation and removal work in a running PacOS instance. See [Testing Plugins](testing.md) for test layers.
 
-When distributing a plugin, publish the shaded artifact, not an intermediate unshaded JAR.
+## Distribution and compatibility
 
-Treat version changes as API changes when public REST endpoints, events, variables, or extension points are affected.
+A plugin may be uploaded to PacOS or published to a configured Maven-compatible repository. Publish the verified distributable artifact, not an intermediate build output.
+
+Treat changes to public REST contracts, permission keys, event payloads, variables and automation blocks as compatibility changes. Keep these contracts stable or document breaking changes explicitly.

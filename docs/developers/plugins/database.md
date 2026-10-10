@@ -1,46 +1,40 @@
 ---
 id: plugin-database
 title: Plugin Database
-description: Configure an independent plugin database with Spring Data JPA and Flyway in PacOS.
+description: Configure plugin-owned persistence with Spring Data JPA and Flyway in PacOS.
 keywords: [pacos, database, plugin, JPA, Flyway, HSQLDB, datasource, migrations]
 ---
 
 # Plugin Database
 
-A plugin can own an independent database configuration. The skeleton shows the full setup for HSQLDB, JPA repositories, Hibernate and Flyway.
+A plugin can define its own persistence infrastructure. The skeleton demonstrates HSQLDB, JPA repositories, Hibernate and Flyway. This is plugin-owned infrastructure, not a guarantee that every plugin needs a separate database.
 
-## Isolation
+## Isolate bean names and properties
 
-Use plugin-specific datasource, entity manager and transaction manager beans. Give them unique names so they do not collide with beans from other contexts.
+Use unique datasource, entity-manager factory, transaction-manager, persistence-unit and migration names. The skeleton uses `skeletonDataSource`, `skeletonEntityManagerFactory` and `skeletonTransactionManager`.
 
-The skeleton uses names such as:
+Keep plugin-specific properties in the plugin JAR. The skeleton uses `src/main/resources/skeleton-module.properties`; for a real plugin, use a unique prefix such as `myplugin.datasource.*`. See [Plugin Configuration](configuration.md) for general property and resource conventions.
 
-`skeletonDataSource`
+## Flyway migrations
 
-`skeletonEntityManagerFactory`
-
-`skeletonTransactionManager`
-
-## Configuration
-
-The skeleton keeps datasource settings in:
-
-`src/main/resources/skeleton-module.properties`
-
-Prefer a plugin-specific property prefix, for example `myplugin.datasource.*`.
-
-## Flyway
-
-Store migrations below a plugin-specific classpath location such as:
+Place migrations under a plugin-specific path, for example:
 
 `src/main/resources/db/migration/myplugin`
 
-Configure Flyway with that location and use the plugin class loader. This matters because the plugin is loaded dynamically and its migration resources are not necessarily visible through the core application class loader.
+Configure Flyway with that location and a class loader that can see the plugin's resources. The skeleton uses `Flyway.configure(getClass().getClassLoader())` because plugins are loaded dynamically.
 
-Run migrations before creating the JPA entity manager. The skeleton establishes this ordering with `@DependsOn`.
+Ensure migrations complete before JPA starts using the schema. The skeleton expresses this ordering with `@DependsOn`; review the actual bean dependencies when adapting the configuration.
 
-## Production guidance
+## Failure handling
 
-Do not use static mutable collections as a replacement for persistence.
+A failed migration must be visible and actionable. Do not copy the skeleton's current behavior of catching migration exceptions and only logging them as a production-ready pattern. Decide explicitly whether startup should fail or the plugin should expose a clear unavailable/error state; do not continue as if the schema were ready.
 
-Do not silently swallow migration failures. A production plugin should fail startup or report a clear health/error state when its schema cannot be migrated safely.
+## Persistence practices
+
+- Keep schema names and migration locations plugin-specific.
+- Make migrations deterministic and safe to run in the supported upgrade path.
+- Use transactions and repositories for application data instead of static mutable collections.
+- Test fresh installation and upgrade from an existing schema.
+- Verify migration behavior in the packaged plugin, where the plugin class loader and resources are used.
+
+For general Spring configuration and lifecycle rules, see [Plugin Configuration](configuration.md). For testing strategy, see [Testing Plugins](testing.md).

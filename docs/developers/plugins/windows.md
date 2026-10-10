@@ -1,65 +1,28 @@
 ---
 id: plugin-windows
 title: Windows and Desktop UI
-description: Build desktop windows for PacOS plugins with WindowConfig, DesktopWindow, prototype scope, permissions, and lifecycle handling.
+description: Register PacOS desktop windows with WindowConfig and prototype-scoped DesktopWindow implementations.
 keywords: [pacos, WindowConfig, DesktopWindow, Vaadin, prototype, permissions, desktop, window]
 ---
 
 # Windows and Desktop UI
 
-PacOS desktop applications are represented by a `WindowConfig` bean and a prototype-scoped `DesktopWindow` implementation.
+A plugin desktop application is registered through a Spring-managed `WindowConfig` and a `DesktopWindow` implementation. The skeleton uses `MyTodoConfig` and `PanelTodo` as working examples.
 
 ## Window configuration
 
-Implement `WindowConfig` as a Spring component:
+Implement `WindowConfig` to provide the title, icon resource path, activator class, application visibility and instance policy. Use `isAllowedForCurrentSession(UserSession)` to decide whether the window is available to a session.
 
-```java
-@Component
-public class ExampleWindowConfig implements WindowConfig {
-
-    @Override
-    public String title() {
-        return "Example";
-    }
-
-    @Override
-    public String icon() {
-        return "img/icon/example.png";
-    }
-
-    @Override
-    public Class<? extends DesktopWindow> activatorClass() {
-        return ExampleWindow.class;
-    }
-
-    @Override
-    public boolean isApplication() {
-        return true;
-    }
-
-    @Override
-    public boolean isAllowMultipleInstance() {
-        return false;
-    }
-
-    @Override
-    public boolean isAllowedForCurrentSession(UserSession userSession) {
-        return true;
-    }
-}
-```
-
-PacOS also supports `isAllowedForMinimize()`, which defaults to `true`.
+Keep the icon path relative to a resource included in the plugin JAR. For general component scanning and resource packaging, see [Plugin Configuration](configuration.md).
 
 ## Window implementation
 
-A `DesktopWindow` should be prototype scoped because PacOS creates a new instance when the window is activated:
+A `DesktopWindow` contains session/UI state and should be prototype-scoped so each activation receives a new component instance. The skeleton uses this pattern:
 
 ```java
 @Component
 @Scope("prototype")
 public class ExampleWindow extends DesktopWindow {
-
     protected ExampleWindow(ExampleWindowConfig config) {
         super(config);
         add(new Span("Hello PacOS"));
@@ -67,53 +30,20 @@ public class ExampleWindow extends DesktopWindow {
 }
 ```
 
-The constructor can receive ordinary Spring-managed dependencies. PacOS creates the prototype through Spring, so constructor injection is preferred.
+PacOS creates the prototype through Spring, so constructor injection is appropriate. Do not keep window instances in singleton services, static fields or application-wide caches.
 
-## Session and UI state
+## Permissions and session state
 
-`DesktopWindow` is UI state. Do not store it in singleton services, static fields, or application-wide caches.
+Window visibility and authorization of actions are separate concerns. Use `isAllowedForCurrentSession` for session-level availability, but enforce the required permission when a protected action executes. See [Permissions and Security](security.md).
 
-Use `UserSession.getCurrent()` for the current PacOS session and obtain the current `UISystem` through the window/session when UI integration is required.
+Use `UserSession.getCurrent()` and `UISystem.getCurrent()` only when the relevant Vaadin session/UI context is active. Background work must re-enter the captured UI safely before changing UI state; see [Platform Services](platform-services.md).
 
-## Permissions
+## Lifecycle, events and shortcuts
 
-Visibility and action authorization are separate concerns.
+Release window-owned resources when the window closes. Prefer `subscribeOnAttached` for event listeners owned by a component so they are removed on detach. Register shortcuts through the window/platform APIs instead of global listeners. See [Events and Plugin Lifecycle](events.md).
 
-Use `isAllowedForCurrentSession` when an entire application/window should be unavailable to a session.
+## Opening files
 
-For an action inside an already opened window, use a permission check such as:
+A window can participate in Explorer file opening by implementing `FileOpenAllowed` and configuring supported extensions through `FileExtensionHandler`. The extensions must match the file types the window actually supports. See [Platform Services](platform-services.md) for the application manager and file-opening flow.
 
-```javascript
-    UserSession.getCurrent().hasActionPermission(MyPermissions.MY_ACTION)
-```
-
-The skeleton also demonstrates a UI helper that hides a button for a missing permission.
-
-## Window lifecycle
-
-A window can be:
-
-- opened
-- minimized
-- closed
-- explicitly shut down
-
-When subscribing to plugin events from a UI component, prefer `subscribeOnAttached` so listeners are automatically removed when the component is detached.
-
-Use the window's shortcut registration rather than creating global keyboard listeners where possible.
-
-## File opening
-
-A window can participate in Explorer file opening by implementing `FileOpenAllowed` and extending its configuration with `FileExtensionHandler`.
-
-```java
-public class ExampleWindow extends DesktopWindow implements FileOpenAllowed {
-
-    @Override
-    public void openFile(FileInfo fileInfo) {
-        // open the selected file
-    }
-}
-```
-
-The configured extensions must match the file types the window actually supports.
+Use the [PacOS plugin skeleton](https://github.com/pacos-dev/skeleton) as the concrete reference for constructors, imports and supported interface methods.

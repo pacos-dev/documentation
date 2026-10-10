@@ -1,34 +1,32 @@
 ---
 id: plugin-variables
 title: Variable Providers
-description: Add plugin-specific variables and scopes to PacOS using VariableProvider.
-keywords: [pacos, variables, VariableProvider, scope, plugin, automation]
+description: Add plugin-specific variables and scopes using VariableProvider.
+keywords: [pacos, variables, VariableProvider, ScopeName, scope, plugin, automation]
 ---
 
 # Variable Providers
 
-PacOS exposes a variable system that plugins can extend with `VariableProvider`.
+Implement `VariableProvider` to expose plugin-owned variables to PacOS. The provider declares the scopes it supports and resolves variables for those scopes.
 
-A provider supplies variables belonging to one or more scopes.
+## Reference implementation
 
-## Minimal provider
+The skeleton's `ToDoVariableProvider` demonstrates the actual API shape:
 
 ```java
 @Component
 public class ExampleVariableProvider implements VariableProvider {
-
     private static final ScopeName SCOPE_NAME = new ScopeName("Example");
-    private static final Scope SCOPE = new Scope(
-            SCOPE_NAME.name(), 1, 'E', "rgb(45,123,34)");
 
     @Override
     public List<Variable> loadVariables(Scope scope) {
-        return List.of(...);
+        // Return variables available in the requested supported scope.
+        return loadFromYourService(scope);
     }
 
     @Override
     public Optional<Variable> loadVariable(Scope scope, String name) {
-        return Optional.empty();
+        return loadFromYourService(scope, name);
     }
 
     @Override
@@ -38,16 +36,16 @@ public class ExampleVariableProvider implements VariableProvider {
 }
 ```
 
-PacOS automatically discovers all `VariableProvider` beans from the plugin context and adds them to the platform variable manager.
+The service methods above are illustrative placeholders; replace them with your plugin's actual lookup logic. Use the skeleton source for concrete `Variable` construction and the target PacOS API for exact type signatures.
 
-## Scope ownership
+PacOS discovers provider beans from the plugin context and registers them with the platform variable manager.
 
-Choose a unique `ScopeName` for your plugin. Keep variable names stable because users may persist expressions containing them.
+## Scope and naming
 
-A provider should return data only for scopes it declares through `supportedScopes()`.
+Choose a unique scope name and return values only for scopes declared by `supportedScopes()`. Keep variable names and meanings stable: users may persist expressions that refer to them.
 
-## Dynamic values
+## Value resolution and state
 
-When variables are backed by a database or external service, load current values from the provider instead of keeping mutable shared state in static fields.
+Resolve current values through plugin services or persistence when the data can change. Do not use mutable static maps as production storage. The skeleton uses static sample data to keep the demonstration small; that is not a recommended persistence model.
 
-The skeleton uses static data only as a simple demonstration; production plugins should treat the provider as an integration boundary.
+For processing strings containing variables, use the platform's `VariableProcessor` rather than reimplementing PacOS variable expansion. See [Platform Services](platform-services.md). For automation blocks that consume variables, see [Automation Blocks](automation.md).
