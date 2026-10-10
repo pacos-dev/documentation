@@ -68,6 +68,18 @@ The PacOS BOM aligns plugin dependencies with the platform version. A plugin sho
 
 Most platform dependencies in the skeleton use <code>provided</code> scope because those libraries are supplied by the PacOS runtime.
 
+## Engine, starter and runtime classpath
+
+PacOS intentionally separates the relatively stable <code>engine</code> runtime from versioned system modules that may be changed more frequently.
+
+- **Engine** packages the infrastructure runtime, including the Spring and Vaadin versions and production frontend resources. It is not intended to permanently bundle the locally deployed PacOS system modules into the production artifact.
+- **Starter** selects the system-module versions for a given launch and prepares the classpath used to start the engine.
+- **System modules** are resolved independently, allowing the system modules to be updated without rebuilding the engine for every module release.
+
+Some system modules remain declared as engine dependencies for local IDE/development execution. The Maven packaging configuration excludes them from the final engine artifact so that the starter can provide the selected versions at startup. These exclusions are intentional and should not be removed as a general dependency cleanup.
+
+When changing dependencies or packaging, validate both paths: direct engine execution for local development and startup through the starter with the production artifact. Avoid introducing duplicate platform classes or accidentally bundling system modules that are meant to be resolved separately.
+
 ## Persistence
 
 PacOS core uses HSQLDB as its default embedded database for local operation.
