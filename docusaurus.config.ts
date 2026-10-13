@@ -17,6 +17,25 @@ const config: Config = {
     url: 'https://pacos.dev',
     baseUrl: '/',
 
+    headTags: [
+        {
+            tagName: 'script',
+            attributes: {
+                async: true,
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-WQHB2H7X2X',
+            },
+        },
+        {
+            tagName: 'script',
+            innerHTML: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-WQHB2H7X2X');
+            `,
+        },
+    ],
+
     onBrokenLinks: 'throw',
 
     i18n: {
