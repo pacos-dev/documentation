@@ -21,12 +21,13 @@ const config: Config = {
         {
             tagName: 'script',
             attributes: {
-                async: true,
+                async: 'true',
                 src: 'https://www.googletagmanager.com/gtag/js?id=G-WQHB2H7X2X',
             },
         },
         {
             tagName: 'script',
+            attributes: {},
             innerHTML: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
